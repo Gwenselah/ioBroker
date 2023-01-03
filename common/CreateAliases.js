@@ -42,7 +42,7 @@ If the alias already exists and there is a difference between the new source id 
 the source id will be changed.
 This can be used for changing the source ids of an alias, for example for a devices change.
 */
-let bCorrectSource = false;
+let bCorrectSource = true;
 
 /***************************************
 		Dont't change anything from here /
@@ -392,6 +392,7 @@ createAlias('deconz.0.Lights.8.on'/*undefined on*/, 'Steckdosen.CPAP', undefined
 createAlias('sonoff.0.Kinositze.POWER', 'Steckdosen.Kinositze', undefined, 'steckdosen_alias', 'boolean', undefined, undefined, 'Sitze', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Kino.POWER1', 'Steckdosen.Kinotechnik', undefined, 'steckdosen_alias', 'boolean', undefined, undefined, 'Kinotechnik', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHPLG-S#4022D88353D0#1.Relay0.Switch'/*KaiPc power*/, 'Steckdosen.KaiPC', undefined, 'steckdosen_alias', 'boolean', undefined, undefined, 'KaiPC', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('shelly.0.shellypro1#30c6f78ad5e8#1.Relay0.Switch'/*Sprechanlage power*/, 'Steckdosen.Sprechanlage', undefined, 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 
 createAlias('shelly.0.SHPLG-S#4022D882E6CC#1.Relay0.Power'/*Arbeit ENERGY*/, 'Steckdosen.Arbeit_Energie', undefined, undefined, 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('sonoff.0.Disher.ENERGY_Power'/*Disher ENERGY*/, 'Steckdosen.Geschirrspüler_Energie', undefined, undefined, 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)

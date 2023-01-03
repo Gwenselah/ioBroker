@@ -338,10 +338,37 @@ on({id: "telegram.0.communicate.request", change: 'any'}, function (obj) {
             });               
             break;            
         case "FENSTER":
+            TelegramText = "Der Status der Geräte ist: \n";
+            if (getState('iqontrol.0.Lists.offene Fenster + Tueren.offen').val >0) {
+                TelegramText = "Folgende Fenster oder Türen sind geöffnet: \n" 
+                    + (getState('iqontrol.0.Lists.offene Fenster + Tueren.offen_NAMES_LIST').val);
+                
+            } else {
+                TelegramText = "Es sind keine Fenster oder Türen geöffnet :-)";
+            }
+            sendTo('telegram', {
+                user: benutzer,
+                text: TelegramText,
+            });  
             break;
         case "WETTER":
             break;    
         case "TEMPERATUREN":
+            TelegramText = "Die Temperaturen sind: \n";
+            //Hole alle Temperatursensoren
+            var temperatures = getObject("enum.functions.temperaturen_alias").common.members; 
+            temperatures?.sort();
+            for(let i = 0; i < temperatures.length; i++) {                
+                //ermittle die Temperatur und den Raum (genauer: die Aufzählungsid des Raumes)	
+                var temperature = getState(temperatures[i]).val;
+
+                TelegramText = TelegramText + (temperatures[i].split("_")[1]) + ": " + temperature + " °C \n";
+            }
+            sendTo('telegram', {
+                user: benutzer,
+                text: TelegramText,
+            });              
+
 			break;
         case (cmd.startsWith("ALEXA")):
             break;            
