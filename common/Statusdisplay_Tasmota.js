@@ -19,11 +19,11 @@ LED 29: Wohnzimmer rechte Tür   LED 20: Lea Fenster     		LED 17: Schlafzimmer 
 LED 28: Küche Fenster           LED 21: Lea Mond Office         LED 16: Büro klein Fenster		LED 9: Restmüll      	LED 4: Trockner   
 LED 27: WC Fenster    			LED 22: Bad Fenster     		LED 15: Büro groß Türe          LED 10: Wertstoffe 	    LED 3: Geschirrspüler 
 LED 26: Waschküche Fenster      LED 23: Kai Fenster	            LED 14: Arbeitstisch 			LED 11:	Klimagerät		LED 2: 3D Drucker
-LED 25: Kino Fenster und Status LED 24: Garagentor        		LED 13: XBox und PC 			LED 12:	Entertainment	LED 1: Siedle IQ HTS
+LED 25: Kino Fenster und Status LED 24: Garagentor        		LED 13: XBox und PC 			LED 12:	Entertainment	LED 1: nicht erreichbare Geräte
 */
 var ObjektLEDs = [
     //BEI TASMOTA BEGINNT DIE ZÄHLUNG BEI 1 !!!
-    { Objekt: 'ping.0.iobroker.10_1_24_142', LED: '01' },
+    { Objekt: 'radar2.0._notHere', LED: '01' },
     { Objekt: 'device-reminder.0.3D Drucker.Status', LED: '02' },    
     { Objekt: 'device-reminder.0.Spülmaschine.Status', LED: '03' },
     { Objekt: 'device-reminder.0.Trockner.Status', LED: '04' },
@@ -66,7 +66,6 @@ var Doors = ['alias.0.Tueren.Wohnzimmer_Rechts','alias.0.Tueren.Wohnzimmer_Links
 //DoorsNew unterstützt Dreh Kipp Auswertung
 var DoorsNew = ['0_userdata.0.Geräte.Fenster_Kai.rechts'];
 
-
 var BoolDevicesTrueRED = ['alias.0.Steckdosen.Klimagerät','alias.0.Steckdosen.Wohnzimmer_Entertainment']; //LED ist rot, wenn der Status dieses Gerätes TRUE ist
 
 var BoolDevicesTrueGreen = ['ping.0.iobroker.10_1_24_142']; //LED ist grün, wenn der Status dieses Gerätes TRUE ist
@@ -76,6 +75,7 @@ var Lights = ['alias.0.Licht.Lea_Mond']; //LED ist gelb, wenn die Lampe an ist, 
 var RunningDevices = ['device-reminder.0.Spülmaschine.Status','device-reminder.0.Trockner.Status','device-reminder.0.3D Drucker.Status',
     'device-reminder.0.Waschmaschine Links.Status','device-reminder.0.Waschmaschine Rechts.Status','device-reminder.0.Xbox oben.Status','device-reminder.0.Arbeitstisch.Status'];
 
+var MissingDevices = ['radar2.0._notHere'];
 // -----------------------------------------
 function wait(ms){
    var start = new Date().getTime();
@@ -129,11 +129,6 @@ function SetBoolDevicesTrueGreen (DeviceTriggerName, DeviceTriggerValue) {
 }
 
 function SetDoorsLED (DeviceTriggerName, DeviceTriggerValue) {
-    /*if (DeviceTriggerValue == "geschlossen") {
-        SwitchLED (GetLedNo(DeviceTriggerName),ColorOK);
-    } else {
-        SwitchLED (GetLedNo(DeviceTriggerName),ColorError);
-    }*/
     if (DeviceTriggerValue) {
         SwitchLED (GetLedNo(DeviceTriggerName),ColorError);
     } else {
@@ -183,24 +178,6 @@ function SetMuelltonnenLights(){
     SwitchGarbageLEDs("Wertstoffe",WertstoffeResttage);
 
 }
-/*
-function SetRunningDevices(DeviceTriggerName, DeviceTriggerValue) {
-    switch (DeviceTriggerValue) {
-        case "aus":
-            SwitchLED (GetLedNo(DeviceTriggerName),"000000");            
-            break;
-        case "an": //"an" bedeutet Sonoff an, aber es wird kein Strom verbraucht
-            SwitchLED (GetLedNo(DeviceTriggerName),ColorWarning);
-            break;
-        case "fertig":
-            SwitchLED (GetLedNo(DeviceTriggerName),ColorOK);
-            break;
-        case "läuft":
-            SwitchLED (GetLedNo(DeviceTriggerName),ColorError);
-            break;
-    }
-
-}*/
 
 function SetRunningDevices(DeviceTriggerName, DeviceTriggerValue) {
     switch (DeviceTriggerValue) {
@@ -216,6 +193,17 @@ function SetRunningDevices(DeviceTriggerName, DeviceTriggerValue) {
         case "initialize": //"an" bedeutet Sonoff an, aber es wird kein Strom verbraucht
             SwitchLED (GetLedNo(DeviceTriggerName),"FFFFFF");
             break;            
+    }
+
+}
+
+function SetMissingDevices(DeviceTriggerName, DeviceTriggerValue) {
+    //log(DeviceTriggerName + ": " + DeviceTriggerValue);
+    if (DeviceTriggerValue!= "") {
+        SwitchLED (GetLedNo(DeviceTriggerName),ColorError);
+    } else {
+        //SwitchLED (GetLedNo(DeviceTriggerName),ColorOK);
+        SwitchLED (GetLedNo(DeviceTriggerName),"000000");
     }
 
 }
@@ -298,6 +286,12 @@ function InitDisplay(){
         }); 
     }
 
+    if (MissingDevices.length > 0) {
+        MissingDevices.forEach(function(element) {
+            SetMissingDevices(element,getState(element).val);
+        }); 
+    }
+
     SetMuelltonnenLights();
 	//setStateDelayed('sonoff.0.StatusDisplay.POWER',false,(1000 * 30)); //Angabe in Millisekunden
 }
@@ -371,6 +365,16 @@ on({id: RunningDevices, change: 'ne'},(obj) => {
     var value = obj.state.val;
     var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
     SetRunningDevices(objArr[0],value);
+	SwitchOffDisplayDelayed();
+    
+});
+
+on({id: MissingDevices, change: 'ne'},(obj) => {
+	//setState('sonoff.0.StatusDisplay.POWER'/*Turn On/Off*/,true)
+    //InitDisplay();
+    var value = obj.state.val;
+    var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
+    SetMissingDevices(objArr[0],value);
 	SwitchOffDisplayDelayed();
     
 });

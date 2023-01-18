@@ -7,7 +7,7 @@ var Alerts = ['alias.0.Alarm.Kinowasser'];
 
 function lowBatt() {
 	var low = [];
-	setState('Datenpunkte.0.Status.Batterieschwach', '', true);	
+	setState('0_userdata.0.Hilfsdatenpunkte.Batterieschwach', '', true);	
 	batt.each(function (id, i) {
 	if(getState(id).val < 30) {
 			id = id.split('.');
@@ -16,7 +16,7 @@ function lowBatt() {
 			low.push(getObject(id).common.name); // Geräte-Name
 		}	
 	});
-	setState('Datenpunkte.0.Status.Batterieschwach', low.join(',<br>'), true);	
+	setState('0_userdata.0.Hilfsdatenpunkte.Batterieschwach', low.join(',<br>'), true);	
     if (low.length >0) {
         sendTo("telegram", "send", {
             text: ('Folgende Batterien sind schwach: \n' + low)
@@ -27,7 +27,7 @@ function lowBatt() {
 
 function NotReachable() {
 	var NotReachableArray = [];
-	setState('Datenpunkte.0.Status.NichtErreichbar','', true);
+	setState('0_userdata.0.Hilfsdatenpunkte.NichtErreichbar','', true);
 	reachable.each(function (id, i) {
 	    if(getState(id).val == false) {
 			id = id.split('.');
@@ -39,7 +39,7 @@ function NotReachable() {
 			}
 		}	
 	});
-	setState('Datenpunkte.0.Status.NichtErreichbar', NotReachableArray.join(',<br>'), true);	
+	setState('0_userdata.0.Hilfsdatenpunkte.NichtErreichbar', NotReachableArray.join(',<br>'), true);	
     if (NotReachableArray.length >0) {
         sendTo("telegram", "send", {
             text: ('Folgende Sensoren sind nicht erreichbar: \n' + NotReachableArray)
@@ -58,26 +58,27 @@ function CheckAlerts(){
 
 }
 
-on({id: /^ping\.0\.iobroker\.*/ ,change:'ne'}, function (obj) {
-    var value = obj.state.val;
-    var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
-    /*var DeviceID=objArr[1]+"."+objArr[2];
-    console.log("Trigger: " + objArr[0]);
-    console.log("Pfad: " + objArr[1]);    
-    var DeviceName=getObject(DeviceID).common.name;*/
-    var DeviceName=objArr[3];
-    DeviceName=DeviceName.replace(/_/g,' ');
-    //log (DeviceName);
-    if (value) {
-        //nothing to do
-    } else {
-        log(">" + DeviceName + "< ist nicht erreichbar");
+
+on({id:"radar2.0._notHere", change:'ne'}, function (obj) {
+    var value = obj.state.val    
+    if (value != "") {
+        log(">" + value + "< ist nicht erreichbar");
         sendTo('telegram', {
                 user: 'Andy',
-                text: (">" + DeviceName + "< ist nicht erreichbar"),
+                text: (">" + value + "< ist nicht erreichbar"),
             });           
+    } else {
+        log("Alle Geräte sind wieder erreichbar");
+        sendTo('telegram', {
+                user: 'Andy',
+                text: ("Alle Geräte sind wieder erreichbar"),
+            });           
+
     }
+    
+    
 })
+
 
 lowBatt();
 NotReachable();

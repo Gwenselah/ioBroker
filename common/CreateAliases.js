@@ -473,10 +473,12 @@ createAlias('deconz.0.Lights.2.on'/*Light 2 on*/, 'Licht.Wohnzimmer_Ecklampe', '
 createAlias('fritzdect.0.DECT_087610274750.state'/*Switch Status and Control*/, 'Licht.Wohnzimmer_Schranklicht', 'wohnzimmer', 'licht_alias', 'boolean', undefined, undefined, 'Wohnzimmer Schranklicht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Weihnachtsbaum.POWER'/*Light 2 on*/, 'Licht.Weihnachtsbaum', 'wohnzimmer', 'licht_alias', 'boolean', undefined, undefined, 'Weihnachtsbaum', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHSW-1#E2D5C6#1.Relay0.Switch'/*Switch*/, 'Licht.Garage', 'garage', 'licht_alias', 'boolean', undefined, undefined, 'Garage', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-createAlias('sonoff.0.Kino.POWER2', 'Licht.Parkett', undefined, 'licht_alias', 'boolean', 'kino', 'licht_alias', 'Parkett Licht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-createAlias('sonoff.0.Kino.POWER3', 'Licht.Leinwand', undefined, 'licht_alias', 'boolean', 'kino', 'licht_alias', 'Leinwand Licht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-createAlias('sonoff.0.Kino.POWER4', 'Licht.Lounge', undefined, 'licht_alias', 'boolean', 'kino', 'licht_alias', 'Lounge Licht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 
+createAlias('sonoff.0.Kino.POWER2'/*Kino  POWER2*/, 'Licht.Parkett', 'kino', 'licht_alias', 'boolean', undefined, undefined, 'Parkett Licht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('sonoff.0.Kino.POWER3'/*Kino  POWER3*/, 'Licht.Leinwand', 'kino', 'licht_alias', 'boolean', undefined, undefined, 'Leinwand Licht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('sonoff.0.Kino.POWER4'/*Kino  POWER4*/, 'Licht.Lounge', 'kino', 'licht_alias', 'boolean', undefined, undefined, 'Lounge Licht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('wled.0.8c4b14a6ded4.on'/*On / Off*/, 'Licht.Kino_LED_on', 'kino', 'licht_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('wled.0.8c4b14a6ded4.bri'/*Brightness of the light*/, 'Licht.Kino_LED_bri', 'kino', undefined, 'number', undefined, undefined, undefined, 'value.brightness', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 
 
 //////////////////////////////
