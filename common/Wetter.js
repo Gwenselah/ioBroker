@@ -105,7 +105,7 @@ function WriteHTML() {
 
     HTML = HTML.replace("%relhpa%",getState("mqtt.0.weather.solarweatherstation.relhpa").val + " hpa");
 
-    HTML = HTML.replace("%humi%",getState("mqtt.0.weather.solarweatherstation.humi").val + "%");
+    HTML = HTML.replace("%humi%",getState("sainlogic.0.weather.current.outdoorhumidity").val + "%");
                     
     HTML = HTML.replace("%uvindex%",GetUVIndex);
                  
