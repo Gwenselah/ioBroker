@@ -19,7 +19,7 @@ LED 29: Wohnzimmer rechte Tür   LED 20: Lea Fenster     		LED 17: Schlafzimmer 
 LED 28: Küche Fenster           LED 21: Lea Mond Office         LED 16: Büro klein Fenster		LED 9: Restmüll      	LED 4: Trockner   
 LED 27: WC Fenster    			LED 22: Bad Fenster     		LED 15: Büro groß Türe          LED 10: Wertstoffe 	    LED 3: Geschirrspüler 
 LED 26: Waschküche Fenster      LED 23: Kai Fenster	            LED 14: Arbeitstisch 			LED 11:	Klimagerät		LED 2: 3D Drucker
-LED 25: Kino Fenster und Status LED 24: Garagentor        		LED 13: XBox und PC 			LED 12:	Entertainment	LED 1: nicht erreichbare Geräte
+LED 25: Kino Fenster und Status LED 24: Garage           		LED 13: Tina PC 		    	LED 12:	Entertainment	LED 1: nicht erreichbare Geräte
 */
 var ObjektLEDs = [
     //BEI TASMOTA BEGINNT DIE ZÄHLUNG BEI 1 !!!
@@ -48,8 +48,8 @@ var ObjektLEDs = [
     { Objekt: 'alias.0.Licht.Lea_Mond', LED: '21' },    
     { Objekt: 'alias.0.Fenster.Bad', LED: '22' },    
     { Objekt: '0_userdata.0.Geräte.Fenster_Kai.rechts', LED: '23' },    
-    { Objekt: 'alias.0.Tueren.Garage', LED: '24' },    
-    { Objekt: '0_userdata.0.Hilfsdatenpunkte.Kino_Power', LED: '25' },    
+    { Objekt: '0_userdata.0.Hilfsdatenpunkte.Garage_Status', LED: '24' },    
+    { Objekt: '0_userdata.0.Hilfsdatenpunkte.Kino_Status', LED: '25' },    
     { Objekt: 'alias.0.Fenster.Waschküche', LED: '26' },
     { Objekt: 'alias.0.Fenster.WC', LED: '27' },
     { Objekt: 'alias.0.Fenster.Küche', LED: '28' },
@@ -58,8 +58,8 @@ var ObjektLEDs = [
 ];  
 
 //Türen und Fenster
-var Doors = ['alias.0.Tueren.Wohnzimmer_Rechts','alias.0.Tueren.Wohnzimmer_Links','alias.0.Tueren.Garage','alias.0.Fenster.Bad',
-    'alias.0.Fenster.Küche','alias.0.Tueren.Lea','alias.0.Fenster.Lea','alias.0.Tueren.Büro_groß','0_userdata.0.Hilfsdatenpunkte.Kino_Power',
+var Doors = ['alias.0.Tueren.Wohnzimmer_Rechts','alias.0.Tueren.Wohnzimmer_Links','alias.0.Fenster.Bad',
+    'alias.0.Fenster.Küche','alias.0.Tueren.Lea','alias.0.Fenster.Lea','alias.0.Tueren.Büro_groß','0_userdata.0.Hilfsdatenpunkte.Kino_Status',
 	'alias.0.Fenster.Waschküche','alias.0.Fenster.WC','alias.0.Tueren.Schlafzimmer',
     'alias.0.Fenster.Schlafzimmer','alias.0.Fenster.Büro_klein'];
 
@@ -68,7 +68,9 @@ var DoorsNew = ['0_userdata.0.Geräte.Fenster_Kai.rechts'];
 
 var BoolDevicesTrueRED = ['alias.0.Steckdosen.Klimagerät','alias.0.Steckdosen.Wohnzimmer_Entertainment']; //LED ist rot, wenn der Status dieses Gerätes TRUE ist
 
-var BoolDevicesTrueGreen = ['ping.0.iobroker.10_1_24_142']; //LED ist grün, wenn der Status dieses Gerätes TRUE ist
+var BoolDevicesTrueGreen = ['']; //LED ist grün, wenn der Status dieses Gerätes TRUE ist
+
+var MultiStateDevices = ['0_userdata.0.Hilfsdatenpunkte.Garage_Status']; //LED ist rot, gelb, grün oder aus
 
 var Lights = ['alias.0.Licht.Lea_Mond']; //LED ist gelb, wenn die Lampe an ist, ansonsten aus
 
@@ -76,6 +78,7 @@ var RunningDevices = ['device-reminder.0.Spülmaschine.Status','device-reminder.
     'device-reminder.0.Waschmaschine Links.Status','device-reminder.0.Waschmaschine Rechts.Status','device-reminder.0.Xbox oben.Status','device-reminder.0.Arbeitstisch.Status'];
 
 var MissingDevices = ['radar2.0._notHere'];
+
 // -----------------------------------------
 function wait(ms){
    var start = new Date().getTime();
@@ -150,6 +153,18 @@ function SetDoorsNewLED (DeviceTriggerName, DeviceTriggerValue) {
 function SetLightsLED (DeviceTriggerName, DeviceTriggerValue) {
     if (DeviceTriggerValue) {
         SwitchLED (GetLedNo(DeviceTriggerName),ColorWarning);
+    } else {
+        SwitchLED (GetLedNo(DeviceTriggerName),"000000");
+    }
+}
+
+function SetMultiStateLED(DeviceTriggerName,DeviceTriggerValue){
+    if (DeviceTriggerValue == "rot") {
+        SwitchLED (GetLedNo(DeviceTriggerName),ColorError);
+    } else if (DeviceTriggerValue == "gelb") {
+        SwitchLED (GetLedNo(DeviceTriggerName),ColorWarning);
+    } else if (DeviceTriggerValue == "grün") {
+        SwitchLED (GetLedNo(DeviceTriggerName),ColorOK);
     } else {
         SwitchLED (GetLedNo(DeviceTriggerName),"000000");
     }
@@ -286,6 +301,12 @@ function InitDisplay(){
         }); 
     }
 
+    if (MultiStateDevices.length > 0) {
+        MultiStateDevices.forEach(function(element) {
+            SetMultiStateLED(element,getState(element).val);
+        }); 
+    }
+
     if (MissingDevices.length > 0) {
         MissingDevices.forEach(function(element) {
             SetMissingDevices(element,getState(element).val);
@@ -368,6 +389,15 @@ on({id: RunningDevices, change: 'ne'},(obj) => {
 	SwitchOffDisplayDelayed();
     
 });
+
+on({id: MultiStateDevices, change: 'ne'},(obj) => {
+    var value = obj.state.val;
+    var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
+    SetMultiStateLED(objArr[0],value);
+	SwitchOffDisplayDelayed();
+    
+});
+
 
 on({id: MissingDevices, change: 'ne'},(obj) => {
 	//setState('sonoff.0.StatusDisplay.POWER'/*Turn On/Off*/,true)

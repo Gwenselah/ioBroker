@@ -8,7 +8,7 @@ on({id: Switches, change: 'ne'},(obj) => {
 
     //wenn einer der Schalter an ist, wird der globale Schalter aktiviert
     if (value) {
-        setState('0_userdata.0.Hilfsdatenpunkte.Kino_Power',true);
+        setState('0_userdata.0.Hilfsdatenpunkte.Kino_Status',true);
     } else {
         //prüfen, ob es das letzte Gerät war, dann den globalen Schalter auf deaktiviert setzen
         
@@ -21,7 +21,7 @@ on({id: Switches, change: 'ne'},(obj) => {
         })
         //log(AnzahlSwitchesOff)
         if (AnzahlSwitches == AnzahlSwitchesOff) {
-            setState('0_userdata.0.Hilfsdatenpunkte.Kino_Power',false);
+            setState('0_userdata.0.Hilfsdatenpunkte.Kino_Status',false);
         }
       
     }
@@ -68,22 +68,3 @@ on({id: 'alias.0.Alarm.Kinowasser' , change:'ne'},function(obj) {
         sendTo("telegram", "send", {text: ('Kinowassersensor: alles trocken')});
     }
 })
-
-
-/*
-on({id: '0_userdata.0.Hilfsdatenpunkte.Kino_Power' , change:'ne'},function(obj) {
-    Switches.forEach(function(element) {
-        setState(element,obj.state.val);
-    })    
-})
-*/
-
-
-//Beim Start prüfen, ob etwas angeschaltet ist
-/*
-Switches.forEach(function(element) {
-    if ((getState(element).val) == true) {
-        setState('0_userdata.0.Hilfsdatenpunkte.Kino_Power',true);
-    }
-})
-*/

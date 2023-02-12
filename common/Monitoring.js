@@ -5,6 +5,8 @@ const reachable = $('deconz.0.Sensors.*.reachable');
 const PingDevices = $('ping.0.iobroker.*');
 var Alerts = ['alias.0.Alarm.Kinowasser'];
 
+var GaragenDevices = ['alias.0.Tueren.Garage','alias.0.Licht.Garage'];
+
 function lowBatt() {
 	var low = [];
 	setState('0_userdata.0.Hilfsdatenpunkte.Batterieschwach', '', true);	
@@ -78,6 +80,27 @@ on({id:"radar2.0._notHere", change:'ne'}, function (obj) {
     
     
 })
+
+on({id: GaragenDevices, change: 'ne'},(obj) => {
+    /*var value = obj.state.val;
+    var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
+    var DeviceID=objArr[1]+"."+objArr[2];
+    var DeviceName=objArr[2];
+    console.log("Trigger: " + objArr[0]);
+    console.log("Pfad: " + objArr[1]);
+    console.log("Devic);name: " + objArr[2]);
+    console.log("localDeviceID:"+DeviceID);*/
+
+    if (getState('alias.0.Tueren.Garage').val) {
+        setState('0_userdata.0.Hilfsdatenpunkte.Garage_Status','rot');    
+    } else {
+        if (getState('alias.0.Licht.Garage').val) {
+            setState('0_userdata.0.Hilfsdatenpunkte.Garage_Status','gelb');        
+        } else {
+            setState('0_userdata.0.Hilfsdatenpunkte.Garage_Status','aus');        
+        }
+    }
+});
 
 
 lowBatt();
