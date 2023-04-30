@@ -6,18 +6,9 @@
 var id = "alias.0.Temperaturen.Temperatur_Aussen"; 
 
 // ----- Datenpunkte in die gespeichert werden soll ----------------------------
-var maxid = 'Datenpunkte.0.Temperaturen.Draussen.Max24';
-var minid = 'Datenpunkte.0.Temperaturen.Draussen.Min24';
-var dt = 24;//Zeitraum in Stunden
-    dt = dt*3600*1000;
+var maxid = 'statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.absMax';
+var minid = 'statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.absMin';
 
-// ----- Datenpunkte anlegen ---------------------------------------------------
-//Befehl muss korrigierrt werden, der State wird als String und nicht als Zahl und ohne Unit angelegt
-//createState(maxid, " ");
-//createState(minid, " ");
-//log('1. ) Datenpunkte angelegt ');
-
-SQLAbfrage(id);
 WriteHTML();
 
 // maximum, minimum
@@ -31,30 +22,6 @@ function maximum(result) {
     setState(maxid, result.result[0].MaxVal);
 }
  
-//----- SQL-Abfrage durchführen
-function SQLAbfrage () {
-
-//    log('2. ) Datenpunkt => ' + id);
-//    log('2a.) Abfrage    => SELECT * FROM iobroker.datapoints WHERE name = \'' + id + '\'');
-    sendTo('sql.0', 'query', 'SELECT * FROM iobroker.datapoints WHERE name = \'' + id + '\'', GetResults);
-}
-//---------------------------------------
-function GetResults (dpoint) {
-    var end_time = new Date().getTime();
-    var start_time = new Date().getTime() - dt;
-/*    log('3. ) Funktion -> GetResults aufrufen');
-
-    log('3a.) Startzeit : ' + start_time);
-    log('3b.) Endzeit   : ' + end_time);
-    log('     Datenpunkt: ' + dpoint.result);
-    log('3c.) result    : ' + JSON.stringify(dpoint.result) + ' -//- ' + start_time);
-    log('     Datenpunkt: ' + dpoint.result[0].id + ' ---//--- ' + dpoint.result[0].name);
-    log('     MinVal: SELECT Round(Min(val),1) As MinVal FROM iobroker.ts_number WHERE ts >= ' + start_time + ' AND id=' + dpoint.result[0].id + ' GROUP BY id');
-    log('     MAxVal: SELECT Round(Max(val),1) As MaxVal FROM iobroker.ts_number WHERE ts >= ' + start_time + ' AND id=' + dpoint.result[0].id + ' GROUP BY id');*/
-    sendTo('sql.0', 'query', 'SELECT Round(Min(val),1) As MinVal FROM iobroker.ts_number WHERE ts >= ' + start_time + ' AND id=' + dpoint.result[0].id + ' GROUP BY id',minimum);
-    sendTo('sql.0', 'query', 'SELECT Round(Max(val),1) As MaxVal FROM iobroker.ts_number WHERE ts >= ' + start_time + ' AND id=' + dpoint.result[0].id + ' GROUP BY id',maximum);
-}
-
 function GetUVIndex(){
     //uvindex in Text wandeln
     var uvindex = 0;
@@ -94,12 +61,12 @@ function GetHitzeIndex(){
 
 //==========================================================================================
 function WriteHTML() {
-    var HTML = getState("Datenpunkte.0.HTML.iQontrol.Wetter_Template").val;
+    var HTML = getState("0_userdata.0.iQontrol.Wetter.Wetter_Template").val;
     
     HTML = HTML.replace("%Tempcurrent%",getState("alias.0.Temperaturen.Temperatur_Aussen").val + "°C");
 
-    HTML = HTML.replace("%TempMinMax%",getState("Datenpunkte.0.Temperaturen.Draussen.Min24").val + "°C/" 
-        + getState("Datenpunkte.0.Temperaturen.Draussen.Max24").val + "°C");
+    HTML = HTML.replace("%TempMinMax%",getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.absMin").val + "°C/" 
+        + getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.absMax").val + "°C");
     
     HTML = HTML.replace("%abshpa%",getState("mqtt.0.weather.solarweatherstation.abshpa").val + " hpa");
 
@@ -119,7 +86,7 @@ function WriteHTML() {
 
     HTML = HTML.replace("%dewpointc%",getState("mqtt.0.weather.solarweatherstation.dewpointc").val + "°C");
     HTML = HTML.replace("%spreadc%",getState("mqtt.0.weather.solarweatherstation.spreadc").val + "°C");
-    setState("Datenpunkte.0.HTML.iQontrol.Wetter",HTML);
+    setState("0_userdata.0.iQontrol.Wetter.Wetter",HTML);
 }
 
 //==========================================================================================
@@ -129,7 +96,6 @@ on({id: "alias.0.Temperaturen.Temperatur_Aussen", change: 'ne'}, function (obj) 
 
 // ----- Funktion alle 10 Minuten aufrufen
 schedule("*/10 * * * *", function(){
-    SQLAbfrage(id);
     WriteHTML();
 });
 
@@ -145,8 +111,8 @@ on({id: "telegram.0.communicate.request", change: 'any'}, function (obj) {
     var TelegramText="";
     if (cmd == "WETTER") {
         TelegramText = "<b>Temperatur:</b> " + getState('alias.0.Temperaturen.Temperatur_Aussen').val  + "°C\n";
-        TelegramText += "<b>T. Min/Max 24h:</b> " + getState("Datenpunkte.0.Temperaturen.Draussen.Min24").val + "°C/" 
-        + getState("Datenpunkte.0.Temperaturen.Draussen.Max24").val + "°C\n"
+        TelegramText += "<b>T. Min/Max 24h:</b> " + getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.absMin").val + "°C/" 
+        + getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.absMax").val + "°C\n"
         TelegramText += "<b>Luftdruck abs/rel:</b> " + getState("mqtt.0.weather.solarweatherstation.abshpa").val + " hpa" +
             "/" + getState("mqtt.0.weather.solarweatherstation.relhpa").val + " hpa\n";
         TelegramText += "<b>Luftfeuchtigkeit: </b>" + getState("mqtt.0.weather.solarweatherstation.humi").val + "%\n" ;

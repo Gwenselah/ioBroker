@@ -198,7 +198,7 @@ on({id: "telegram.0.communicate.request", change: 'any'}, function (obj) {
     if (cmdFirstWord == "ALEXA") {
         cmd = "ALEXASAY";
         var TexttoSay = command.substring(6);
-        setState("Datenpunkte.0.Runtime.AlexaTexttoSay",TexttoSay);
+        setState("0_userdata.0.Hilfsdatenpunkte.AlexaTexttoSay",TexttoSay);
     } else {
         var cmd = command.toUpperCase();
     }
@@ -500,7 +500,7 @@ on({id: "telegram.0.communicate.request", change: 'any'}, function (obj) {
                                 tmpObjectArray[3]+".Commands.";
                             
                             setState(Objectbase+"speak-volume","35");
-                            setState(Objectbase+"speak",getState("Datenpunkte.0.Runtime.AlexaTexttoSay").val);          
+                            setState(Objectbase+"speak",getState("0_userdata.0.Hilfsdatenpunkte.AlexaTexttoSay").val);          
                         }      
                     };                
 

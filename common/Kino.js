@@ -51,7 +51,14 @@ on({id: Remotes, change: 'ne'},(obj) => {
             break;
         case 1004:
             log ("Fernbedienung: " + DeviceName + " - 1004");
-            setState('sonoff.0.Kino.POWER1',true);
+
+            if ((getState('sonoff.0.Kino.POWER1').val) == true) {
+                //setState('scene.0.Kinolicht',false);
+                setState('sonoff.0.Kino.POWER1',false);
+            } else {
+                //setState('scene.0.Kinolicht',true);
+                setState('sonoff.0.Kino.POWER1',true);
+            }            
             break;        
 
     }

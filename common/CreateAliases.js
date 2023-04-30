@@ -416,7 +416,12 @@ createAlias('sainlogic.0.weather.current.outdoortemp'/*Außentemperature*/, 'Tem
 
 createAlias('shelly.0.SHHT-1#78D8B6#1.tmp.temperatureC'/*Kino1 (Shelly)*/, 'Temperaturen.Temperatur_Kino_Umwelt1', 'kino', 'temperaturen_alias', 'number', 'Math.round(val * 10) / 10', false, 'Kino', 'value.temperature', 'per Script erstellt', undefined, undefined, '°C', undefined)
 createAlias('controme.0.13.actualTemperature'/*Kino actual temperature*/, 'Temperaturen.Temperatur_Kino_Umwelt3', 'kino', undefined, 'number', 'Math.round(val * 10) / 10', false, undefined, 'value.temperature', 'per Script erstellt', undefined, undefined, '°C', undefined)
+
+//////////////////////////////
+//  Luftfeuchtigkeit
+//////////////////////////////
 createAlias('shelly.0.SHHT-1#78D8B6#1.hum.value'/*Kino1 Humidity(Shelly)*/, 'Luftfeuchtigkeiten.Luftfeuchtigkeit_Kino_Umwelt1', 'kino', 'luftfeuchtigkeiten_alias', 'number', undefined, false, 'Kino_Luftfeuchtigkeit', 'value.temperature', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('sainlogic.0.weather.current.outdoorhumidity'/*Draussen*/, 'Luftfeuchtigkeiten.Luftfeuchtigkeit_Aussen', 'herrenberg', 'luftfeuchtigkeiten_alias', 'number', undefined, false, 'Aussen_Luftfeuchtigkeit', 'value.temperature', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
 
 //////////////////////////////
 //  Steckdosen
@@ -442,19 +447,6 @@ createAlias('shelly.0.SHPLG-S#4022D88353D0#1.Relay0.Switch'/*KaiPc power*/, 'Ste
 createAlias('shelly.0.shellypro1#30c6f78ad5e8#1.Relay0.Switch'/*Sprechstelle power*/, 'Steckdosen.Sprechstelle', 'esszimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'Sprechstelle', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHPLG-S#4022D882E4CB#1.Relay0.Switch'/*Wohnzimmer Couch*/, 'Steckdosen.Couch', 'wohnzimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'Couch', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHSW-1#E2D477#1.Relay0.Switch'/*Terrasse*/, 'Steckdosen.Terrasse', 'terrasse', 'steckdosen_alias', 'boolean', undefined, undefined, 'Terrasse', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-
-
-createAlias('shelly.0.SHPLG-S#4022D882E6CC#1.Relay0.Power'/*Arbeit ENERGY*/, 'Steckdosen.Arbeit_Energie', 'büro_gross', 'energy_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
-createAlias('sonoff.0.Disher.ENERGY_Power'/*Disher ENERGY*/, 'Steckdosen.Geschirrspüler_Energie', 'Kueche', 'energy_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
-createAlias('sonoff.0.Dryer.ENERGY_Power'/*Dryer ENERGY*/, 'Steckdosen.Trockner_Energie', 'waschkueche', 'energy_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
-createAlias('shelly.0.SHPLG-S#4022D881C2E0#1.Relay0.Power'/*Ender ENERGY*/, 'Steckdosen.Ender_Energie', 'büro_gross', 'energy_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
-createAlias('sonoff.0.Washer_Left.ENERGY_Power'/*Washer Left ENERGY*/, 'Steckdosen.Waschmaschine_Links_Energie', 'waschkueche', 'energy_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
-createAlias('sonoff.0.Washer_Right.ENERGY_Power'/*Washer Right ENERGY*/, 'Steckdosen.Waschmaschine_Rechts_Energie', 'waschkueche', 'energy_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
-createAlias('sonoff.0.XBOX_PC.ENERGY_Power'/*Xbox pc ENERGY*/, 'Steckdosen.XBOX_PC_Energie', 'büro_klein', 'energy_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
-
-
-
-
 
 //////////////////////////////
 //  Licht
@@ -565,5 +557,33 @@ createAlias('shelly.0.SHSW-25#C45BBE79438B#1.Shutter.Pause'/*Stop Bad*/,'Rolllad
 createAlias('shelly.0.SHSW-25#C45BBE79438B#1.Shutter.Open'/*Open Bad*/,'Rollladen.Bad_Open', 'bad', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
 createAlias('shelly.0.SHSW-25#C45BBE79438B#1.Shutter.Close'/*Close Bad*/,'Rollladen.Bad_Close', 'bad', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
 
+//////////////////////////////
+//  Power Measurement
+//////////////////////////////
+//createAlias(''/**/,'PowerMeasurement.', '', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHPLG-S#F8CDE9#1.Relay0.Power'/*Lea Mond*/,'PowerMeasurement.LeaMond', 'lea', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHPLG-S#4022D881C2E0#1.Relay0.Power'/*Ender*/,'PowerMeasurement.Ender', 'büro_gross', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHPLG-S#4022D882E6CC#1.Relay0.Power'/*Arbeitstisch*/,'PowerMeasurement.Arbeitstisch', 'büro_gross', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHPLG-S#4022D882E4CB#1.Relay0.Power'/*Wohnzimmer Couch*/,'PowerMeasurement.WohnzimmerCouch', 'wohnzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHPLG-S#4022D88353D0#1.Relay0.Power'/*KaiPC*/,'PowerMeasurement.KaiPC', 'kai', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHSW-25#007CC3#1.Shutter.Power'/*Lea Rollladen Türe*/,'PowerMeasurement.LeaRollladenTuere', 'lea', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHSW-25#68C63AF963F3#1.Shutter.Power'/*Lea Rollladen Fenster*/,'PowerMeasurement.LeaRollladenFenster', 'lea', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHSW-25#00869E#1.Shutter.Power'/*Schlafzimmer Fenster*/,'PowerMeasurement.SchlafzimmerFenster', 'schlafzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHSW-25#00CDCF#1.Shutter.Power'/*Wohnzimmer Rollladen Links*/,'PowerMeasurement.WohnzimmerRollladenLinks', 'wohnzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHSW-25#4C7525348982#1.Shutter.Power'/*Wohnzimmer Rollladen Rechts*/,'PowerMeasurement.WohnzimmerRollladenRechts', 'wohnzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHSW-25#483FDA82436B#1.Relay0.Power'/*Schlafzimmer Licht Links*/,'PowerMeasurement.SchlafzimmerLichtLinks', 'schlafzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHSW-25#483FDA82436B#1.Relay1.Power'/*Schlafzimmer Licht Rechts*/,'PowerMeasurement.SchlafzimmerLichtRechts', 'schlafzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHSW-25#68C63AF98402#1.Shutter.Power'/*Kai Rollladen*/,'PowerMeasurement.KaiRollladen', 'kai', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHSW-25#68C63AF98CD1#1.Shutter.Power'/*Küche Rollladen*/,'PowerMeasurement.KuecheRollladen', 'Kueche', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHSW-25#68C63AF994B6#1.Shutter.Power'/*Büro gross Rollladen*/,'PowerMeasurement.BüroGroßRollladen', 'büro_gross', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHSW-25#C45BBE79438B#1.Shutter.Power'/*Bad Rollladen*/,'PowerMeasurement.BadRollladen', 'bad', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+
+createAlias('sonoff.0.Disher.ENERGY_Power'/*Disher ENERGY*/, 'PowerMeasurement.Geschirrspüler', 'Kueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('sonoff.0.Dryer.ENERGY_Power'/*Dryer ENERGY*/, 'PowerMeasurement.Trockner', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('sonoff.0.Washer_Left.ENERGY_Power'/*Washer Left ENERGY*/, 'PowerMeasurement.Waschmaschine_Links', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('sonoff.0.Washer_Right.ENERGY_Power'/*Washer Right ENERGY*/, 'PowerMeasurement.Waschmaschine_Rechts', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('sonoff.0.XBOX_PC.ENERGY_Power'/*Xbox pc ENERGY*/, 'PowerMeasurement.XBOX_PC', 'büro_klein', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('sonoff.0.Kinositze.ENERGY_Power'/*Kinositze ENERGY*/, 'PowerMeasurement.Kinositze', 'kino', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('sonoff.0.Weihnachtsbaum.ENERGY_Power'/*Weihnachtsbaum Power*/, 'PowerMeasurement.Weihnachtsbaum', 'wohnzimmer', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 
 stopScript("");
