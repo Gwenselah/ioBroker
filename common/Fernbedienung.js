@@ -21,65 +21,170 @@ on({id: Remotes, change: 'ne'},(obj) => {
     console.log("Pfad: " + objArr[1]);
     console.log("Devicename: " + getObject(DeviceID).common.name); // Geräte-Name);
     console.log("localDeviceID:"+DeviceID);*/
-
+    log ("Fernbedienung: " + DeviceName + " - " + value);
     switch (value) {
         case 1002:
-            log ("Fernbedienung: " + DeviceName + " - 1002");
-
-            if ((getState('shelly.0.SHSW-25#483FDA82436B#1.Relay0.Switch').val) !=
-                (getState('shelly.0.SHSW-25#483FDA82436B#1.Relay1.Switch').val)) {
-                    setState('shelly.0.SHSW-25#483FDA82436B#1.Relay0.Switch',false);
-                    setState('shelly.0.SHSW-25#483FDA82436B#1.Relay1.Switch',false);
+            if ((getState('alias.0.Licht.Schlafzimmer_Lampe_Links').val) !=
+                (getState('alias.0.Licht.Schlafzimmer_Lampe_Rechts').val)) {
+                    setState('alias.0.Licht.Schlafzimmer_Lampe_Links',false);
+                    setState('alias.0.Licht.Schlafzimmer_Lampe_Rechts',false);
             } else {
-                if (getState('shelly.0.SHSW-25#483FDA82436B#1.Relay0.Switch').val == true) {
-                    setState('shelly.0.SHSW-25#483FDA82436B#1.Relay0.Switch',false);
+                if (getState('alias.0.Licht.Schlafzimmer_Lampe_Links').val == true) {
+                    setState('alias.0.Licht.Schlafzimmer_Lampe_Links',false);
                 } else {
-                    setState('shelly.0.SHSW-25#483FDA82436B#1.Relay0.Switch',true);
+                    setState('alias.0.Licht.Schlafzimmer_Lampe_Links',true);
                 }
-                if (getState('shelly.0.SHSW-25#483FDA82436B#1.Relay1.Switch').val == true) {
-                    setState('shelly.0.SHSW-25#483FDA82436B#1.Relay1.Switch',false);
+                if (getState('alias.0.Licht.Schlafzimmer_Lampe_Rechts').val == true) {
+                    setState('alias.0.Licht.Schlafzimmer_Lampe_Rechts',false);
                 } else {
-                    setState('shelly.0.SHSW-25#483FDA82436B#1.Relay1.Switch',true);
+                    setState('alias.0.Licht.Schlafzimmer_Lampe_Rechts',true);
                 }            
             }
             break;
         case 2002: 
             //Rollladen hoch + 10%
-            log ("Fernbedienung: " + DeviceName + " - 2002");
-            setState('shelly.0.SHSW-25#00869E#1.Shutter.Position',
-                getState('shelly.0.SHSW-25#00869E#1.Shutter.Position').val + 10);
+            setState('alias.0.Rollladen.Schlafzimmer',
+                getState('alias.0.Rollladen.Schlafzimmer').val + 10);
             break;
         case 2003: 
             //Rollladen komplett hoch
-            log ("Fernbedienung: " + DeviceName + " - 2003");
-            setState('shelly.0.SHSW-25#00869E#1.Shutter.Position',100);
+            setState('alias.0.Rollladen.Schlafzimmer',100);
             break;
         case 3002:
             //Rollladen runter - 10%
-            log ("Fernbedienung: " + DeviceName + " - 3002");
-            setState('shelly.0.SHSW-25#00869E#1.Shutter.Position',
-                getState('shelly.0.SHSW-25#00869E#1.Shutter.Position').val -10);
+            setState('alias.0.Rollladen.Schlafzimmer',
+                getState('alias.0.Rollladen.Schlafzimmer').val -10);
             break;
         case 3003:
             //Rollladen komplett runter
-            log ("Fernbedienung: " + DeviceName + " - 3003");
-            setState('shelly.0.SHSW-25#00869E#1.Shutter.Position',0);
+            setState('alias.0.Rollladen.Schlafzimmer',0);
             break;
         case 4002:
-            log ("Fernbedienung: " + DeviceName + " - 4002");
-            if (getState('shelly.0.SHSW-25#483FDA82436B#1.Relay1.Switch').val == true) {
-                setState('shelly.0.SHSW-25#483FDA82436B#1.Relay1.Switch',false);
+            if (getState('alias.0.Licht.Schlafzimmer_Lampe_Rechts').val == true) {
+                setState('alias.0.Licht.Schlafzimmer_Lampe_Rechts',false);
             } else {
-                setState('shelly.0.SHSW-25#483FDA82436B#1.Relay1.Switch',true);
+                setState('alias.0.Licht.Schlafzimmer_Lampe_Rechts',true);
             }
             break;
         case 5002:
-            log ("Fernbedienung: " + DeviceName + " - 5002");
-            if (getState('shelly.0.SHSW-25#483FDA82436B#1.Relay0.Switch').val == true) {
-                setState('shelly.0.SHSW-25#483FDA82436B#1.Relay0.Switch',false);
+            if (getState('alias.0.Licht.Schlafzimmer_Lampe_Links').val == true) {
+                setState('alias.0.Licht.Schlafzimmer_Lampe_Links',false);
             } else {
-                setState('shelly.0.SHSW-25#483FDA82436B#1.Relay0.Switch',true);
+                setState('alias.0.Licht.Schlafzimmer_Lampe_Links',true);
             }
+            break;
+    }
+
+});
+
+var RemoteKai = ['deconz.0.Sensors.38.buttonpressed'];
+
+on({id: RemoteKai, change: 'ne'},(obj) => {
+    var value = obj.state.val;
+    //1002: heller -Rolladen 10%plus
+    //1003: Long Press 1002 Rollladen komplett öffnen
+    //2002: dunkler - Rollanden 10% minus
+    //2003: Long Press 2003
+    //3002: links
+    //3003: Long Press 3002
+    //4002: rechts
+    //4003: Long Press 4002
+
+    //var value = obj.state.val;
+    var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
+    var DeviceID=objArr[1]+"."+objArr[2];
+    var DeviceName=getObject(DeviceID).common.name;
+    log ("Fernbedienung: " + DeviceName + " - " + value);
+    switch (value) {
+        case 1002: 
+            //Rollladen hoch + 10%
+            setState('alias.0.Rollladen.Kai',
+                getState('alias.0.Rollladen.Kai').val + 10);
+            break;
+        case 1003: 
+            //Rollladen komplett hoch
+            setState('alias.0.Rollladen.Kai',100);
+            break;
+        case 2002:
+            //Rollladen runter - 10%
+            setState('alias.0.Rollladen.Kai',
+                getState('alias.0.Rollladen.Kai').val -10);
+            break;
+        case 2003:
+            //Rollladen komplett runter
+            setState('alias.0.Rollladen.Kai',0);
+            break;
+        case 3002: //Kai PC aus
+            if (getState('alias.0.Steckdosen.KaiPC').val == true) {
+                setState('alias.0.Steckdosen.KaiPC',false);
+            }
+            break;
+        case 4002: //Kai PC an
+            if (getState('alias.0.Steckdosen.KaiPC').val == false) {
+                setState('alias.0.Steckdosen.KaiPC',true);
+            }
+            break;
+    }
+
+});
+
+var RemoteLea = ['deconz.0.Sensors.36.buttonpressed'];
+
+on({id: RemoteLea, change: 'ne'},(obj) => {
+    var value = obj.state.val;
+    //Fenster
+    //1002: heller -Rolladen 10%plus
+    //1003: Long Press 1002 Rollladen komplett öffnen
+    //2002: dunkler - Rollanden 10% minus
+    //2003: Long Press 2003 - Rolladen 0%
+
+    //Türe
+    //4002: heller -Rolladen 10%plus
+    //4003: Long Press 1002 Rollladen komplett öffnen
+    //3002: dunkler - Rollanden 10% minus
+    //3003: Long Press 2003 - Rolladen 0%
+
+    //var value = obj.state.val;
+    var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
+    var DeviceID=objArr[1]+"."+objArr[2];
+    var DeviceName=getObject(DeviceID).common.name;
+    log ("Fernbedienung: " + DeviceName + " - " + value);
+    switch (value) {
+        case 1002: 
+            //Rollladen hoch + 10%
+            setState('alias.0.Rollladen.Lea_Fenster',
+                getState('alias.0.Rollladen.Lea_Fenster').val + 10);
+            break;
+        case 1003: 
+            //Rollladen komplett hoch
+            setState('alias.0.Rollladen.Lea_Fenster',100);
+            break;
+        case 2002:
+            //Rollladen runter - 10%
+            setState('alias.0.Rollladen.Lea_Fenster',
+                getState('alias.0.Rollladen.Lea_Fenster').val -10);
+            break;
+        case 2003:
+            //Rollladen komplett runter
+            setState('alias.0.Rollladen.Lea_Fenster',0);
+            break;
+        case 4002: 
+            //Rollladen hoch + 10%
+            setState('alias.0.Rollladen.Lea_Türe',
+                getState('alias.0.Rollladen.Lea_Türe').val + 10);
+            break;
+        case 4003: 
+            //Rollladen komplett hoch
+            setState('alias.0.Rollladen.Lea_Türe',100);
+            break;
+        case 3002:
+            //Rollladen runter - 10%
+            setState('alias.0.Rollladen.Lea_Türe',
+                getState('alias.0.Rollladen.Lea_Türe').val -10);
+            break;
+        case 3003:
+            //Rollladen komplett runter
+            setState('alias.0.Rollladen.Lea_Türe',0);
             break;
     }
 
