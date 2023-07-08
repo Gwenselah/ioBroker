@@ -448,6 +448,9 @@ createAlias('shelly.0.shellypro1#30c6f78ad5e8#1.Relay0.Switch'/*Sprechstelle pow
 createAlias('shelly.0.SHPLG-S#4022D882E4CB#1.Relay0.Switch'/*Wohnzimmer Couch*/, 'Steckdosen.Couch', 'wohnzimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'Couch', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHSW-1#E2D477#1.Relay0.Switch'/*Terrasse*/, 'Steckdosen.Terrasse', 'terrasse', 'steckdosen_alias', 'boolean', undefined, undefined, 'Terrasse', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHPLG-S#C8C9A3A5016E#1.Relay0.Switch'/*Satanlage*/, 'Steckdosen.Satanlage', 'waschkueche', 'steckdosen_alias', 'boolean', undefined, undefined, 'Satanlage', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('shelly.0.SHPLG-S#C8C9A3A5C4F9#1.Relay0.Switch'/*Wallbox*/, 'Steckdosen.Wallbox', 'garage', 'steckdosen_alias', 'boolean', undefined, undefined, 'Satanlage', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+
+
 
 //////////////////////////////
 //  Licht
@@ -567,6 +570,7 @@ createAlias('shelly.0.SHPLG-S#4022D881C2E0#1.Relay0.Power'/*Ender*/,'PowerMeasur
 createAlias('shelly.0.SHPLG-S#4022D882E6CC#1.Relay0.Power'/*Arbeitstisch*/,'PowerMeasurement.Arbeitstisch', 'büro_gross', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHPLG-S#4022D882E4CB#1.Relay0.Power'/*Wohnzimmer Couch*/,'PowerMeasurement.WohnzimmerCouch', 'wohnzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHPLG-S#4022D88353D0#1.Relay0.Power'/*KaiPC*/,'PowerMeasurement.KaiPC', 'kai', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.SHPLG-S#C8C9A3A5C4F9#1.Relay0.Power'/*Wallbox*/,'PowerMeasurement.Wallbox', 'garage', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#007CC3#1.Shutter.Power'/*Lea Rollladen Türe*/,'PowerMeasurement.LeaRollladenTuere', 'lea', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#68C63AF963F3#1.Shutter.Power'/*Lea Rollladen Fenster*/,'PowerMeasurement.LeaRollladenFenster', 'lea', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#00869E#1.Shutter.Power'/*Schlafzimmer Fenster*/,'PowerMeasurement.SchlafzimmerFenster', 'schlafzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
