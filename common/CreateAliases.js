@@ -591,8 +591,11 @@ createAlias('sonoff.0.XBOX_PC.ENERGY_Power'/*Xbox pc ENERGY*/, 'PowerMeasurement
 createAlias('sonoff.0.Kinositze.ENERGY_Power'/*Kinositze ENERGY*/, 'PowerMeasurement.Kinositze', 'kino', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('sonoff.0.Weihnachtsbaum.ENERGY_Power'/*Weihnachtsbaum Power*/, 'PowerMeasurement.Weihnachtsbaum', 'wohnzimmer', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 
-//der Hauszähler darf nicht in den PowerMeasuerment Alias
+
+
+//der Werte dürfen nicht in den PowerMeasuerment Alias
 createAlias('mqtt.0.powermeter.main.value'/*Hauszählerstand*/,'PowerMeasurement.Hauszähler', 'waschkueche', undefined, 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'kWh', undefined)
+createAlias('shelly.0.SHPLG-S#C8C9A3A5C4F9#1.Relay0.Energy'/*Wallbox*/,'PowerMeasurement.WallboxTotal', 'garage', undefined, 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'kWh', undefined)
 
 //Solar
 createAlias('shelly.0.SHPLG-S#7C87CEB4BB7A#1.Relay0.Power'/*Inverter*/,'Solar.InverterMeasurement', 'terrasse', 'solar_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)

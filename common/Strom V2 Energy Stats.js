@@ -1,5 +1,4 @@
 // v0.1
-//für historische Daten
 const axios = require('axios').default;
 
 const influxDbInstance = 'influxdb.0';
@@ -9,10 +8,10 @@ const measurement = 'energy-stats';
 const loggingTemplate = {
     '0_userdata.0.energy.contract.electricity.kWhPrice': 'priceIn',
     '0_userdata.0.energy.contract.electricity.kWhPriceExport': 'priceOut',
-    'alias.0.energy.electricity.meter.totalIn': 'importedWh',
-    'alias.0.energy.electricity.meter.totalOut': 'exportedWh',
-    'alias.0.energy.electricity.photovoltaic.total': 'generatedWh',
-    'alias.0.energy.electricity.wallbox.total': 'wallboxWh',
+    '0_userdata.0.energy.electricity.meter.totalIn': 'importedWh',
+    '0_userdata.0.energy.electricity.meter.totalOut': 'exportedWh',   
+    '0_userdata.0.energy.electricity.meter.PhotovoltaicPowerTotal': 'generatedWh',
+    'sourceanalytix.0.alias__0__PowerMeasurement__WallboxTotal.cumulativeReading': 'wallboxWh',
 };
 
 const loggingObj = {};
@@ -64,3 +63,17 @@ async function start() {
     });
 }
 start();
+
+on({id: 'alias.0.PowerMeasurement.Hauszähler', change: 'ne'},(obj) => {
+    //rate_time_per_unit enthält den ermittelten Wert pro Minute
+    var Wattactual = obj.state.val*1000; //Umrechnung in wH
+    setState('0_userdata.0.energy.electricity.meter.totalIn',Wattactual);
+})
+
+on({id: 'deyeidc.0.3921236629.Et_ge0', change: 'ne'},(obj) => {
+    //rate_time_per_unit enthält den ermittelten Wert pro Minute
+    var Wattactual = obj.state.val*1000; //Umrechnung in wH
+    setState('0_userdata.0.energy.electricity.meter.PhotovoltaicPowerTotal',Wattactual);
+})
+
+

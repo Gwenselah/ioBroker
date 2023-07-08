@@ -9,8 +9,8 @@ const measurement = 'power-stats';
 const loggingTemplate = {
 //    'alias.0.energy.electricity.meter.totalIn': 'meterInW', //wieviel wird gerade importiert?
 //    'alias.0.energy.electricity.meter.totalOut': 'meterOutW', //wieviel wird gerade exportiert/eingespeist?
-    '0_userdata.0.energy.electricity.meter.totalIn': 'meterInW', //wieviel wird gerade importiert?
-    '0_userdata.0.energy.electricity.meter.totalOut': 'meterOutW', //wieviel wird gerade exportiert/eingespeist?    
+    '0_userdata.0.energy.electricity.meter.in': 'meterInW', //wieviel wird gerade importiert?
+    '0_userdata.0.energy.electricity.meter.out': 'meterOutW', //wieviel wird gerade exportiert/eingespeist?    
     'alias.0.Solar.InverterMeasurement': 'generatorW', //wieviel wird gerade durch die Solaranlage erzeugt?
     'alias.0.PowerMeasurement.Wallbox': 'wallboxW', //wieviel wird durch die Wallbox konsumiert
 };
@@ -69,7 +69,7 @@ start();
 on({id: 'mqtt.0.powermeter.main.rate_per_time_unit', change: 'ne'},(obj) => {
     //rate_time_per_unit enthält den ermittelten Wert pro Minute
     var Wattactual = obj.state.val*60;
-    setState('0_userdata.0.energy.electricity.meter.totalIn',Wattactual);
+    setState('0_userdata.0.energy.electricity.meter.in',Wattactual);
 })
 
 
