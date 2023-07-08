@@ -6,8 +6,8 @@
 var id = "alias.0.Temperaturen.Temperatur_Aussen"; 
 
 // ----- Datenpunkte in die gespeichert werden soll ----------------------------
-var maxid = 'statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.absMax';
-var minid = 'statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.absMin';
+var maxid = 'statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.dayMax';
+var minid = 'statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.dayMin';
 
 WriteHTML();
 
@@ -65,8 +65,8 @@ function WriteHTML() {
     
     HTML = HTML.replace("%Tempcurrent%",getState("alias.0.Temperaturen.Temperatur_Aussen").val + "°C");
 
-    HTML = HTML.replace("%TempMinMax%",getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.absMin").val + "°C/" 
-        + getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.absMax").val + "°C");
+    HTML = HTML.replace("%TempMinMax%",getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.dayMin").val + "°C/" 
+        + getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.dayMax").val + "°C");
     
     HTML = HTML.replace("%abshpa%",getState("mqtt.0.weather.solarweatherstation.abshpa").val + " hpa");
 
@@ -111,8 +111,8 @@ on({id: "telegram.0.communicate.request", change: 'any'}, function (obj) {
     var TelegramText="";
     if (cmd == "WETTER") {
         TelegramText = "<b>Temperatur:</b> " + getState('alias.0.Temperaturen.Temperatur_Aussen').val  + "°C\n";
-        TelegramText += "<b>T. Min/Max 24h:</b> " + getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.absMin").val + "°C/" 
-        + getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.absMax").val + "°C\n"
+        TelegramText += "<b>T. Min/Max 24h:</b> " + getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.dayMin").val + "°C/" 
+        + getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.dayMax").val + "°C\n"
         TelegramText += "<b>Luftdruck abs/rel:</b> " + getState("mqtt.0.weather.solarweatherstation.abshpa").val + " hpa" +
             "/" + getState("mqtt.0.weather.solarweatherstation.relhpa").val + " hpa\n";
         TelegramText += "<b>Luftfeuchtigkeit: </b>" + getState("mqtt.0.weather.solarweatherstation.humi").val + "%\n" ;
