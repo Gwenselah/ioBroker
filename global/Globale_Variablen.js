@@ -30,7 +30,7 @@ var SwitchDevices = [
     { Name: 'Deckenlicht', Ort: "Wohnzimmer",   an: true, aus: false, Objekt: "alias.0.Licht.Wohnzimmer_Deckenlampe", Beschreibung: "Deckenlampe im Wohnzimmer"},
     { Name: 'Statusdisplay', Ort: "Esszimmer",   an: true, aus: false, Objekt: "alias.0.Steckdosen.Statusdisplay", Beschreibung: "Schranklicht im Wohnzimmer"},
     { Name: 'XBOX und PC', Ort: "Büro klein",   an: true, aus: false, Objekt: "alias.0.Steckdosen.XBOX_PC", Beschreibung: "Entertainment im Dachgeschoss"},
-    { Name: 'WLAN DG', Ort: "Schlafzimmer",   an: true, aus: false, Objekt: "alias.0.Steckdosen.WLAN_DG", Beschreibung: "WLAN im Dachgeschoss"},
+//    { Name: 'WLAN DG', Ort: "Schlafzimmer",   an: true, aus: false, Objekt: "alias.0.Steckdosen.WLAN_DG", Beschreibung: "WLAN im Dachgeschoss"},
     { Name: 'Weihnachtsbaum', Ort: "Wohnzimmer",   an: true, aus: false, Objekt: "alias.0.Licht.Weihnachtsbaum", Beschreibung: "Weihnachtsbaum"},
     { Name: '3D Drucker', Ort: "Büro groß",   an: true, aus: false, Objekt: "alias.0.Steckdosen.Ender", Beschreibung: "3D Drucker"},
     { Name: 'Arbeit', Ort: "Büro groß",   an: true, aus: false, Objekt: "alias.0.Steckdosen.Arbeit", Beschreibung: "Arbeitsplatz"},

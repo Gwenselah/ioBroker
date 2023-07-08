@@ -438,7 +438,7 @@ createAlias('sonoff.0.Washer_Left.POWER'/*Washer Left POWER*/, 'Steckdosen.Wasch
 createAlias('sonoff.0.Washer_Right.POWER'/*Washer Right POWER*/, 'Steckdosen.Waschmaschine_Rechts', 'waschkueche', 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.XBOX_PC.POWER'/*Xbox pc power*/, 'Steckdosen.XBOX_PC', 'büro_klein', 'steckdosen_alias', 'boolean', undefined, undefined, 'Computer Tina', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('deconz.0.Lights.3.on'/*Light 3 on*/, 'Steckdosen.Wohnzimmer_Entertainment', 'wohnzimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'Entertainment', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-createAlias('deconz.0.Lights.4.on'/*Light 4 on*/, 'Steckdosen.WLAN_DG','schlafzimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'WLAN oben', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+//createAlias('deconz.0.Lights.4.on'/*Light 4 on*/, 'Steckdosen.WLAN_DG','schlafzimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'WLAN oben', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('deconz.0.Lights.5.on'/*Light 5 on*/, 'Steckdosen.Klimagerät', 'büro_gross', 'steckdosen_alias', 'boolean', undefined, undefined, 'Klimagerät', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('deconz.0.Lights.8.on'/*undefined on*/, 'Steckdosen.CPAP', 'schlafzimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'CPAP', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Kinositze.POWER', 'Steckdosen.Kinositze', 'kino', 'steckdosen_alias', 'boolean', undefined, undefined, 'Kinositze', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
@@ -447,6 +447,7 @@ createAlias('shelly.0.SHPLG-S#4022D88353D0#1.Relay0.Switch'/*KaiPc power*/, 'Ste
 createAlias('shelly.0.shellypro1#30c6f78ad5e8#1.Relay0.Switch'/*Sprechstelle power*/, 'Steckdosen.Sprechstelle', 'esszimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'Sprechstelle', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHPLG-S#4022D882E4CB#1.Relay0.Switch'/*Wohnzimmer Couch*/, 'Steckdosen.Couch', 'wohnzimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'Couch', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHSW-1#E2D477#1.Relay0.Switch'/*Terrasse*/, 'Steckdosen.Terrasse', 'terrasse', 'steckdosen_alias', 'boolean', undefined, undefined, 'Terrasse', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('shelly.0.SHPLG-S#C8C9A3A5016E#1.Relay0.Switch'/*Satanlage*/, 'Steckdosen.Satanlage', 'waschkueche', 'steckdosen_alias', 'boolean', undefined, undefined, 'Satanlage', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 
 //////////////////////////////
 //  Licht
