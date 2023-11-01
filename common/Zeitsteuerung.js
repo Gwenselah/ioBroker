@@ -48,14 +48,17 @@ on({id: 'alias.0.Licht.Lea_Mond',change: "ne"},function(obj) {
     }
 });
 
-//WLAN DG zusammen mit XBOX an- und ausschalten
-//on({id: 'alias.0.Steckdosen.XBOX_PC',change: "ne"}, function (obj) {
-//    setState('alias.0.Steckdosen.WLAN_DG',obj.state.val)
-//});
+//Leas Lava
+on({id: 'alias.0.Steckdosen.Lava',change: "ne"},function(obj) {
+    if (obj.state.val) {
+        setStateDelayed('alias.0.Steckdosen.Lava',false,5400*1000); //1,5 Stunden später ausschalten
+        log("Leas Lavalampe wird in eineinhalb Stunden ausgeschaltet.");
+    }
+});
 
 
 //Satanlage zusammen mit Entertainment an- und ausschalten
 on({id: 'alias.0.Steckdosen.Wohnzimmer_Entertainment',change: "ne"}, function (obj) {
-    setState('alias.0.Steckdosen.Satanlage',obj.state.val)
+    setState('alias.0.Steckdosen.Satverteiler',obj.state.val)
 });
 

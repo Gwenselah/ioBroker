@@ -11,7 +11,12 @@ var DoorsandWindows = ['deconz.0.Sensors.24.open',
 	//'deconz.0.Sensors.27.open', //Waschküche
 	'deconz.0.Sensors.26.open',
 	'deconz.0.Sensors.5.open',
-	'deconz.0.Sensors.4.open'
+	'deconz.0.Sensors.4.open',
+	'deconz.0.Sensors.18.open',
+	'deconz.0.Sensors.19.open',
+	'deconz.0.Sensors.40.open',
+	'deconz.0.Sensors.41.open',
+	'deconz.0.Sensors.42.open'
 ];
 
 var params = {

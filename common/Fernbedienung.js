@@ -128,9 +128,9 @@ on({id: RemoteKai, change: 'ne'},(obj) => {
 
 });
 
-var RemoteLea = ['deconz.0.Sensors.36.buttonpressed'];
+var RemoteAndy = ['deconz.0.Sensors.36.buttonpressed'];
 
-on({id: RemoteLea, change: 'ne'},(obj) => {
+on({id: RemoteAndy, change: 'ne'},(obj) => {
     var value = obj.state.val;
     //Fenster
     //1002: heller -Rolladen 10%plus
@@ -152,40 +152,46 @@ on({id: RemoteLea, change: 'ne'},(obj) => {
     switch (value) {
         case 1002: 
             //Rollladen hoch + 10%
-            setState('alias.0.Rollladen.Lea_Fenster',
-                getState('alias.0.Rollladen.Lea_Fenster').val + 10);
+            setState('alias.0.Rollladen.Schlafzimmer',
+                getState('alias.0.Rollladen.Schlafzimmer').val + 10);
             break;
         case 1003: 
             //Rollladen komplett hoch
-            setState('alias.0.Rollladen.Lea_Fenster',100);
+            setState('alias.0.Rollladen.Schlafzimmer',100);
             break;
         case 2002:
             //Rollladen runter - 10%
-            setState('alias.0.Rollladen.Lea_Fenster',
-                getState('alias.0.Rollladen.Lea_Fenster').val -10);
+            setState('alias.0.Rollladen.Schlafzimmer',
+                getState('alias.0.Rollladen.Schlafzimmer').val -10);
             break;
         case 2003:
             //Rollladen komplett runter
-            setState('alias.0.Rollladen.Lea_Fenster',0);
+            setState('alias.0.Rollladen.Schlafzimmer',0);
             break;
-        case 4002: 
-            //Rollladen hoch + 10%
-            setState('alias.0.Rollladen.Lea_Türe',
-                getState('alias.0.Rollladen.Lea_Türe').val + 10);
+        case 4002:  //rechts
+            //Lampe rechts
+            if (getState('alias.0.Licht.Schlafzimmer_Lampe_Rechts').val == true) {
+                setState('alias.0.Licht.Schlafzimmer_Lampe_Rechts',false);
+            } else {
+                setState('alias.0.Licht.Schlafzimmer_Lampe_Rechts',true);
+            }
             break;
-        case 4003: 
+ //       case 4003: 
             //Rollladen komplett hoch
-            setState('alias.0.Rollladen.Lea_Türe',100);
+//            setState('alias.0.Rollladen.Lea_Türe',100);
+//            break;
+        case 3002: //links
+            //Lampe links
+            if (getState('alias.0.Licht.Schlafzimmer_Lampe_Links').val == true) {
+                setState('alias.0.Licht.Schlafzimmer_Lampe_Links',false);
+            } else {
+                setState('alias.0.Licht.Schlafzimmer_Lampe_Links',true);
+            }
             break;
-        case 3002:
-            //Rollladen runter - 10%
-            setState('alias.0.Rollladen.Lea_Türe',
-                getState('alias.0.Rollladen.Lea_Türe').val -10);
-            break;
-        case 3003:
+//        case 3003:
             //Rollladen komplett runter
-            setState('alias.0.Rollladen.Lea_Türe',0);
-            break;
+//            setState('alias.0.Rollladen.Lea_Türe',0);
+//            break;
     }
 
 });
