@@ -37,7 +37,7 @@ var ObjektLEDs = [
     { Objekt: 'alias.0.Steckdosen.Wohnzimmer_Entertainment', LED: '12' },    
 //    { Objekt: 'alias.0.Steckdosen.XBOX', LED: '13' },    
 //    { Objekt: 'alias.0.Steckdosen.Arbeit', LED: '14' },
-    { Objekt: 'device-reminder.0.Xbox oben.Status', LED: '13' },    
+    { Objekt: 'device-reminder.0.PC Tina.Status', LED: '13' },    
     { Objekt: 'device-reminder.0.Arbeitstisch.Status', LED: '14' },
     { Objekt: 'alias.0.Tueren.Büro_groß', LED: '15' },  
     { Objekt: 'alias.0.Fenster.Büro_klein', LED: '16' },  
@@ -75,7 +75,7 @@ var MultiStateDevices = ['0_userdata.0.Hilfsdatenpunkte.Garage_Status']; //LED i
 var Lights = ['alias.0.Licht.Lea_Mond']; //LED ist gelb, wenn die Lampe an ist, ansonsten aus
 
 var RunningDevices = ['device-reminder.0.Spülmaschine.Status','device-reminder.0.Trockner.Status','device-reminder.0.3D Drucker.Status',
-    'device-reminder.0.Waschmaschine Links.Status','device-reminder.0.Waschmaschine Rechts.Status','device-reminder.0.Xbox oben.Status','device-reminder.0.Arbeitstisch.Status'];
+    'device-reminder.0.Waschmaschine Links.Status','device-reminder.0.Waschmaschine Rechts.Status','device-reminder.0.PC Tina.Status','device-reminder.0.Arbeitstisch.Status'];
 
 var MissingDevices = ['radar2.0._notHere'];
 

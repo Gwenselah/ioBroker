@@ -195,7 +195,7 @@ on({id: "telegram.0.communicate.request", change: 'any'}, function (obj) {
     // Menü beginnen
     var Tmpvalues = command.split(" ");
     var cmdFirstWord = Tmpvalues[0].toUpperCase();
-    if (cmdFirstWord == "ALEXA") {
+    if (cmdFirstWord == "ALEXAX") {
         cmd = "ALEXASAY";
         var TexttoSay = command.substring(6);
         setState("0_userdata.0.Hilfsdatenpunkte.AlexaTexttoSay",TexttoSay);
@@ -209,13 +209,21 @@ on({id: "telegram.0.communicate.request", change: 'any'}, function (obj) {
             SendHelpMessage(benutzer);
             break;
         case "ALEXA BEFEHLE":
-            TelegramText = "Folgende Sprachkommandos sind implementiert: \n" +
-              "... schalte XYZ (GASTWlan, Wohnzimmer Ecklampe,...) an. \n" + 
-              "";
-       		sendTo('telegram', {
-					user: benutzer,
-					text: TelegramText,
-				});   
+            sendTo('telegram', {
+                user: benutzer,
+                text: "Tippe eine Zeile an:",
+                reply_markup: {
+                    inline_keyboard: [
+                        [{ text: 'Beruhige dich', callback_data: 'ALEXAX Beruhige dich'}], 
+                        [{ text: 'Ruf mal an', callback_data: 'ALEXAX Ruf mal ' + benutzer + ' an'}],
+                        [{ text: 'Komm mal an die Türe', callback_data: 'ALEXAX Komm mal an die Türe'}],
+                        [{ text: 'Melde dich bei Gelegenheit', callback_data: 'ALEXAX Melde dich bei Gelegenheit'}],
+                        [{ text: 'Essen ist fertig', callback_data: 'ALEXAX Essen ist fertig'}],
+                        [{ text: 'Sofort!', callback_data: 'ALEXAX Sofort!'}],
+                        [{ text: 'Hab dich lieb', callback_data: 'ALEXAX Hab dich lieb'}]
+                    ]
+                }
+            });             
             break; 
         case "ROLLLÄDEN":
 //            log ("Rollladen");
@@ -499,7 +507,7 @@ on({id: "telegram.0.communicate.request", change: 'any'}, function (obj) {
                             var Objectbase = tmpObjectArray[0]+"."+tmpObjectArray[1]+"."+tmpObjectArray[2]+"."+
                                 tmpObjectArray[3]+".Commands.";
                             
-                            setState(Objectbase+"speak-volume","35");
+                            setState(Objectbase+"speak-volume",35);
                             setState(Objectbase+"speak",getState("0_userdata.0.Hilfsdatenpunkte.AlexaTexttoSay").val);          
                         }      
                     };                

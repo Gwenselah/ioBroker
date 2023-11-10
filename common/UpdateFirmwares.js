@@ -16,5 +16,6 @@ shellyDps.each(function (id, i) {
     }
     anzahl_shelly++;
 });
-stopScript("");
+
 log("Shelly-Firmware: Der Update-Befehl wurde an " + anzahl_shelly_update + " von " + anzahl_shelly + " Shelly gesendet!");
+stopScript("");
