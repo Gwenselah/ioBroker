@@ -217,6 +217,7 @@ on({id: "telegram.0.communicate.request", change: 'any'}, function (obj) {
                         [{ text: 'Beruhige dich', callback_data: 'ALEXAX Beruhige dich'}], 
                         [{ text: 'Ruf mal an', callback_data: 'ALEXAX Ruf mal ' + benutzer + ' an'}],
                         [{ text: 'Komm mal an die Türe', callback_data: 'ALEXAX Komm mal an die Türe'}],
+                        [{ text: 'Kümmer dich um Deinen Hamster', callback_data: 'ALEXAX Kümmer dich um Deinen Hamster'}],
                         [{ text: 'Melde dich bei Gelegenheit', callback_data: 'ALEXAX Melde dich bei Gelegenheit'}],
                         [{ text: 'Essen ist fertig', callback_data: 'ALEXAX Essen ist fertig'}],
                         [{ text: 'Sofort!', callback_data: 'ALEXAX Sofort!'}],

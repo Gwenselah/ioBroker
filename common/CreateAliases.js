@@ -436,7 +436,7 @@ createAlias('sainlogic.0.weather.current.outdoorhumidity'/*Draussen*/, 'Luftfeuc
 //{false: 'aus', true: 'an'}
 //createAlias(, 'Steckdosen.Waschmaschine', undefined, 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHPLG-S#4022D882E6CC#1.Relay0.Switch'/*Arbeit POWER*/, 'Steckdosen.Arbeit', 'büro_gross', 'steckdosen_alias', 'boolean', undefined, undefined, 'Arbeit', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-createAlias('sonoff.0.Disher.POWER'/*Disher POWER*/, 'Steckdosen.Geschirrspüler', 'Kueche', 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('shelly.0.shellyplusplugs#a0a3b3e76ddc#1.Relay0.Switch'/*Disher POWER*/, 'Steckdosen.Geschirrspüler', 'Kueche', 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Dryer.POWER'/*Dryer POWER*/, 'Steckdosen.Trockner', 'waschkueche', 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHPLG-S#4022D881C2E0#1.Relay0.Switch'/*MiniPC POWER*/, 'Steckdosen.MiniPC', 'büro_gross', 'steckdosen_alias', 'boolean', undefined, undefined, 'MiniPC', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Statusdisplay.POWER'/*Statusdisplay POWER*/, 'Steckdosen.Statusdisplay', 'esszimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'Statusdisplay', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
@@ -456,6 +456,7 @@ createAlias('shelly.0.SHSW-1#E2D477#1.Relay0.Switch'/*Terrasse*/, 'Steckdosen.Te
 createAlias('shelly.0.SHPLG-S#C8C9A3A5016E#1.Relay0.Switch'/*Satanlage*/, 'Steckdosen.Satverteiler', 'waschkueche', 'steckdosen_alias', 'boolean', undefined, undefined, 'Satverteiler', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Wallbox.POWER'/*Wallbox*/, 'Steckdosen.Wallbox', 'garage', 'steckdosen_alias', 'boolean', undefined, undefined, 'Wallbox', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHPLG-S#C8C9A3A5C4F9#1.Relay0.Switch'/*PiPlayerPower*/, 'Steckdosen.PiPlayerPower', 'kino', 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('shelly.0.shellyplusplugs#a0a3b3e7ed94#1.Relay0.Switch'/*Dunstabzug*/, 'Steckdosen.Dunstabzug', 'Kueche', 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 
 
 //////////////////////////////
@@ -588,15 +589,14 @@ createAlias('shelly.0.SHSW-25#68C63AF98CD1#1.Shutter.Power'/*Küche Rollladen*/,
 createAlias('shelly.0.SHSW-25#68C63AF994B6#1.Shutter.Power'/*Büro gross Rollladen*/,'PowerMeasurement.BüroGroßRollladen', 'büro_gross', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#C45BBE79438B#1.Shutter.Power'/*Bad Rollladen*/,'PowerMeasurement.BadRollladen', 'bad', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 
-createAlias('sonoff.0.Disher.ENERGY_Power'/*Disher ENERGY*/, 'PowerMeasurement.Geschirrspüler', 'Kueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.shellyplusplugs#a0a3b3e76ddc#1.Relay0.Power'/*Disher ENERGY*/, 'PowerMeasurement.Geschirrspüler', 'Kueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('sonoff.0.Dryer.ENERGY_Power'/*Dryer ENERGY*/, 'PowerMeasurement.Trockner', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('sonoff.0.Washer_Left.ENERGY_Power'/*Washer Left ENERGY*/, 'PowerMeasurement.Waschmaschine_Links', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('sonoff.0.Washer_Right.ENERGY_Power'/*Washer Right ENERGY*/, 'PowerMeasurement.Waschmaschine_Rechts', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('sonoff.0.XBOX_PC.ENERGY_Power'/*Xbox pc ENERGY*/, 'PowerMeasurement.XBOX_PC', 'büro_klein', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('sonoff.0.Kinositze.ENERGY_Power'/*Kinositze ENERGY*/, 'PowerMeasurement.Kinositze', 'kino', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('sonoff.0.Weihnachtsbaum.ENERGY_Power'/*Weihnachtsbaum Power*/, 'PowerMeasurement.Weihnachtsbaum', 'wohnzimmer', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
-
-
+createAlias('shelly.0.shellyplusplugs#a0a3b3e7ed94#1.Relay0.Power'/*Dunstabzug ENERGY*/, 'PowerMeasurement.Dunstabzug', 'Kueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 
 //diese Werte dürfen nicht in den PowerMeasuerment Alias
 createAlias('mqtt.0.powermeter.main.value'/*Hauszählerstand*/,'PowerMeasurement.Hauszähler', 'waschkueche', undefined, 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'kWh', undefined)
