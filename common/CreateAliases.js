@@ -366,18 +366,87 @@ function assignEnums(){
 //createAlias('hm-rpc.0.xxx.1.STATE'/*Wohnzimmer Fenster links STATE*/, 'Fenster.Wohnzimmer_Fenster_links', undefined, 'fenster_alias', 'number', undefined, undefined, undefined, 'window.value', 'per Script erstellt', 0, 1, '',{0: 'geschlossen', 1: 'geöffnet'})
 //{false: 'geschlossen', true: 'geöffnet'}
 //createAlias('hm-rpc.0.xxx.1.STATE'/*Küche Fenster links STATE*/, 'Fenster.Kueche_Fenster_links', undefined, 'fenster_alias', 'number',undefined, undefined, undefined, 'window.value', 'per Script erstellt', 0, 1, '',{0: 'geschlossen', 1: 'geöffnet'})
-createAlias('deconz.0.Sensors.18.open'/*Schlafzimmer Fenster open*/, 'Fenster.Schlafzimmerdachfenster', 'schlafzimmer', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.19.open'/*Büro klein Fenster open*/, 'Fenster.Büro_klein', 'büro_klein', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.20.open'/*Lea Fenster open*/, 'Fenster.Lea', 'lea', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.24.open'/*Bad Fenster open*/, 'Fenster.Bad', 'bad', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d000404263c.opened'/*Schlafzimmer Fenster open*/, 'Fenster.Schlafzimmer_Dachfenster', 'schlafzimmer', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d00041cd51d.opened'/*Büro klein Fenster open*/, 'Fenster.Büro_klein', 'büro_klein', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d00040161e4.opened'/*Lea Fenster open*/, 'Fenster.Lea', 'lea', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d00041d08f6.opened'/*Bad Fenster open*/, 'Fenster.Bad', 'bad', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
 createAlias('deconz.0.Sensors.25.open'/*Kino Fenster open*/, 'Fenster.Kino', 'kino', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.26.open'/*WC Fenster open*/, 'Fenster.WC', 'wc', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.27.open'/*Waschküche Fenster open*/, 'Fenster.Waschküche', 'waschkueche', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.7.open'/*Küchenfenster open*/, 'Fenster.Küche', 'Kueche', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.23.open'/*Kai Fenster links open*/, 'Fenster.Kai_links', 'kai', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.40.open'/*Kai Fenster rechts open*/, 'Fenster.Kai_rechts', 'kai', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.42.open'/*Schlafzimmer Fenster links*/, 'Fenster.Schlafzimmer_links', 'schlafzimmer', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.41.open'/*Schlafzimmer Fenster rechts*/, 'Fenster.Schlafzimmer_rechts', 'schlafzimmer', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d000401816d.opened'/*WC Fenster open*/, 'Fenster.WC', 'wc', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d0004016172.opened'/*Waschküche Fenster open*/, 'Fenster.Waschküche', 'waschkueche', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d0002ca139d.opened'/*Küchenfenster open*/, 'Fenster.Küche', 'Kueche', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d00042301e2.opened'/*Kai Fenster links open*/, 'Fenster.Kai_links', 'kai', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d00094d4e9c.opened'/*Kai Fenster rechts open*/, 'Fenster.Kai_rechts', 'kai', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d000950dfc7.opened'/*Schlafzimmer Fenster links*/, 'Fenster.Schlafzimmer_links', 'schlafzimmer', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d00094d50e6.opened'/*Schlafzimmer Fenster rechts*/, 'Fenster.Schlafzimmer_rechts', 'schlafzimmer', 'fenster_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+
+
+//////////////////////////////
+//  Türen
+////////////////////////////// 
+//einfache Türensensoren über rpc-Adapter in function tueren_alias
+createAlias('zigbee.0.00158d0004233b11.opened'/*Lea Tür open*/, 'Tueren.Lea', 'lea', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d000401625e.opened'/*Büro gross Tür open*/, 'Tueren.Büro_groß', 'büro_gross', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d0002c7b951.opened'/*Wohnzimmer Türe rechts open*/, 'Tueren.Wohnzimmer_Rechts', 'wohnzimmer', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d0002bfc56f.opened'/*Wohnzimmer Türe links open*/, 'Tueren.Wohnzimmer_Links', 'wohnzimmer', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('deconz.0.Sensors.6.open'/*Garage open*/, 'Tueren.Garage', 'garage', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+createAlias('zigbee.0.00158d0002ca0dfa.opened'/*Haustür open*/, 'Tueren.Haustür', 'windfang', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
+
+
+//////////////////////////////
+//  Batterien Prozent
+//////////////////////////////
+//createAlias(, 'Batterien_Prozent.Ha', undefined, 'batterien_prozent_alias', 'number', undefined, false, 'Haussteuerung Tablet', 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d000404263c.battery'/*Schlafzimmer Dachfenster battery*/, 'Batterien_Prozent.Schlafzimmer_Dachfenster', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d00041cd51d.battery'/*Büro klein Fenster battery*/, 'Batterien_Prozent.Büro_klein_Fenster', 'büro_klein', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d00040161e4.battery'/*Lea Fenster battery*/, 'Batterien_Prozent.Lea_Fenster', 'lea', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d0004233b11.battery'/*Lea Tür battery*/, 'Batterien_Prozent.Lea_Tür', 'lea', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d000401625e.battery'/*Büro gross battery*/, 'Batterien_Prozent.Büro_groß_Tür', 'büro_gross', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d00041d08f6.battery'/*Bad Fenster battery*/, 'Batterien_Prozent.Bad_Fenster', 'bad', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('deconz.0.Sensors.25.battery'/*Kino Fenster battery*/, 'Batterien_Prozent.Kino_Fenster', 'kino', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d000401816d.battery'/*WC Fenster battery*/, 'Batterien_Prozent.WC_Fenster', 'wc', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d0004016172.battery'/*Waschküche Fenster battery*/, 'Batterien_Prozent.Waschküche_Fenster', 'waschkueche', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('deconz.0.Sensors.30.battery'/*TRADFRI remote control  battery*/, 'Batterien_Prozent.Remote_Control_Tina', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('deconz.0.Sensors.31.battery'/*TRADFRI remote control  battery*/, 'Batterien_Prozent.Remote_Control_Andy', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d0002c7b951.battery'/*Wohnzimmer Türe rechts battery*/, 'Batterien_Prozent.Wohnzimmer_Türe_Rechts', 'wohnzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d0002bfc56f.battery'/*Wohnzimmer Türe links battery*/, 'Batterien_Prozent.Wohnzimmer_Türe_Links', 'wohnzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('deconz.0.Sensors.6.battery'/*Garage battery*/, 'Batterien_Prozent.Garage', 'garage', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d0002ca139d.battery'/*Küchenfenster battery*/, 'Batterien_Prozent.Küchenfenster', 'Kueche', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d0002795a9b.battery'/*Kinowasser battery*/, 'Batterien_Prozent.Kinowasser', 'kino', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d0002ca0dfa.battery'/*Haustür battery*/, 'Batterien_Prozent.Haustür', 'windfang', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('shelly.0.SHHT-1#78D8B6#1.bat.value'/*Shelly HT im Kino Batterie*/, 'Batterien_Prozent.Kino1', 'kino', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d00042301e2.battery'/*Kai Fenster Links battery*/, 'Batterien_Prozent.Kai_Fenster_Links', 'kai', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d00094d4e9c.battery'/*Kai Fenster Rechts battery*/, 'Batterien_Prozent.Kai_Fenster_Rechts', 'kai', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d000950dfc7.battery'/*Schlafzimmer Fenster links battery*/, 'Batterien_Prozent.Schlafzimmer_Fenster_links', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.00158d00094d50e6.battery'/*Schlafzimmer Fenster rechts battery*/, 'Batterien_Prozent.Schlafzimmer_Fenster_rechts', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+
+
+
+//////////////////////////////
+//  Batterien_Volt
+//////////////////////////////
+//2 x Batterien Volt Anzeige in function batterien_volt_alias
+//Vorlage: createAlias(''/* Spannung*/, 'Batterien_Volt.Kinowasser', 'herrenberg', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+
+createAlias('mqtt.0.weather.solarweatherstation.battv'/*Wetterstation Spannung*/, 'Batterien_Volt.Wetterstation', 'herrenberg', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+//createAlias('hm-rpc.0.xxx.0.OPERATING_VOLTAGE'/*Küche Fenster links:0 OPERATING VOLTAGE*/, 'Batterien_Volt.Kueche_Fenster_links', undefined, 'batterien_volt_alias', 'number', undefined, undefined, 'Küche Fenster links', 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d0004016172.voltage'/*Waschküche Fenster battery*/, 'Batterien_Volt.Waschküche_Fenster', 'waschkueche', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d000401625e.voltage'/* Büro groß Spannung*/, 'Batterien_Volt.Büro_groß_Tür', 'büro_gross', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d0002bfc56f.voltage'/* Wohnzimmer Türe Links Spannung*/, 'Batterien_Volt.Wohnzimmer_Türe_Links', 'wohnzimmer', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d0002c7b951.voltage'/* Wohnzimmer Türe Rechts Spannung*/, 'Batterien_Volt.Wohnzimmer_Türe_Rechts', 'wohnzimmer', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d0002ca0dfa.voltage'/* Haustüre Spannung*/, 'Batterien_Volt.Haustür', 'windfang', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d0002ca139d.voltage'/* Küchenfenster Spannung*/, 'Batterien_Volt.Küchenfenster', 'Kueche', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d00040161e4.voltage'/* Lea Fenster Spannung*/, 'Batterien_Volt.Lea_Fenster', 'lea', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d000401816d.voltage'/* WC Fenster Spannung*/, 'Batterien_Volt.WC_Fenster', 'wc', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d00041d08f6.voltage'/* Bad Fenster Spannung*/, 'Batterien_Volt.Bad_Fenster', 'bad', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d00042301e2.voltage'/* Kai Fenster Links Spannung*/, 'Batterien_Volt.Kai_Fenster_Links', 'kai', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d0004233b11.voltage'/* Lea Türe Spannung*/, 'Batterien_Volt.Lea_Türe', 'lea', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d00094d4e9c.voltage'/* Kai Fenster Rechts Spannung*/, 'Batterien_Volt.Kai_Fenster_Rechts', 'kai', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d000404263c.voltage'/* Schlafzimmer Dachfenster Spannung*/, 'Batterien_Volt.Schlafzimmer_Dachfenster', 'schlafzimmer', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d00041cd51d.voltage'/* Büro klein Fenster Spannung*/, 'Batterien_Volt.Büro_klein_Fenster', 'büro_klein', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d000950dfc7.voltage'/* Schlafzimmer Fenster links Spannung*/, 'Batterien_Volt.Schlafzimmer_Fenster_links', 'schlafzimmer', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d00094d50e6.voltage'/* Schlafzimmer Fenster rechts Spannung*/, 'Batterien_Volt.Schlafzimmer_Fenster_rechts', 'schlafzimmer', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+//createAlias(''/* Spannung*/, 'Batterien_Volt.Kinowasser', 'herrenberg', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+//createAlias(''/* Spannung*/, 'Batterien_Volt.Kinowasser', 'herrenberg', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
 
 
 
@@ -385,21 +454,9 @@ createAlias('deconz.0.Sensors.41.open'/*Schlafzimmer Fenster rechts*/, 'Fenster.
 //  Alarme
 ////////////////////////////// 
 //createAlias('deconz.0.Sensors.35.water'/*Wasseralarm*/, 'Alarm.Kinowasser', 'kino', 'alarm_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'ALARM'})
-createAlias('deconz.0.Sensors.39.water'/*Wasseralarm*/, 'Alarm.Kinowasser', 'kino', 'alarm_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'ALARM'})
+createAlias('zigbee.0.00158d0002795a9b.detected'/*Wasseralarm*/, 'Alarm.Kinowasser', 'kino', 'alarm_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'ALARM'})
+createAlias('zigbee.0.8cf681fffef48222.detected'/*Wasseralarm*/, 'Alarm.Kinowasser2', 'kino', 'alarm_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'ALARM'})
 
-
-
-//////////////////////////////
-//  Türen
-////////////////////////////// 
-//einfache Türensensoren über rpc-Adapter in function tueren_alias
-createAlias('deconz.0.Sensors.21.open'/*Lea Tür open*/, 'Tueren.Lea', 'lea', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.22.open'/*Büro gross Tür open*/, 'Tueren.Büro_groß', 'büro_gross', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.23.open'/*Schlafzimmer Tür open*/, 'Tueren.Schlafzimmer', 'schlafzimmer', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.4.open'/*Wohnzimmer Türe rechts open*/, 'Tueren.Wohnzimmer_Rechts', 'wohnzimmer', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.5.open'/*Wohnzimmer Türe links open*/, 'Tueren.Wohnzimmer_Links', 'wohnzimmer', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.6.open'/*Garage open*/, 'Tueren.Garage', 'garage', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
-createAlias('deconz.0.Sensors.8.open'/*Haustür open*/, 'Tueren.Haustür', 'windfang', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
 
 //////////////////////////////
 //  Temperaturen
@@ -443,10 +500,10 @@ createAlias('sonoff.0.Statusdisplay.POWER'/*Statusdisplay POWER*/, 'Steckdosen.S
 createAlias('sonoff.0.Washer_Left.POWER'/*Washer Left POWER*/, 'Steckdosen.Waschmaschine_Links', 'waschkueche', 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Washer_Right.POWER'/*Washer Right POWER*/, 'Steckdosen.Waschmaschine_Rechts', 'waschkueche', 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.XBOX_PC.POWER'/*Xbox pc power*/, 'Steckdosen.XBOX_PC', 'büro_klein', 'steckdosen_alias', 'boolean', undefined, undefined, 'Computer Tina', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-createAlias('deconz.0.Lights.3.on'/*Light 3 on*/, 'Steckdosen.Wohnzimmer_Entertainment', 'wohnzimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'Entertainment', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-createAlias('deconz.0.Lights.4.on'/*Light 4 on*/, 'Steckdosen.Lava','lea', 'steckdosen_alias', 'boolean', undefined, undefined, 'Lava', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-createAlias('deconz.0.Lights.5.on'/*Light 5 on*/, 'Steckdosen.Klimagerät', 'büro_gross', 'steckdosen_alias', 'boolean', undefined, undefined, 'Klimagerät', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-createAlias('deconz.0.Lights.8.on'/*undefined on*/, 'Steckdosen.CPAP', 'schlafzimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'CPAP', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('zigbee.0.7cb03eaa0a06e683.state'/*Entertainment*/, 'Steckdosen.Wohnzimmer_Entertainment', 'wohnzimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'Entertainment', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('zigbee.0.7cb03eaa0a06762e.state'/*Lea Lava*/, 'Steckdosen.Lava','lea', 'steckdosen_alias', 'boolean', undefined, undefined, 'Lava', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('zigbee.0.7cb03eaa0a011c15.state'/*Klimagerät*/, 'Steckdosen.Klimagerät', 'büro_gross', 'steckdosen_alias', 'boolean', undefined, undefined, 'Klimagerät', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('zigbee.0.00158d00032ac08c.state'/*CPAP on*/, 'Steckdosen.CPAP', 'schlafzimmer', 'steckdosen_alias', 'boolean', undefined, undefined, 'CPAP', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Kinositze.POWER', 'Steckdosen.Kinositze', 'kino', 'steckdosen_alias', 'boolean', undefined, undefined, 'Kinositze', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Kino.POWER1', 'Steckdosen.Kinotechnik', 'kino', 'steckdosen_alias', 'boolean', undefined, undefined, 'Kinotechnik', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHPLG-S#4022D88353D0#1.Relay0.Switch'/*KaiPc power*/, 'Steckdosen.KaiPC', 'kai', 'steckdosen_alias', 'boolean', undefined, undefined, 'KaiPC', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
@@ -456,8 +513,7 @@ createAlias('shelly.0.SHSW-1#E2D477#1.Relay0.Switch'/*Terrasse*/, 'Steckdosen.Te
 createAlias('shelly.0.SHPLG-S#C8C9A3A5016E#1.Relay0.Switch'/*Satanlage*/, 'Steckdosen.Satverteiler', 'waschkueche', 'steckdosen_alias', 'boolean', undefined, undefined, 'Satverteiler', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Wallbox.POWER'/*Wallbox*/, 'Steckdosen.Wallbox', 'garage', 'steckdosen_alias', 'boolean', undefined, undefined, 'Wallbox', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHPLG-S#C8C9A3A5C4F9#1.Relay0.Switch'/*PiPlayerPower*/, 'Steckdosen.PiPlayerPower', 'kino', 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-createAlias('shelly.0.shellyplusplugs#a0a3b3e7ed94#1.Relay0.Switch'/*Dunstabzug*/, 'Steckdosen.Dunstabzug', 'Kueche', 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-
+createAlias('shelly.0.shellyplusplugs#a0a3b3e7ed94#1.Relay0.Switch'/*Dunstabzug*/, 'Steckdosen.Dunstabzug', 'Kueche', 'steckdosen_alias', 'boolean', undefined, undefined, 'Dunstabzug', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 
 //////////////////////////////
 //  Licht
@@ -470,53 +526,17 @@ createAlias('shelly.0.SHSW-1#E09CD6#1.Relay0.Switch'/*Switch*/, 'Licht.Wohnzimme
 createAlias('shelly.0.SHSW-1#E1FE99#1.Relay0.Switch'/*Switch*/, 'Licht.Esszimmer_Deckenlampe', 'esszimmer', 'licht_alias', 'boolean', undefined, undefined, 'Esszimmer Deckenlampe', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHSW-25#483FDA82436B#1.Relay0.Switch'/*Switch*/, 'Licht.Schlafzimmer_Lampe_Links', 'schlafzimmer', 'licht_alias', 'boolean', undefined, undefined, 'Schlafzimmmer Lampe Links', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHSW-25#483FDA82436B#1.Relay1.Switch'/*Switch*/, 'Licht.Schlafzimmer_Lampe_Rechts', 'schlafzimmer', 'licht_alias', 'boolean', undefined, undefined, 'Schlafzimmmer Lampe Rechts', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-createAlias('deconz.0.Lights.1.on'/*Light 1 on*/, 'Licht.Esszimmer_Schranklicht', 'esszimmer', 'licht_alias', 'boolean', undefined, undefined, 'Esszimmer Schranklicht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-createAlias('deconz.0.Lights.2.on'/*Light 2 on*/, 'Licht.Wohnzimmer_Ecklampe', 'wohnzimmer', 'licht_alias', 'boolean', undefined, undefined, 'Wohnzimmer Ecklampe', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('zigbee.0.00158d000356a50f.state'/*Esszimmer Schranklicht*/, 'Licht.Esszimmer_Schranklicht', 'esszimmer', 'licht_alias', 'boolean', undefined, undefined, 'Esszimmer Schranklicht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('zigbee.0.7cb03eaa00b08433.state'/*Wohnzimmer Ecklampe 2*/, 'Licht.Wohnzimmer_Ecklampe', 'wohnzimmer', 'licht_alias', 'boolean', undefined, undefined, 'Wohnzimmer Ecklampe', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('fritzdect.0.DECT_087610274750.state'/*Switch Status and Control*/, 'Licht.Wohnzimmer_Schranklicht', 'wohnzimmer', 'licht_alias', 'boolean', undefined, undefined, 'Wohnzimmer Schranklicht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Weihnachtsbaum.POWER'/*Light 2 on*/, 'Licht.Weihnachtsbaum', 'wohnzimmer', 'licht_alias', 'boolean', undefined, undefined, 'Weihnachtsbaum', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHSW-1#E2D5C6#1.Relay0.Switch'/*Switch*/, 'Licht.Garage', 'garage', 'licht_alias', 'boolean', undefined, undefined, 'Garage', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
-
 createAlias('sonoff.0.Kino.POWER2'/*Kino  POWER2*/, 'Licht.Parkett', 'kino', 'licht_alias', 'boolean', undefined, undefined, 'Parkett Licht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Kino.POWER3'/*Kino  POWER3*/, 'Licht.Leinwand', 'kino', 'licht_alias', 'boolean', undefined, undefined, 'Leinwand Licht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Kino.POWER4'/*Kino  POWER4*/, 'Licht.Lounge', 'kino', 'licht_alias', 'boolean', undefined, undefined, 'Lounge Licht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('wled.0.8c4b14a6ded4.on'/*On / Off*/, 'Licht.Kino_LED_on', 'kino', 'licht_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('wled.0.8c4b14a6ded4.bri'/*Brightness of the light*/, 'Licht.Kino_LED_bri', 'kino', undefined, 'number', undefined, undefined, undefined, 'value.brightness', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 
-
-//////////////////////////////
-//  Batterien Prozent
-//////////////////////////////
-//createAlias(, 'Batterien_Prozent.Ha', undefined, 'batterien_prozent_alias', 'number', undefined, false, 'Haussteuerung Tablet', 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.18.battery'/*Schlafzimmer Fenster battery*/, 'Batterien_Prozent.Schlafzimmer_Fenster', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.19.battery'/*Büro klein Fenster battery*/, 'Batterien_Prozent.Büro_klein_Fenster', 'büro_klein', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.20.battery'/*Lea Fenster battery*/, 'Batterien_Prozent.Lea_Fenster', 'lea', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.21.battery'/*Lea Tür battery*/, 'Batterien_Prozent.Lea_Tür', 'lea', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.22.battery'/*Büro gross battery*/, 'Batterien_Prozent.Büro_groß_Tür', 'büro_gross', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.23.battery'/*Schlafzimmer Tür battery*/, 'Batterien_Prozent.Schlafzimmer_Tür', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.24.battery'/*Bad Fenster battery*/, 'Batterien_Prozent.Bad_Fenster', 'bad', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.25.battery'/*Kino Fenster battery*/, 'Batterien_Prozent.Kino_Fenster', 'kino', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.26.battery'/*WC Fenster battery*/, 'Batterien_Prozent.WC_Fenster', 'wc', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.27.battery'/*Waschküche Fenster battery*/, 'Batterien_Prozent.Waschküche_Fenster', 'waschkueche', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.30.battery'/*TRADFRI remote control  battery*/, 'Batterien_Prozent.Remote_Control_Tina', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.31.battery'/*TRADFRI remote control  battery*/, 'Batterien_Prozent.Remote_Control_Andy', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.4.battery'/*Wohnzimmer Türe rechts battery*/, 'Batterien_Prozent.Wohnzimmer_Türe_Rechts', 'wohnzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.5.battery'/*Wohnzimmer Türe links battery*/, 'Batterien_Prozent.Wohnzimmer_Türe_Links', 'wohnzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.6.battery'/*Garage battery*/, 'Batterien_Prozent.Garage', 'garage', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.7.battery'/*Küchenfenster battery*/, 'Batterien_Prozent.Küchenfenster', 'Kueche', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.39.battery'/*Kinowasser battery*/, 'Batterien_Prozent.Kinowasser', 'kino', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-//createAlias('deconz.0.Sensors.8.battery'/*Kai Fenster battery*/, 'Batterien_Prozent.Kai_Fenster', undefined, 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('deconz.0.Sensors.8.battery'/*Haustür battery*/, 'Batterien_Prozent.Haustür_Fenster', 'windfang', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('shelly.0.SHHT-1#78D8B6#1.bat.value'/*Shelly HT im Kino Batterie*/, 'Batterien_Prozent.Kino1', 'kino', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-
-
-//////////////////////////////
-//  Batterien_Volt
-//////////////////////////////
-//2 x Batterien Volt Anzeige in function batterien_volt_alias
-createAlias('mqtt.0.weather.solarweatherstation.battv'/*Wetterstation Spannung*/, 'Batterien_Volt.Wetterstation', 'herrenberg', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
-//createAlias('hm-rpc.0.xxx.0.OPERATING_VOLTAGE'/*Küche Fenster links:0 OPERATING VOLTAGE*/, 'Batterien_Volt.Kueche_Fenster_links', undefined, 'batterien_volt_alias', 'number', undefined, undefined, 'Küche Fenster links', 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
- 
- 
 
 //////////////////////////////
 //  Rollladen
@@ -603,7 +623,6 @@ createAlias('mqtt.0.powermeter.main.value'/*Hauszählerstand*/,'PowerMeasurement
 //createAlias('sonoff.0.Wallbox.ENERGY_Power'/*Wallbox*/,'PowerMeasurement.WallboxTotal', 'garage', undefined, 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'kWh', undefined)
 
 //Solar
-//createAlias('shelly.0.SHPLG-S#7C87CEB4BB7A#1.Relay0.Power'/*Inverter*/,'Solar.InverterMeasurement', 'terrasse', 'solar_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
-
+createAlias('shelly.0.shellypmmini#6055f99974b8#1.PM1:0.Power'/*Inverter*/,'Solar.InverterMeasurement', 'terrasse', 'solar_alias', 'number', '(-1 *val)', false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 
 stopScript("");
