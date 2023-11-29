@@ -418,7 +418,9 @@ createAlias('zigbee.0.00158d00042301e2.battery'/*Kai Fenster Links battery*/, 'B
 createAlias('zigbee.0.00158d00094d4e9c.battery'/*Kai Fenster Rechts battery*/, 'Batterien_Prozent.Kai_Fenster_Rechts', 'kai', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
 createAlias('zigbee.0.00158d000950dfc7.battery'/*Schlafzimmer Fenster links battery*/, 'Batterien_Prozent.Schlafzimmer_Fenster_links', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
 createAlias('zigbee.0.00158d00094d50e6.battery'/*Schlafzimmer Fenster rechts battery*/, 'Batterien_Prozent.Schlafzimmer_Fenster_rechts', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-
+createAlias('zigbee.0.003c84fffe0dcdbd.battery'/*Fernbedienung Kai battery*/, 'Batterien_Prozent.Fernbedienung_Kai', 'kai', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.003c84fffe9c5b11.battery'/*Fernbedienung Andy battery*/, 'Batterien_Prozent.Fernbedienung_Andy', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('zigbee.0.842e14fffebaf7b5.battery'/*Fernbedienung Tina battery*/, 'Batterien_Prozent.Fernbedienung_Tina', 'schlafzimmer', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
 
 
 //////////////////////////////

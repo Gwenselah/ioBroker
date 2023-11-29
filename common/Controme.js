@@ -1,22 +1,19 @@
 //Die Rooms Enumeration funktioniert nicht mit LinkedDevices
-var DoorsandWindows = ['deconz.0.Sensors.24.open',
-	//'deconz.0.Sensors.6.open', //Garage
-	'deconz.0.Sensors.23.open',
-	'deconz.0.Sensors.20.open',
-	'deconz.0.Sensors.21.open',
-	'deconz.0.Sensors.25.open',//Kino
-	'deconz.0.Sensors.7.open',
-	'deconz.0.Sensors.22.open',
-	'deconz.0.Sensors.8.open', //Windfang, ehemals Kai
-	//'deconz.0.Sensors.27.open', //Waschküche
-	'deconz.0.Sensors.26.open',
-	'deconz.0.Sensors.5.open',
-	'deconz.0.Sensors.4.open',
-	'deconz.0.Sensors.18.open',
-	'deconz.0.Sensors.19.open',
-	'deconz.0.Sensors.40.open',
-	'deconz.0.Sensors.41.open',
-	'deconz.0.Sensors.42.open'
+var DoorsandWindows = ['alias.0.Tueren.Büro_klein',
+	'alias.0.Fenster.Schlafzimmer_Dachfenster', 
+	'alias.0.Fenster.Schlafzimmer_links',
+	'alias.0.Fenster.Schlafzimmer_rechts',
+	'alias.0.Tueren.Büro_groß',
+	'alias.0.Tueren.Lea',
+	'alias.0.Fenster.Bad',
+	'alias.0.Fenster.Kai_links',
+	'alias.0.Fenster.Kai_rechts', 
+	'dalias.0.Fenster.Lea',
+	'alias.0.Fenster.WC',
+	'alias.0.Fenster.Küche',
+	'alias.0.Tueren.Wohnzimmer_Links',
+	'alias.0.Tueren.Wohnzimmer_Rechts',
+	'alias.0.Tueren.Haustür'
 ];
 
 var params = {
