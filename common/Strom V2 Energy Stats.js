@@ -10,8 +10,8 @@ const loggingTemplate = {
     '0_userdata.0.energy.contract.electricity.kWhPriceExport': 'priceOut',
     '0_userdata.0.energy.electricity.meter.totalIn': 'importedWh',
     '0_userdata.0.energy.electricity.meter.totalOut': 'exportedWh',   
-    '0_userdata.0.energy.electricity.meter.PhotovoltaicPowerTotal': 'generatedWh',
-    '0_userdata.0.energy.electricity.meter.WallboxPowerTotal': 'wallboxWh',
+    'alias.0.Solar.InverterMeasurementTotal': 'generatedWh',
+    'easee.0.EH9NK57L.status.lifetimeEnergy': 'wallboxWh',
 };
 
 const loggingObj = {};
@@ -70,14 +70,3 @@ on({id: 'alias.0.PowerMeasurement.Hauszähler', change: 'ne'},(obj) => {
     setState('0_userdata.0.energy.electricity.meter.totalIn',Wattactual);
 })
 
-on({id: 'deyeidc.0.3921236629.Et_ge0', change: 'ne'},(obj) => {
-    //rate_time_per_unit enthält den ermittelten Wert pro Minute
-    var Wattactual = obj.state.val*1000; //Umrechnung in wH
-    setState('0_userdata.0.energy.electricity.meter.PhotovoltaicPowerTotal',Wattactual);
-})
-
-on({id: 'sonoff.0.Wallbox.ENERGY_Total', change: 'ne'},(obj) => {
-    //rate_time_per_unit enthält den ermittelten Wert pro Minute
-    var Wattactual = obj.state.val*1000; //Umrechnung in wH
-    setState('0_userdata.0.energy.electricity.meter.WallboxPowerTotal',Wattactual);
-})

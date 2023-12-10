@@ -1,4 +1,4 @@
-const basePath = "0_userdata.0.Steuerzentrale.ZigbeeWatchdog.";
+const basePath = "0_userdata.0.ZigbeeWatchdog.";
 const stateDevicesCount = basePath + "devices_count_all";
 const stateDevicesLinkQuality = basePath + "devices_link_quality_list";
 const stateDevicesOfflineCount = basePath + "devices_offline_count";
@@ -122,7 +122,7 @@ function zigbeeWatchdog() {
     setState(stateDevicesLastCheck, [formatDate(new Date(), "DD.MM.YYYY"),' - ',formatDate(new Date(), "hh:mm:ss")].join(''));
 }
  
-schedule("6 */1 * * *", function () {
+schedule("0 18 * * *", function () {
     log("Run Zigbee-Watchdog");
     zigbeeWatchdog();
 });

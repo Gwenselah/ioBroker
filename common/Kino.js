@@ -1,6 +1,8 @@
 
 var Switches = ['sonoff.0.Kino.POWER1','sonoff.0.Kino.POWER2','sonoff.0.Kino.POWER3','sonoff.0.Kino.POWER4',
     'alias.0.Steckdosen.Kinositze','alias.0.Fenster.Kino','wled.0.8c4b14a6ded4.on'];
+var Entprellzeit = 500;
+
 var Remotes = ['deconz.0.Sensors.32.buttonpressed'];
    
 on({id: Switches, change: 'ne'},(obj) => {
@@ -28,6 +30,40 @@ on({id: Switches, change: 'ne'},(obj) => {
 
 
 });
+
+
+//Click auf Taster
+on({id: 'zigbee.0.00158d00084e4d3d.click', change: 'ne'},(obj) => {
+    if ((obj.state.ts-obj.oldState.ts) < Entprellzeit) {
+        log ("Keine Aktion, da Taste geprellt hat: " + (obj.state.ts-obj.oldState.ts) + " ms");
+    } else { 
+        if ((getState('scene.0.Kinolicht_LED').val) == true) {
+            //setState('scene.0.Kinolicht',false);
+            setState('scene.0.Kinolicht_LED',false);
+        } else {
+            //setState('scene.0.Kinolicht',true);
+            setState('scene.0.Kinolicht_LED',true);
+        }
+    }
+})
+
+
+//Doppelclick auf Taster
+on({id: 'zigbee.0.00158d00084e4d3d.double_click', change: 'ne'},(obj) => {
+    if ((obj.state.ts-obj.oldState.ts) < Entprellzeit) {
+        log ("Keine Aktion, da Taste geprellt hat: " + (obj.state.ts-obj.oldState.ts) + " ms");
+    } else { 
+        if ((getState('sonoff.0.Kino.POWER1').val) == true) {
+            //setState('scene.0.Kinolicht',false);
+            setState('sonoff.0.Kino.POWER1',false);
+        } else {
+            //setState('scene.0.Kinolicht',true);
+            setState('sonoff.0.Kino.POWER1',true);
+        }            
+
+    }
+})
+
 
 
 on({id: Remotes, change: 'ne'},(obj) => {

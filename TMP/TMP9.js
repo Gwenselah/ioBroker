@@ -1,6 +1,6 @@
 
 
-on ({id:'zigbee.0.842e14fffebaf7b5.msg_from_zigbee', change: 'ne'},(obj) => {
-    log(obj.state.val);
+on ({id:'zigbee.0.00158d00084e4d3d.click', change: 'ne'},(obj) => {
+    log("click");
 })
 

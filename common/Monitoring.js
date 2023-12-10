@@ -121,12 +121,12 @@ on({id: 'mqtt.0.powermeter.main.error', change: 'ne'},(obj) => {
 });
 
 
-lowBatt();
-NotReachable();
+//lowBatt();
+//NotReachable();
 CheckAlerts();
 
-schedule('0 18 * * *', lowBatt); // täglich 18 Uhr
-schedule('0 18 * * *', NotReachable); // täglich 18 Uhr
+//schedule('0 18 * * *', lowBatt); // täglich 18 Uhr
+//schedule('0 18 * * *', NotReachable); // täglich 18 Uhr
 schedule('0 18 * * *', CheckAlerts); // täglich 18 Uhr
 
  

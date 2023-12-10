@@ -11,7 +11,7 @@ const loggingTemplate = {
 //    'alias.0.energy.electricity.meter.totalOut': 'meterOutW', //wieviel wird gerade exportiert/eingespeist?
     '0_userdata.0.energy.electricity.meter.in': 'meterInW', //wieviel wird gerade importiert?
     '0_userdata.0.energy.electricity.meter.out': 'meterOutW', //wieviel wird gerade exportiert/eingespeist?    
-    'deyeidc.0.3921236629.Apo_t1': 'generatorW', //wieviel wird gerade durch die Solaranlage erzeugt?
+    'alias.0.Solar.InverterMeasurement': 'generatorW', //wieviel wird gerade durch die Solaranlage erzeugt?
     'alias.0.PowerMeasurement.Wallbox': 'wallboxW', //wieviel wird durch die Wallbox konsumiert
 };
 
