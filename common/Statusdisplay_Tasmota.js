@@ -14,17 +14,17 @@ var DisplayIP = "10.1.24.132";
 /*
 BEI TASMOTA BEGINNT DIE ZÄHLUNG BEI 1 !!!
 
-LED 30: Wohnzimmer linke Tür	LED 19:	Lea Türe				LED 18: Schlafzimmer Fenster 	LED 7: Altpapaier 	    LED 6: linke Waschmaschine 
-LED 29: Wohnzimmer rechte Tür   LED 20: Lea Fenster     		LED 17: Schlafzimmer Dachf.     LED 8: Biomüll    	    LED 5: rechte Waschmaschine
-LED 28: Küche Fenster           LED 21: Lea Mond Office         LED 16: Büro klein Fenster		LED 9: Restmüll      	LED 4: Trockner   
-LED 27: WC Fenster    			LED 22: Bad Fenster     		LED 15: Büro groß Türe          LED 10: Wertstoffe 	    LED 3: Geschirrspüler 
-LED 26: Waschküche Fenster      LED 23: Kai Fenster	            LED 14: Arbeitstisch 			LED 11:	Klimagerät		LED 2: 3D Drucker
+LED 30: Wohnzimmer linke Tür	LED 19:	Lea Türe und Türe   	LED 18: Schlafzimmer Fenster 	LED 7: Altpapaier 	    LED 6: linke Waschmaschine 
+LED 29: Wohnzimmer rechte Tür   LED 20: Lea Mond     		    LED 17:                         LED 8: Biomüll    	    LED 5: rechte Waschmaschine
+LED 28: Küche Fenster           LED 21: Bad Fenster             LED 16: Büro klein Fenster		LED 9: Restmüll      	LED 4: Trockner   
+LED 27: WC Fenster    			LED 22: Kai Fenster    		    LED 15: Büro groß Türe          LED 10: Wertstoffe 	    LED 3: Geschirrspüler 
+LED 26: Waschküche Fenster      LED 23: Wallbox	                    LED 14: Arbeitstisch 			LED 11:	Terasse    	    LED 2: 
 LED 25: Kino Fenster und Status LED 24: Garage           		LED 13: Tina PC 		    	LED 12:	Entertainment	LED 1: nicht erreichbare Geräte
 */
 var ObjektLEDs = [
     //BEI TASMOTA BEGINNT DIE ZÄHLUNG BEI 1 !!!
     { Objekt: 'radar2.0._notHere', LED: '01' },
-    { Objekt: 'device-reminder.0.3D Drucker.Status', LED: '02' },    
+    { Objekt: '', LED: '02' },    
     { Objekt: 'device-reminder.0.Spülmaschine.Status', LED: '03' },
     { Objekt: 'device-reminder.0.Trockner.Status', LED: '04' },
     { Objekt: 'device-reminder.0.Waschmaschine Rechts.Status', LED: '05' },
@@ -33,7 +33,7 @@ var ObjektLEDs = [
     { Objekt: 'BioMuell', LED: '08' },    //Biomüll
     { Objekt: 'RestMuell', LED: '09' },   //Restmüll
     { Objekt: 'Wertstoffe', LED: '10' },  //Wertstoffe
-    { Objekt: 'alias.0.Steckdosen.Klimagerät', LED: '11' },    
+    { Objekt: 'alias.0.Steckdosen.Terrasse', LED: '11' },    
     { Objekt: 'alias.0.Steckdosen.Wohnzimmer_Entertainment', LED: '12' },    
 //    { Objekt: 'alias.0.Steckdosen.XBOX', LED: '13' },    
 //    { Objekt: 'alias.0.Steckdosen.Arbeit', LED: '14' },
@@ -41,13 +41,13 @@ var ObjektLEDs = [
     { Objekt: 'device-reminder.0.Arbeitstisch.Status', LED: '14' },
     { Objekt: 'alias.0.Tueren.Büro_groß', LED: '15' },  
     { Objekt: 'alias.0.Fenster.Büro_klein', LED: '16' },  
-    { Objekt: 'alias.0.Fenster.Schlafzimmer_Dachfenster', LED: '17' },   
+    { Objekt: '', LED: '17' },   
     { Objekt: '0_userdata.0.Geräte.IsSchlafzimmerWindowOpen', LED: '18' },    
-    { Objekt: 'alias.0.Tueren.Lea', LED: '19' },    
-    { Objekt: 'alias.0.Fenster.Lea', LED: '20' },    
-    { Objekt: 'alias.0.Licht.Lea_Mond', LED: '21' },    
-    { Objekt: 'alias.0.Fenster.Bad', LED: '22' },    
-    { Objekt: '0_userdata.0.Geräte.IsKaiWindowOpen', LED: '23' },    
+    { Objekt: '0_userdata.0.Geräte.IsLeaWindowOpen', LED: '19' },    
+    { Objekt: 'alias.0.Licht.Lea_Mond', LED: '20' },    
+    { Objekt: 'alias.0.Fenster.Bad', LED: '21' },    
+    { Objekt: '0_userdata.0.Geräte.IsKaiWindowOpen', LED: '22' },    
+    { Objekt: 'easee.0.EH9NK57L.status.chargerOpMode', LED: '23' },    
     { Objekt: '0_userdata.0.Hilfsdatenpunkte.Garage_Status', LED: '24' },    
     { Objekt: '0_userdata.0.Hilfsdatenpunkte.Kino_Status', LED: '25' },    
     { Objekt: 'alias.0.Fenster.Waschküche', LED: '26' },
@@ -61,13 +61,13 @@ var ObjektLEDs = [
 var Doors = ['alias.0.Tueren.Wohnzimmer_Rechts','alias.0.Tueren.Wohnzimmer_Links','alias.0.Fenster.Bad',
     'alias.0.Fenster.Küche','alias.0.Tueren.Lea','alias.0.Fenster.Lea','alias.0.Tueren.Büro_groß','0_userdata.0.Hilfsdatenpunkte.Kino_Status',
 	'alias.0.Fenster.Waschküche','alias.0.Fenster.WC','0_userdata.0.Geräte.IsSchlafzimmerWindowOpen',
-    'alias.0.Fenster.Schlafzimmer_Dachfenster','alias.0.Fenster.Büro_klein','0_userdata.0.Geräte.IsKaiWindowOpen'];
+    '','alias.0.Fenster.Büro_klein','0_userdata.0.Geräte.IsKaiWindowOpen'];
 
 //DoorsNew unterstützt Dreh Kipp Auswertung
 var DoorsNew = ['']; 
 //on Trigger muss unten aktiviert werden
 
-var BoolDevicesTrueRED = ['alias.0.Steckdosen.Klimagerät','alias.0.Steckdosen.Wohnzimmer_Entertainment']; //LED ist rot, wenn der Status dieses Gerätes TRUE ist
+var BoolDevicesTrueRED = ['alias.0.Steckdosen.Terrasse','alias.0.Steckdosen.Wohnzimmer_Entertainment']; //LED ist rot, wenn der Status dieses Gerätes TRUE ist
 
 var BoolDevicesTrueGreen = ['']; //LED ist grün, wenn der Status dieses Gerätes TRUE ist
 //on Trigger muss unten aktiviert werden
@@ -76,8 +76,11 @@ var MultiStateDevices = ['0_userdata.0.Hilfsdatenpunkte.Garage_Status']; //LED i
 
 var Lights = ['alias.0.Licht.Lea_Mond']; //LED ist gelb, wenn die Lampe an ist, ansonsten aus
 
-var RunningDevices = ['device-reminder.0.Spülmaschine.Status','device-reminder.0.Trockner.Status','device-reminder.0.3D Drucker.Status',
+var RunningDevices = ['device-reminder.0.Spülmaschine.Status','device-reminder.0.Trockner.Status',
     'device-reminder.0.Waschmaschine Links.Status','device-reminder.0.Waschmaschine Rechts.Status','device-reminder.0.PC Tina.Status','device-reminder.0.Arbeitstisch.Status'];
+
+var Wallbox = ['easee.0.EH9NK57L.status.chargerOpMode']; 
+//chargerOpMode = Offline: 0, Disconnected: 1, AwaitingStart: 2, Charging: 3, Completed: 4, Error: 5, ReadyToCharge: 6
 
 var MissingDevices = ['radar2.0._notHere'];
 
@@ -207,9 +210,32 @@ function SetRunningDevices(DeviceTriggerName, DeviceTriggerValue) {
         case "in Aktion":
             SwitchLED (GetLedNo(DeviceTriggerName),ColorError);
             break;
-        case "initialize": //"an" bedeutet Sonoff an, aber es wird kein Strom verbraucht
+        case "initialize": 
             SwitchLED (GetLedNo(DeviceTriggerName),"FFFFFF");
             break;            
+    }
+
+}
+
+function SetWallbox(DeviceTriggerName, DeviceTriggerValue) {
+    //chargerOpMode = Offline: 0, Disconnected: 1, AwaitingStart: 2, Charging: 3, Completed: 4, Error: 5, ReadyToCharge: 6
+    switch (DeviceTriggerValue) {
+        case 0:
+            SwitchLED (GetLedNo(DeviceTriggerName),ColorError);
+            break;
+        case 1:
+            SwitchLED (GetLedNo(DeviceTriggerName),"000000");            
+            break;
+        case 2:
+        case 6:
+            SwitchLED (GetLedNo(DeviceTriggerName),ColorWarning);
+            break;
+        case 3: 
+            SwitchLED (GetLedNo(DeviceTriggerName),"663399"); //so eine Art Blau
+            break;
+        case 4:
+            SwitchLED (GetLedNo(DeviceTriggerName),ColorOK);
+            break;
     }
 
 }
@@ -299,6 +325,12 @@ function InitDisplay(){
 
     if (RunningDevices.length > 0) {
         RunningDevices.forEach(function(element) {
+            SetRunningDevices(element,getState(element).val);
+        }); 
+    }
+
+    if (Wallbox.length > 0) {
+        Wallbox.forEach(function(element) {
             SetRunningDevices(element,getState(element).val);
         }); 
     }
@@ -393,6 +425,15 @@ on({id: RunningDevices, change: 'ne'},(obj) => {
     
 });
 
+on({id: Wallbox, change: 'ne'},(obj) => {
+	//setState('sonoff.0.StatusDisplay.POWER'/*Turn On/Off*/,true)
+    //InitDisplay();
+    var value = obj.state.val;
+    var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
+    SetWallbox(objArr[0],value);
+	SwitchOffDisplayDelayed();
+});
+
 on({id: MultiStateDevices, change: 'ne'},(obj) => {
     var value = obj.state.val;
     var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
@@ -412,7 +453,6 @@ on({id: MissingDevices, change: 'ne'},(obj) => {
     
 });
 
-
 //-- Inits --
 if (getState('alias.0.Steckdosen.Statusdisplay').val == false) {
     //setState('linkeddevices.0.Diningroom.StatusdisplayPOWER',true); //Power True triggert "InitDisplay()"
@@ -430,10 +470,10 @@ on({id: 'javascript.0.Astro.Astrotag',val: true}, function(){
 	}
 })
 
-on({id: 'alias.0.Licht.Esszimmer', change: 'ne'}, function() {
+on({id: 'alias.0.Licht.Esszimmer_Deckenlampe', change: 'ne'}, function() {
 	//Wenn es Nacht ist, wird das Display mit der Deckenlampe geschaltet
 	if (getState('javascript.0.Astro.Astrotag').val == false) {
-		SwitchOnOffDisplay(getState('alias.0.Licht.Esszimmer').val);
+		SwitchOnOffDisplay(getState('alias.0.Licht.Esszimmer_Deckenlampe').val);
 	}
 })
 
