@@ -102,25 +102,6 @@ on({id: GaragenDevices, change: 'ne'},(obj) => {
 });
 
 
-on({id: 'mqtt.0.powermeter.main.error', change: 'ne'},(obj) => {
-    var value = obj.state.val;
-    /*var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
-    var DeviceID=objArr[1]+"."+objArr[2];
-    var DeviceName=objArr[2];
-    console.log("Trigger: " + objArr[0]);
-    console.log("Pfad: " + objArr[1]);
-    console.log("Devic);name: " + objArr[2]);
-    console.log("localDeviceID:"+DeviceID);*/        
-    console.log("powermeter - Status: "+value);
-    if (value != "no error") {
-        sendTo('telegram', {
-                user: 'Andy',
-                text: ("powermeter - Status: "+value),
-            });    
-    }
-});
-
-
 //lowBatt();
 //NotReachable();
 CheckAlerts();

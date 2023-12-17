@@ -539,16 +539,15 @@ createAlias('wled.0.8c4b14a6ded4.bri'/*Brightness of the light*/, 'Licht.Kino_LE
 //////////////////////////////
 //  Rollladen
 //////////////////////////////
-//createAlias(, 'Rollladen.XXX', undefined, 'rollladen_alias', 'number', undefined, false, 'Haussteuerung Tablet', 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
 createAlias('shelly.0.SHSW-25#00869E#1.Shutter.Position'/*Position Schlafzimmer*/, 'Rollladen.Schlafzimmer', 'schlafzimmer', 'rollladen_alias', 'number', undefined, false, 'Rollladen Schlafzimmer', 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
 createAlias('shelly.0.SHSW-25#00869E#1.Shutter.Pause'/*Stop Schlafzimmer*/,'Rollladen.Schlafzimmer_Stop', 'schlafzimmer', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
 createAlias('shelly.0.SHSW-25#00869E#1.Shutter.Open'/*Open Schlafzimmer*/,'Rollladen.Schlafzimmer_Open', 'schlafzimmer', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
 createAlias('shelly.0.SHSW-25#00869E#1.Shutter.Close'/*Close Schlafzimmer*/,'Rollladen.Schlafzimmer_Close', 'schlafzimmer', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
 
-createAlias('shelly.0.SHSW-25#68C63AF98402#1.Shutter.Position'/*Position Kai*/, 'Rollladen.Kai', 'kai', 'rollladen_alias', 'number', undefined, false, 'Rollladen Kai', 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('shelly.0.SHSW-25#68C63AF98402#1.Shutter.Pause'/*Stop Kai*/,'Rollladen.Kai_Stop', 'kai', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
-createAlias('shelly.0.SHSW-25#68C63AF98402#1.Shutter.Open'/*Open Kai*/,'Rollladen.Kai_Open', 'kai', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
-createAlias('shelly.0.SHSW-25#68C63AF98402#1.Shutter.Close'/*Close Kai*/,'Rollladen.Kai_Close', 'kai', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
+createAlias('shelly.0.shellyplus2pm#fcb467a5770c#1.Cover0.Position'/*Position Kai*/, 'Rollladen.Kai', 'kai', 'rollladen_alias', 'number', undefined, false, 'Rollladen Kai', 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('shelly.0.shellyplus2pm#fcb467a5770c#1.Cover0.Stop'/*Stop Kai*/,'Rollladen.Kai_Stop', 'kai', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
+createAlias('shelly.0.shellyplus2pm#fcb467a5770c#1.Cover0.Open'/*Open Kai*/,'Rollladen.Kai_Open', 'kai', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
+createAlias('shelly.0.shellyplus2pm#fcb467a5770c#1.Cover0.Close'/*Close Kai*/,'Rollladen.Kai_Close', 'kai', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
 
 createAlias('shelly.0.SHSW-25#68C63AF963F3#1.Shutter.Position'/*Position Lea Fenster*/, 'Rollladen.Lea_Fenster', 'lea', 'rollladen_alias', 'number', undefined, false, 'Rollladen Lea Fenster', 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
 createAlias('shelly.0.SHSW-25#68C63AF963F3#1.Shutter.Pause'/*Stop Lea_Fenster*/,'Rollladen.Lea_Fenster_Stop', 'lea', 'rollladen_alias',  'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
@@ -602,7 +601,7 @@ createAlias('shelly.0.SHSW-25#00CDCF#1.Shutter.Power'/*Wohnzimmer Rollladen Link
 createAlias('shelly.0.SHSW-25#4C7525348982#1.Shutter.Power'/*Wohnzimmer Rollladen Rechts*/,'PowerMeasurement.WohnzimmerRollladenRechts', 'wohnzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#483FDA82436B#1.Relay0.Power'/*Schlafzimmer Licht Links*/,'PowerMeasurement.SchlafzimmerLichtLinks', 'schlafzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#483FDA82436B#1.Relay1.Power'/*Schlafzimmer Licht Rechts*/,'PowerMeasurement.SchlafzimmerLichtRechts', 'schlafzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
-createAlias('shelly.0.SHSW-25#68C63AF98402#1.Shutter.Power'/*Kai Rollladen*/,'PowerMeasurement.KaiRollladen', 'kai', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.shellyplus2pm#fcb467a5770c#1.Cover0.Power'/*Kai Rollladen*/,'PowerMeasurement.KaiRollladen', 'kai', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#68C63AF98CD1#1.Shutter.Power'/*Küche Rollladen*/,'PowerMeasurement.KuecheRollladen', 'Kueche', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#68C63AF994B6#1.Shutter.Power'/*Büro gross Rollladen*/,'PowerMeasurement.BüroGroßRollladen', 'büro_gross', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#C45BBE79438B#1.Shutter.Power'/*Bad Rollladen*/,'PowerMeasurement.BadRollladen', 'bad', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
@@ -625,5 +624,12 @@ createAlias('mqtt.0.powermeter.main.value'/*Hauszählerstand*/,'PowerMeasurement
 //Solar
 createAlias('shelly.0.shellypmmini#6055f99974b8#1.PM1:0.Power'/*Inverter*/,'Solar.InverterMeasurement', 'terrasse', 'solar_alias', 'number', '(-1 *val)', false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.shellypmmini#6055f99974b8#1.PM1:0.Energy'/*InverterTotal*/,'Solar.InverterMeasurementTotal', 'terrasse', 'solar_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Wh', undefined)
+
+//Stromzähler
+createAlias('shelly.0.shellypro3em#3ce90e6f7254#1.EM0.ActivePowerA'/*Stromverbrauch PhaseA*/, 'PowerMeasurement.Haus_PhaseA', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.shellypro3em#3ce90e6f7254#1.EM0.ActivePowerB'/*Stromverbrauch PhaseB*/, 'PowerMeasurement.Haus_PhaseB', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.shellypro3em#3ce90e6f7254#1.EM0.ActivePowerC'/*Stromverbrauch PhaseC*/, 'PowerMeasurement.Haus_PhaseC', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.shellypro3em#3ce90e6f7254#1.EM0.TotalActivePower'/*Stromverbrauch Phase Gesamt*/, 'PowerMeasurement.Haus_PhaseGesamt', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('shelly.0.shellypro3em#3ce90e6f7254#1.EMData0.TotalActiveEnergy'/*Gesamtstromverbrauch*/,'PowerMeasurement.TotalActiveEnergy', 'waschkueche', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Wh', undefined)
 
 stopScript("");
