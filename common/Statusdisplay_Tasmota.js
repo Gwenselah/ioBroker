@@ -15,11 +15,11 @@ var DisplayIP = "10.1.24.132";
 BEI TASMOTA BEGINNT DIE ZÄHLUNG BEI 1 !!!
 
 LED 30: Wohnzimmer linke Tür	LED 19:	Lea Türe und Türe   	LED 18: Schlafzimmer Fenster 	LED 7: Altpapaier 	    LED 6: linke Waschmaschine 
-LED 29: Wohnzimmer rechte Tür   LED 20: Lea Mond     		    LED 17:                         LED 8: Biomüll    	    LED 5: rechte Waschmaschine
-LED 28: Küche Fenster           LED 21: Bad Fenster             LED 16: Büro klein Fenster		LED 9: Restmüll      	LED 4: Trockner   
-LED 27: WC Fenster    			LED 22: Kai Fenster    		    LED 15: Büro groß Türe          LED 10: Wertstoffe 	    LED 3: Geschirrspüler 
-LED 26: Waschküche Fenster      LED 23: Wallbox	                    LED 14: Arbeitstisch 			LED 11:	Terasse    	    LED 2: 
-LED 25: Kino Fenster und Status LED 24: Garage           		LED 13: Tina PC 		    	LED 12:	Entertainment	LED 1: nicht erreichbare Geräte
+LED 29: Wohnzimmer rechte Tür   LED 20: Lea Mond     		    LED 17: Büro klein Fenster      LED 8: Biomüll    	    LED 5: rechte Waschmaschine
+LED 28: Küche Fenster           LED 21: Bad Fenster             LED 16: Büro groß Türe 	    	LED 9: Restmüll      	LED 4: Trockner   
+LED 27: WC Fenster    			LED 22: Kai Fenster    		    LED 15: Arbeitstisch            LED 10: Wertstoffe 	    LED 3: Geschirrspüler 
+LED 26: Waschküche Fenster      LED 23: Wallbox	                LED 14: PC Kai       			LED 11:	Terasse    	    LED 2: 
+LED 25: Kino Fenster und Status LED 24: Garage           		LED 13: PC Tina 		    	LED 12:	Entertainment	LED 1: nicht erreichbare Geräte
 */
 var ObjektLEDs = [
     //BEI TASMOTA BEGINNT DIE ZÄHLUNG BEI 1 !!!
@@ -35,13 +35,11 @@ var ObjektLEDs = [
     { Objekt: 'Wertstoffe', LED: '10' },  //Wertstoffe
     { Objekt: 'alias.0.Steckdosen.Terrasse', LED: '11' },    
     { Objekt: 'alias.0.Steckdosen.Wohnzimmer_Entertainment', LED: '12' },    
-//    { Objekt: 'alias.0.Steckdosen.XBOX', LED: '13' },    
-//    { Objekt: 'alias.0.Steckdosen.Arbeit', LED: '14' },
     { Objekt: 'device-reminder.0.PC Tina.Status', LED: '13' },    
-    { Objekt: 'device-reminder.0.Arbeitstisch.Status', LED: '14' },
-    { Objekt: 'alias.0.Tueren.Büro_groß', LED: '15' },  
-    { Objekt: 'alias.0.Fenster.Büro_klein', LED: '16' },  
-    { Objekt: '', LED: '17' },   
+    { Objekt: 'device-reminder.0.PC Kai.Status', LED: '14' },
+    { Objekt: 'device-reminder.0.Arbeitstisch.Status', LED: '15' },  
+    { Objekt: 'alias.0.Tueren.Büro_groß', LED: '16' },  
+    { Objekt: 'alias.0.Fenster.Büro_klein', LED: '17' },   
     { Objekt: '0_userdata.0.Geräte.IsSchlafzimmerWindowOpen', LED: '18' },    
     { Objekt: '0_userdata.0.Geräte.IsLeaWindowOpen', LED: '19' },    
     { Objekt: 'alias.0.Licht.Lea_Mond', LED: '20' },    
@@ -59,24 +57,24 @@ var ObjektLEDs = [
 
 //Türen und Fenster
 var Doors = ['alias.0.Tueren.Wohnzimmer_Rechts','alias.0.Tueren.Wohnzimmer_Links','alias.0.Fenster.Bad',
-    'alias.0.Fenster.Küche','alias.0.Tueren.Lea','alias.0.Fenster.Lea','alias.0.Tueren.Büro_groß','0_userdata.0.Hilfsdatenpunkte.Kino_Status',
+    'alias.0.Fenster.Küche','0_userdata.0.Geräte.IsLeaWindowOpen','alias.0.Tueren.Büro_groß','0_userdata.0.Hilfsdatenpunkte.Kino_Status',
 	'alias.0.Fenster.Waschküche','alias.0.Fenster.WC','0_userdata.0.Geräte.IsSchlafzimmerWindowOpen',
-    '','alias.0.Fenster.Büro_klein','0_userdata.0.Geräte.IsKaiWindowOpen'];
+    'alias.0.Fenster.Büro_klein','0_userdata.0.Geräte.IsKaiWindowOpen'];
 
 //DoorsNew unterstützt Dreh Kipp Auswertung
-var DoorsNew = ['']; 
+var DoorsNew = []; 
 //on Trigger muss unten aktiviert werden
 
 var BoolDevicesTrueRED = ['alias.0.Steckdosen.Terrasse','alias.0.Steckdosen.Wohnzimmer_Entertainment']; //LED ist rot, wenn der Status dieses Gerätes TRUE ist
 
-var BoolDevicesTrueGreen = ['']; //LED ist grün, wenn der Status dieses Gerätes TRUE ist
+var BoolDevicesTrueGreen = []; //LED ist grün, wenn der Status dieses Gerätes TRUE ist
 //on Trigger muss unten aktiviert werden
 
 var MultiStateDevices = ['0_userdata.0.Hilfsdatenpunkte.Garage_Status']; //LED ist rot, gelb, grün oder aus
 
 var Lights = ['alias.0.Licht.Lea_Mond']; //LED ist gelb, wenn die Lampe an ist, ansonsten aus
 
-var RunningDevices = ['device-reminder.0.Spülmaschine.Status','device-reminder.0.Trockner.Status',
+var RunningDevices = ['device-reminder.0.Spülmaschine.Status','device-reminder.0.Trockner.Status', 'device-reminder.0.PC Kai.Status',
     'device-reminder.0.Waschmaschine Links.Status','device-reminder.0.Waschmaschine Rechts.Status','device-reminder.0.PC Tina.Status','device-reminder.0.Arbeitstisch.Status'];
 
 var Wallbox = ['easee.0.EH9NK57L.status.chargerOpMode']; 
@@ -287,8 +285,10 @@ function InitDisplay(){
     for (i = 0; i < 30; i++) {   
         //console.log ("------------------------------------------------------------");
         //console.log(ObjektLEDs[i].Objekt + ": " + ObjektLEDs[i].Objekt.length);
-        if (ObjektLEDs[i].Objekt == '') {                        
-            SwitchLED ((i+1),"000000");   
+        if (ObjektLEDs[i].Objekt == '') {   
+            iH = i+1;                     
+            SwitchLED (iH,"000000");
+            log("LED " + iH + " ausgeschaltet")   
             wait (500); //Milliseconds          
         }    
     }
@@ -331,7 +331,7 @@ function InitDisplay(){
 
     if (Wallbox.length > 0) {
         Wallbox.forEach(function(element) {
-            SetRunningDevices(element,getState(element).val);
+            SetWallbox(element,getState(element).val);
         }); 
     }
 
