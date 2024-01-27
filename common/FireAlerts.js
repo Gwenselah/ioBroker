@@ -2,7 +2,8 @@
 
 function AlertReaction(TriggerName){
     var TriggerThings=true;
-    if (TriggerName='Fault'){TriggerThings=false}; //Bei Störungen auf jeden Fall keine Aktionen auslösen
+    log ("SmokeDetectorConnector: - " + TriggerName);
+    if (TriggerName=='Fault'){TriggerThings=false}; //Bei Störungen auf jeden Fall keine Aktionen auslösen
 
     sendTo('telegram', {
         text: TriggerName +  " hat einen Alarm ausgelöst"
@@ -24,11 +25,23 @@ function AlertReaction(TriggerName){
 };
 
 
-on({id:"mqtt.0.SmokeDetectorConnector.Fire", change: "ne", val: 1 },AlertReaction("Fire"));
+on({id:"shelly.0.shellyplusi4#80646fe19d20#1.Input1.Status", change: "ne", val: true },function (obj) {
+    if (obj.state.val) {
+        AlertReaction("Fire")
+    }
+});
 
-on({id:'mqtt.0.SmokeDetectorConnector.Fault', change: 'ne', val: 1},AlertReaction("Fault"));
+on({id:'shelly.0.shellyplusi4#80646fe19d20#1.Input2.Status', change: 'ne', val: true},function (obj) {
+    if (obj.state.val) {
+        AlertReaction("Fault")
+    }
+});
 
-on({id:'mqtt.0.SmokeDetectorConnector.CO', change: 'ne', val: 1},AlertReaction("CO"));
+on({id:'shelly.0.shellyplusi4#80646fe19d20#1.Input0.Status', change: 'ne'},function (obj) {
+    if (obj.state.val) {
+        AlertReaction("CO")
+    }
+});
 
 /*
 on({id: 'mqtt.0.SmokeDetectorConnector.LWT', change: 'ne'}, function (obj) {

@@ -3,7 +3,7 @@ var Switches = ['sonoff.0.Kino.POWER1','sonoff.0.Kino.POWER2','sonoff.0.Kino.POW
     'alias.0.Steckdosen.Kinositze','alias.0.Fenster.Kino','wled.0.8c4b14a6ded4.on'];
 var Entprellzeit = 500;
 
-var Remotes = ['deconz.0.Sensors.32.buttonpressed'];
+//var Remotes = ['deconz.0.Sensors.32.buttonpressed'];
    
 on({id: Switches, change: 'ne'},(obj) => {
     var value = obj.state.val;
@@ -65,7 +65,7 @@ on({id: 'zigbee.0.00158d00084e4d3d.double_click', change: 'ne'},(obj) => {
 })
 
 
-
+/*
 on({id: Remotes, change: 'ne'},(obj) => {
     var value = obj.state.val;
     var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
@@ -100,7 +100,7 @@ on({id: Remotes, change: 'ne'},(obj) => {
     }
 
 });
-
+*/
 
 //Wassersensoralarm
 on({id: 'alias.0.Alarm.Kinowasser' , change:'ne'},function(obj) {
@@ -111,3 +111,8 @@ on({id: 'alias.0.Alarm.Kinowasser' , change:'ne'},function(obj) {
         sendTo("telegram", "send", {text: ('Kinowassersensor: alles trocken')});
     }
 })
+
+//Kinositze zusammen mit Kinotechnik schalten
+on({id: 'alias.0.Steckdosen.Kinotechnik',change: "ne"}, function (obj) {
+    setState('alias.0.Steckdosen.Kinositze',obj.state.val)
+});

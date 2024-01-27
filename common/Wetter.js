@@ -25,7 +25,7 @@ function maximum(result) {
 function GetUVIndex(){
     //uvindex in Text wandeln
     var uvindex = 0;
-    uvindex = getState("mqtt.0.weather.solarweatherstation.uvindex").val;
+//    uvindex = getState("mqtt.0.weather.solarweatherstation.uvindex").val;
     var uvindexText = "";
     if (uvindex < 3) {
         uvindexText = "niedrig - Kein Schutz erforderlich" }
@@ -44,7 +44,7 @@ function GetHitzeIndex(){
     //Heatindex in Text wandeln
     //HI starts working above 26,7 °C
     var heatindexc = 0;
-    heatindexc = getState("mqtt.0.weather.solarweatherstation.heatindexc").val;
+//    heatindexc = getState("mqtt.0.weather.solarweatherstation.heatindexc").val;
     var heatindexText = "";
     if (heatindexc <26.7) {
         heatindexText = "Keine Gefahr" }
@@ -68,9 +68,9 @@ function WriteHTML() {
     HTML = HTML.replace("%TempMinMax%",getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.dayMin").val + "°C/" 
         + getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.dayMax").val + "°C");
     
-    HTML = HTML.replace("%abshpa%",getState("mqtt.0.weather.solarweatherstation.abshpa").val + " hpa");
+//    HTML = HTML.replace("%abshpa%",getState("mqtt.0.weather.solarweatherstation.abshpa").val + " hpa");
 
-    HTML = HTML.replace("%relhpa%",getState("mqtt.0.weather.solarweatherstation.relhpa").val + " hpa");
+//    HTML = HTML.replace("%relhpa%",getState("mqtt.0.weather.solarweatherstation.relhpa").val + " hpa");
 
     HTML = HTML.replace("%humi%",getState("sainlogic.0.weather.current.outdoorhumidity").val + "%");
                     
@@ -84,8 +84,8 @@ function WriteHTML() {
 
 //    HTML = HTML.replace("",getState("").val);
 
-    HTML = HTML.replace("%dewpointc%",getState("mqtt.0.weather.solarweatherstation.dewpointc").val + "°C");
-    HTML = HTML.replace("%spreadc%",getState("mqtt.0.weather.solarweatherstation.spreadc").val + "°C");
+//    HTML = HTML.replace("%dewpointc%",getState("mqtt.0.weather.solarweatherstation.dewpointc").val + "°C");
+//    HTML = HTML.replace("%spreadc%",getState("mqtt.0.weather.solarweatherstation.spreadc").val + "°C");
     setState("0_userdata.0.iQontrol.Wetter.Wetter",HTML);
 }
 
@@ -113,12 +113,13 @@ on({id: "telegram.0.communicate.request", change: 'any'}, function (obj) {
         TelegramText = "<b>Temperatur:</b> " + getState('alias.0.Temperaturen.Temperatur_Aussen').val  + "°C\n";
         TelegramText += "<b>T. Min/Max 24h:</b> " + getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.dayMin").val + "°C/" 
         + getState("statistics.0.save.minmax.alias.0.Temperaturen.Temperatur_Aussen.dayMax").val + "°C\n"
-        TelegramText += "<b>Luftdruck abs/rel:</b> " + getState("mqtt.0.weather.solarweatherstation.abshpa").val + " hpa" +
-            "/" + getState("mqtt.0.weather.solarweatherstation.relhpa").val + " hpa\n";
-        TelegramText += "<b>Luftfeuchtigkeit: </b>" + getState("mqtt.0.weather.solarweatherstation.humi").val + "%\n" ;
+//        TelegramText += "<b>Luftdruck abs/rel:</b> " + getState("mqtt.0.weather.solarweatherstation.abshpa").val + " hpa" +
+//            "/" + getState("mqtt.0.weather.solarweatherstation.relhpa").val + " hpa\n";
+//        TelegramText += "<b>Luftfeuchtigkeit: </b>" + getState("mqtt.0.weather.solarweatherstation.humi").val + "%\n" ;
+        TelegramText += "<b>Luftfeuchtigkeit: </b> --- %\n" ;
             
-        TelegramText += "<b>Taupunkt:</b> " + getState("mqtt.0.weather.solarweatherstation.dewpointc").val + "°C <b>Spread:</b> "
-               + getState("mqtt.0.weather.solarweatherstation.spreadc").val + "°C\n";
+//        TelegramText += "<b>Taupunkt:</b> " + getState("mqtt.0.weather.solarweatherstation.dewpointc").val + "°C <b>Spread:</b> "
+//               + getState("mqtt.0.weather.solarweatherstation.spreadc").val + "°C\n";
         TelegramText += "<b>UV Index:</b> " + GetUVIndex() + "\n";
         TelegramText += "<b>Hitze Index:</b> " + GetHitzeIndex() + "\n\n";
 //        TelegramText += "<b><u>Trend</u></b>\n";

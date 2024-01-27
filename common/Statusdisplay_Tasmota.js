@@ -27,8 +27,8 @@ var ObjektLEDs = [
     { Objekt: '', LED: '02' },    
     { Objekt: 'device-reminder.0.Spülmaschine.Status', LED: '03' },
     { Objekt: 'device-reminder.0.Trockner.Status', LED: '04' },
-    { Objekt: 'device-reminder.0.Waschmaschine Rechts.Status', LED: '05' },
-    { Objekt: 'device-reminder.0.Waschmaschine Links.Status', LED: '06' },   
+    { Objekt: 'device-reminder.0.Waschmaschine Links.Status', LED: '05' },
+    { Objekt: 'device-reminder.0.Waschmaschine Rechts.Status', LED: '06' },   
     { Objekt: 'Altpapier', LED: '07' },   //Altpapier 
     { Objekt: 'BioMuell', LED: '08' },    //Biomüll
     { Objekt: 'RestMuell', LED: '09' },   //Restmüll

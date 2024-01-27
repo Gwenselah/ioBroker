@@ -427,9 +427,9 @@ createAlias('zigbee.0.00158d00040cbf6a.battery'/*Kino Fenster battery*/, 'Batter
 //2 x Batterien Volt Anzeige in function batterien_volt_alias
 //Vorlage: createAlias(''/* Spannung*/, 'Batterien_Volt.Kinowasser', 'herrenberg', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
 
-createAlias('mqtt.0.weather.solarweatherstation.battv'/*Wetterstation Spannung*/, 'Batterien_Volt.Wetterstation', 'herrenberg', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+//createAlias('mqtt.0.weather.solarweatherstation.battv'/*Wetterstation Spannung*/, 'Batterien_Volt.Wetterstation', 'herrenberg', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
 //createAlias('hm-rpc.0.xxx.0.OPERATING_VOLTAGE'/*Küche Fenster links:0 OPERATING VOLTAGE*/, 'Batterien_Volt.Kueche_Fenster_links', undefined, 'batterien_volt_alias', 'number', undefined, undefined, 'Küche Fenster links', 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
-createAlias('zigbee.0.00158d0004016172.voltage'/*Waschküche Fenster battery*/, 'Batterien_Volt.Waschküche_Fenster', 'waschkueche', 'batterien_prozent_alias', 'number', undefined, false, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
+createAlias('zigbee.0.00158d0004016172.voltage'/*Waschküche Fenster battery*/, 'Batterien_Volt.Waschküche_Fenster', 'waschkueche', 'batterien_volt_alias', 'number', undefined, false, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
 createAlias('zigbee.0.00158d000401625e.voltage'/* Büro groß Spannung*/, 'Batterien_Volt.Büro_groß_Tür', 'büro_gross', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
 createAlias('zigbee.0.00158d0002bfc56f.voltage'/* Wohnzimmer Türe Links Spannung*/, 'Batterien_Volt.Wohnzimmer_Türe_Links', 'wohnzimmer', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
 createAlias('zigbee.0.00158d0002c7b951.voltage'/* Wohnzimmer Türe Rechts Spannung*/, 'Batterien_Volt.Wohnzimmer_Türe_Rechts', 'wohnzimmer', 'batterien_volt_alias', 'number', undefined, undefined, undefined, 'value.voltage', 'per Script erstellt', undefined, undefined, 'Volt', undefined)
@@ -594,6 +594,7 @@ createAlias('shelly.0.SHPLG-S#4022D882E6CC#1.Relay0.Power'/*Arbeitstisch*/,'Powe
 createAlias('shelly.0.SHPLG-S#4022D882E4CB#1.Relay0.Power'/*Wohnzimmer Couch*/,'PowerMeasurement.WohnzimmerCouch', 'wohnzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHPLG-S#4022D88353D0#1.Relay0.Power'/*KaiPC*/,'PowerMeasurement.KaiPC', 'kai', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('easee.0.EH9NK57L.status.totalPower'/*Wallbox*/,'PowerMeasurement.Wallbox', 'garage', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+createAlias('easee.0.EH9NK57L.status.lifetimeEnergy'/*Wallbox Life Time Energy*/,'PowerMeasurement.WallboxLifeTimeEnergy', 'garage', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'kWh', undefined)
 createAlias('shelly.0.SHSW-25#007CC3#1.Shutter.Power'/*Lea Rollladen Türe*/,'PowerMeasurement.LeaRollladenTuere', 'lea', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#68C63AF963F3#1.Shutter.Power'/*Lea Rollladen Fenster*/,'PowerMeasurement.LeaRollladenFenster', 'lea', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#00869E#1.Shutter.Power'/*Schlafzimmer Fenster*/,'PowerMeasurement.SchlafzimmerFenster', 'schlafzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
@@ -619,7 +620,7 @@ createAlias('shelly.0.shellyplusplugs#a0a3b3e87294#1.Relay0.Power'/*Lava ENERGY*
 createAlias('shelly.0.shellyplusplugs#a0a3b3e91120#1.Relay0.Power'/*Wohnzimmer Ecklampe ENERGY*/, 'PowerMeasurement.Wohnzimmer_Ecklampe', 'wohnzimmer', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 
 //diese Werte dürfen nicht in den PowerMeasuerment Alias
-createAlias('mqtt.0.powermeter.main.value'/*Hauszählerstand*/,'PowerMeasurement.Hauszähler', 'waschkueche', undefined, 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'kWh', undefined)
+//createAlias('mqtt.0.powermeter.main.value'/*Hauszählerstand*/,'PowerMeasurement.Hauszähler', 'waschkueche', undefined, 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'kWh', undefined)
 
 //Solar
 createAlias('shelly.0.shellypmmini#6055f99974b8#1.PM1:0.Power'/*Inverter*/,'Solar.InverterMeasurement', 'terrasse', 'solar_alias', 'number', '(-1 *val)', false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)

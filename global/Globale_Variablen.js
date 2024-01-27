@@ -24,7 +24,6 @@ var SwitchDevices = [
     { Name: 'Echo Dot Lea', Ort: "Lea",   an: 20, aus: 0, Objekt: "alexa2.1.Echo-Devices.G090XG1214250EJN.Player.volume", Beschreibung: "Lea Alexa Player Lautstärke"},
     { Name: 'Echo Dot Bad', Ort: "Bad",   an: 20, aus: 0, Objekt: "alexa2.0.Echo-Devices.G0911M0894241XF5.Player.volume", Beschreibung: "Lea Alexa Player Lautstärke"},
     { Name: 'Echo Plus', Ort: "Esszimmer",   an: 20, aus: 0, Objekt: "alexa2.0.Echo-Devices.G2A0U2048495012U.Player.volume", Beschreibung: "Esszimmer Alexa Player Lautstärke"},
-    { Name: 'Klimagerät', Ort: "Büro klein",   an: true, aus: false, Objekt: "alias.0.Steckdosen.Klimagerät", Beschreibung: "Klimagerät"},
     { Name: 'Schranklicht', Ort: "Wohnzimmer",   an: true, aus: false, Objekt: "alias.0.Licht.Wohnzimmer_Schranklicht", Beschreibung: "Schranklicht im Wohnzimmer"},
     { Name: 'Schranklampe', Ort: "Esszimmer",   an: true, aus: false, Objekt: "alias.0.Licht.Esszimmer_Schranklicht", Beschreibung: "Schranklicht im Esszimmer"},
     { Name: 'Deckenlampe', Ort: "Esszimmer",   an: true, aus: false, Objekt: "alias.0.Licht.Esszimmer_Deckenlampe", Beschreibung: "Deckenlampe im Esszimmer"},
@@ -74,10 +73,10 @@ var Rollladen = [
     [{text: "Lea Rollladen Fenster", Objekt: 'shelly.0.SHSW-25#68C63AF963F3#1.Shutter.Position', callback_data: "%Lea Rollladen Fenster"}],
     [{text: "Küche Rollladen", Objekt: 'shelly.0.SHSW-25#68C63AF98CD1#1.Shutter.Position', callback_data: "%Küche Rollladen"}],
     [{text: "Büro groß Rollladen", Objekt: 'shelly.0.SHSW-25#68C63AF994B6#1.Shutter.Position', callback_data: "%Büro groß Rollladen"}],
-    [{text: "Kai Rollladen", Objekt: 'shelly.0.SHSW-25#68C63AF98402#1.Shutter.Position',callback_data: "%Kai Rollladen"}],
+    [{text: "Kai Rollladen", Objekt: 'shelly.0.shellyplus2pm#fcb467a5770c#1.Shutter.Position',callback_data: "%Kai Rollladen"}],
     [{text: "Bad Rollladen", Objekt: 'shelly.0.SHSW-25#C45BBE79438B#1.Shutter.Position',callback_data: "%Bad Rollladen"}],
     [{text: "Wohnzimmer Rollladen Links", Objekt: 'shelly.0.SHSW-25#00CDCF#1.Shutter.Position', callback_data: "%Wohnzimmer Rollladen Links"}],
-    [{text: "Wohnzimmer Rollladen Rechts", Objekt: 'shelly.0.SHSW-25#00465F#1.Shutter.Position', callback_data: "%Wohnzimmer Rollladen Rechts"}]
+    [{text: "Wohnzimmer Rollladen Rechts", Objekt: 'shelly.0.SHSW-25#4C7525348982#1.Shutter.Position', callback_data: "%Wohnzimmer Rollladen Rechts"}]
 	
 ];
 
