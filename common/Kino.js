@@ -65,6 +65,42 @@ on({id: 'zigbee.0.00158d00084e4d3d.double_click', change: 'ne'},(obj) => {
 })
 
 
+
+//Click auf Fernbedienung Kino Neu
+on({id: 'zigbee.0.003c84fffe0dccf0.on', change: 'ne'},(obj) => {
+    if ((obj.state.ts-obj.oldState.ts) < Entprellzeit) {
+        log ("Keine Aktion, da Taste geprellt hat: " + (obj.state.ts-obj.oldState.ts) + " ms");
+    } else { 
+        if ((getState('scene.0.Kinolicht_LED').val) == true) {
+            //setState('scene.0.Kinolicht',false);
+            setState('scene.0.Kinolicht_LED',false);
+        } else {
+            //setState('scene.0.Kinolicht',true);
+            setState('scene.0.Kinolicht_LED',true);
+        }
+    }
+})
+
+
+//Click auf Fernbedienung Kino Neu
+on({id: 'zigbee.0.003c84fffe0dccf0.arrow_left_hold', change: 'ne'},(obj) => {
+    if ((obj.state.ts-obj.oldState.ts) < Entprellzeit) {
+        log ("Keine Aktion, da Taste geprellt hat: " + (obj.state.ts-obj.oldState.ts) + " ms");
+    } else { 
+        if ((getState('sonoff.0.Kino.POWER1').val) == true) {
+            //setState('scene.0.Kinolicht',false);
+            setState('sonoff.0.Kino.POWER1',false);
+        } else {
+            //setState('scene.0.Kinolicht',true);
+            setState('sonoff.0.Kino.POWER1',true);
+        }            
+
+    }
+})
+
+
+
+
 /*
 on({id: Remotes, change: 'ne'},(obj) => {
     var value = obj.state.val;

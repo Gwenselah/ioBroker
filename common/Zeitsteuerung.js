@@ -25,7 +25,7 @@ schedule('0 9 * * *', function(){setState('alias.0.Steckdosen.CPAP',false)});
 schedule('0 21 * * *', function(){setState('alias.0.Steckdosen.CPAP',true)});
 
 //Entertainment Oben
-schedule('0 2 * * *', function(){setState('alias.0.Steckdosen.XBOX',false)});
+schedule('0 2 * * *', function(){setState('alias.0.Steckdosen.XBOX_PC',false)});
 
 //Entertainment Unten
 schedule('0 2 * * *', function(){setState('alias.0.Steckdosen.Wohnzimmer_Entertainment',false)});

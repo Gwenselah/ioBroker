@@ -17,6 +17,23 @@ function AlertReaction(TriggerName){
         for (var i=0; i<SwitchDevices.length;i++) {
             setState(SwitchDevices[i].Objekt,false); //CaseSENSITIV!!!!!
         }
+        //alle Lichter anschalten
+        var lights = getObject("enum.functions.licht_alias").common.members;
+        for(let i = 0; i < lights.length; i++) {
+//            var light = getState(lights[i]).val;
+//            log (light);
+            setState(lights[i],true);
+        }
+
+        //alle Steckdosen abschalten
+        var plugs = getObject("enum.functions.steckdosen_alias").common.members;
+        for(let i = 0; i < plugs.length; i++) {
+//            var light = getState(lights[i]).val;
+//            log (light);
+            setState(plugs[i],false);
+        }
+        
+
     } else {
         sendTo('telegram', {
             text: "Die Aktionen sind deaktiviert. Es werden keine Rollläden geöffnet"
