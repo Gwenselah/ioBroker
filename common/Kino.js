@@ -1,6 +1,9 @@
 
-var Switches = ['sonoff.0.Kino.POWER1','sonoff.0.Kino.POWER2','sonoff.0.Kino.POWER3','sonoff.0.Kino.POWER4',
+//var Switches = ['sonoff.0.Kino.POWER1','sonoff.0.Kino.POWER2','sonoff.0.Kino.POWER3','sonoff.0.Kino.POWER4',
+//    'alias.0.Steckdosen.Kinositze','alias.0.Fenster.Kino','wled.0.8c4b14a6ded4.on'];
+var Switches = ['alias.0.Steckdosen.Kinotechnik','sonoff.0.Kino.POWER2','sonoff.0.Kino.POWER3','sonoff.0.Kino.POWER4',
     'alias.0.Steckdosen.Kinositze','alias.0.Fenster.Kino','wled.0.8c4b14a6ded4.on'];
+
 var Entprellzeit = 500;
 
 //var Remotes = ['deconz.0.Sensors.32.buttonpressed'];
@@ -53,12 +56,12 @@ on({id: 'zigbee.0.00158d00084e4d3d.double_click', change: 'ne'},(obj) => {
     if ((obj.state.ts-obj.oldState.ts) < Entprellzeit) {
         log ("Keine Aktion, da Taste geprellt hat: " + (obj.state.ts-obj.oldState.ts) + " ms");
     } else { 
-        if ((getState('sonoff.0.Kino.POWER1').val) == true) {
+        if ((getState('alias.0.Steckdosen.Kinotechnik').val) == true) {
             //setState('scene.0.Kinolicht',false);
-            setState('sonoff.0.Kino.POWER1',false);
+            setState('alias.0.Steckdosen.Kinotechnik',false);
         } else {
             //setState('scene.0.Kinolicht',true);
-            setState('sonoff.0.Kino.POWER1',true);
+            setState('alias.0.Steckdosen.Kinotechnik',true);
         }            
 
     }
@@ -87,12 +90,12 @@ on({id: 'zigbee.0.003c84fffe0dccf0.arrow_left_hold', change: 'ne'},(obj) => {
     if ((obj.state.ts-obj.oldState.ts) < Entprellzeit) {
         log ("Keine Aktion, da Taste geprellt hat: " + (obj.state.ts-obj.oldState.ts) + " ms");
     } else { 
-        if ((getState('sonoff.0.Kino.POWER1').val) == true) {
+        if ((getState('alias.0.Steckdosen.Kinotechnik').val) == true) {
             //setState('scene.0.Kinolicht',false);
-            setState('sonoff.0.Kino.POWER1',false);
+            setState('alias.0.Steckdosen.Kinotechnik',false);
         } else {
             //setState('scene.0.Kinolicht',true);
-            setState('sonoff.0.Kino.POWER1',true);
+            setState('alias.0.Steckdosen.Kinotechnik',true);
         }            
 
     }
@@ -150,5 +153,6 @@ on({id: 'alias.0.Alarm.Kinowasser' , change:'ne'},function(obj) {
 
 //Kinositze zusammen mit Kinotechnik schalten
 on({id: 'alias.0.Steckdosen.Kinotechnik',change: "ne"}, function (obj) {
-    setState('alias.0.Steckdosen.Kinositze',obj.state.val)
+    setState('alias.0.Steckdosen.Kinositze',obj.state.val);
+    setStateDelayed('alias.0.Steckdosen.Kinotechnik2',obj.state.val,(1000*30)); //Angabe in Millisekunden
 });
