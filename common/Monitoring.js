@@ -1,53 +1,7 @@
-//Überwacht den Batteristatus von Sensoren
-
-const batt = $('deconz.0.Sensors.*.battery');
-const reachable = $('deconz.0.Sensors.*.reachable');
 const PingDevices = $('ping.0.iobroker.*');
 var Alerts = ['alias.0.Alarm.Kinowasser'];
 
 var GaragenDevices = ['alias.0.Tueren.Garage','alias.0.Licht.Garage'];
-
-function lowBatt() {
-	var low = [];
-	setState('0_userdata.0.Hilfsdatenpunkte.Batterieschwach', '', true);	
-	batt.each(function (id, i) {
-	if(getState(id).val < 30) {
-			id = id.split('.');
-			id = 'deconz.0.' + id[2] + '.' + id[3];
-            //log(getObject(id).common.name);
-			low.push(getObject(id).common.name); // Geräte-Name
-		}	
-	});
-	setState('0_userdata.0.Hilfsdatenpunkte.Batterieschwach', low.join(',<br>'), true);	
-    if (low.length >0) {
-        sendTo("telegram", "send", {
-            text: ('Folgende Batterien sind schwach: \n' + low)
-        });
-    }
-}
-
-
-function NotReachable() {
-	var NotReachableArray = [];
-	setState('0_userdata.0.Hilfsdatenpunkte.NichtErreichbar','', true);
-	reachable.each(function (id, i) {
-	    if(getState(id).val == false) {
-			id = id.split('.');
-			id = 'deconz.0.' + id[2] + '.' + id[3];
-			var CommonName = getObject(id).common.name;
-			//log (CommonName);
-			if ((CommonName.indexOf("Consumption") ==-1) && (CommonName.indexOf("Power") ==-1)) {
-				NotReachableArray.push(CommonName); // Geräte-Name
-			}
-		}	
-	});
-	setState('0_userdata.0.Hilfsdatenpunkte.NichtErreichbar', NotReachableArray.join(',<br>'), true);	
-    if (NotReachableArray.length >0) {
-        sendTo("telegram", "send", {
-            text: ('Folgende Sensoren sind nicht erreichbar: \n' + NotReachableArray)
-        });
-    }
-}
 
 function CheckAlerts(){
     Alerts.forEach(function(element) {
@@ -57,7 +11,6 @@ function CheckAlerts(){
             });
         }
     })
-
 }
 
 on({id:"radar2.0._notHere", change:'ne'}, function (obj) {
@@ -101,15 +54,55 @@ on({id: GaragenDevices, change: 'ne'},(obj) => {
     }
 });
 
+function UpdateIPList(){
+    log("Update der IP Liste wurde gestartet");
+    var shelly_dp = "shelly.0";
+    var ids = $('state[id=' + shelly_dp + '.*.hostname]');
+    
+    //log(ids); 
+    const idTable = '0_userdata.0.iQontrol.Listen.IPs'; // ID JSON-Tabelle
+  
+    var table = [];
+    for(let i = 0; i < ids.length; i++) {
+        if (ids[i] != "shelly.0.undefined.hostname"){
+            table[i] = {};
+            var DPName=ids[i].substr(0, ids[i].length - 9);
+            //log(getObject(DPName).common.name + "/" + getState(ids[i]).val);
+            table[i].Name = getObject(DPName).common.name;
+            table[i].Wert = getState(ids[i]).val;
+        }
+    }
+    
+    //Sonoffs
+    var sonoff_dp = "sonoff.0";
+    var sonoffids = $('state[id=' + sonoff_dp + '*.INFO.Info2_IPAddress]');
+    
+    for(let i = 0; i < sonoffids.length; i++) {
+            table[(i+ids.length-1)] = {};
+            var DPName=sonoffids[i].substr(0, sonoffids[i].length - 21);
+            //log(getObject(DPName).common.name + "/" + getState(ids[i]).val);
+            table[(i+ids.length-1)].Name = getObject(DPName).common.name;
+            table[(i+ids.length-1)].Wert = getState(sonoffids[i]).val;
+    }
 
-//lowBatt();
-//NotReachable();
+    //Array of Objects (kein JSON) sortieren
+    function sortByKey(array, key) {
+        return array.sort(function(a, b) {
+            var x = a[key]; var y = b[key];
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        });
+    }
+
+    setState(idTable, JSON.stringify(sortByKey(table,'Name')), true);
+
+}
+
 CheckAlerts();
+UpdateIPList();
 
-//schedule('0 18 * * *', lowBatt); // täglich 18 Uhr
-//schedule('0 18 * * *', NotReachable); // täglich 18 Uhr
+
 schedule('0 18 * * *', CheckAlerts); // täglich 18 Uhr
-
+schedule('*/60 * * * *',UpdateIPList); //stündlich
  
 
  

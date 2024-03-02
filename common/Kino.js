@@ -34,6 +34,39 @@ on({id: Switches, change: 'ne'},(obj) => {
 
 });
 
+//Klick auf Shelly Blu Taster
+on({id: 'shelly.0.ble.b0:c7:de:bd:45:16.button', change: 'ne'},(obj) => {
+    var value = obj.state.val;
+    //log("Taster: " + value);
+    switch (value) {
+        case 1: //Singelklick
+            if ((getState('scene.0.Kinolicht_LED').val) == true) {
+                setState('scene.0.Kinolicht_LED',false);
+            } else {
+                setState('scene.0.Kinolicht_LED',true);
+            }        
+            break;
+        case 2: //Doppelklick
+            if ((getState('alias.0.Steckdosen.Kinotechnik').val) == true) {
+                //setState('scene.0.Kinolicht',false);
+                setState('alias.0.Steckdosen.Kinotechnik',false);
+            } else {
+                //setState('scene.0.Kinolicht',true);
+                setState('alias.0.Steckdosen.Kinotechnik',true);
+            }            
+            break;
+        case 3: //Dreifachklick
+            if ((getState('scene.0.Kinolicht').val) == true) {
+                setState('scene.0.Kinolicht',false);
+            } else {
+                setState('scene.0.Kinolicht',true);
+            }        
+            break;
+        case 4: //Langerklick
+        break;
+    }
+});
+
 
 //Click auf Taster
 on({id: 'zigbee.0.00158d00084e4d3d.click', change: 'ne'},(obj) => {

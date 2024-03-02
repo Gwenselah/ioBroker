@@ -11,7 +11,7 @@ let anzahl_shelly_update = 0;
 shellyDps.each(function (id, i) {
     if (getState(id).val == true) {
         log("Device to Update: " + id);
-        setState(id + "update", true);
+        //setState(id + "update", true);
         anzahl_shelly_update++;
     }
     anzahl_shelly++;
