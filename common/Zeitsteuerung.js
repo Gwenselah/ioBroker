@@ -62,12 +62,14 @@ on({id: 'alias.0.Steckdosen.Wohnzimmer_Entertainment',change: "ne"}, function (o
     setState('alias.0.Steckdosen.Satverteiler',obj.state.val)
 });
 
+
 //Dunstabzugshaube in Abhängigkeit des Automatikswitches 
 on({id: 'alias.0.Fenster.Küche',change: "ne"},function(obj){
     if (getState('0_userdata.0.iQontrol.Switches.Dunstabzugshaubenautomatik').val) {
         setState('alias.0.Steckdosen.Dunstabzug',obj.state.val);
     }
 });
+
 //wenn die Automatik deaktiviert wird, dann Dunstabzug an, ansonsten ans Fenster koppeln
 on({id: '0_userdata.0.iQontrol.Switches.Dunstabzugshaubenautomatik',change: "ne"},function(obj){
     if (obj.state.val) {
