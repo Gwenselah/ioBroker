@@ -78,11 +78,11 @@ function UpdateIPList(){
     var sonoffids = $('state[id=' + sonoff_dp + '*.INFO.Info2_IPAddress]');
     
     for(let i = 0; i < sonoffids.length; i++) {
-            table[(i+ids.length-1)] = {};
+            table[(i+ids.length)] = {};
             var DPName=sonoffids[i].substr(0, sonoffids[i].length - 21);
             //log(getObject(DPName).common.name + "/" + getState(ids[i]).val);
-            table[(i+ids.length-1)].Name = getObject(DPName).common.name;
-            table[(i+ids.length-1)].Wert = getState(sonoffids[i]).val;
+            table[(i+ids.length)].Name = getObject(DPName).common.name;
+            table[(i+ids.length)].Wert = getState(sonoffids[i]).val;
     }
 
     //Array of Objects (kein JSON) sortieren

@@ -305,14 +305,14 @@ on({id: "telegram.0.communicate.request", change: 'any'}, function (obj) {
 			});  
 			break;
         case "MÜLL":
-            TelegramText = "<b>Altpapier</b>: " + getState("Datenpunkte.0.Wertstoffe.Papier").val + " (" +
-                + getState("Datenpunkte.0.Wertstoffe.Papier_Resttage").val + " Tage) \n" +
-                "<b>Bio</b>: " + getState("Datenpunkte.0.Wertstoffe.Bio").val + " (" +
-                + getState("Datenpunkte.0.Wertstoffe.Bio_Resttage").val + " Tage) \n" +
-                "<b>Restmüll</b>: " + getState("Datenpunkte.0.Wertstoffe.Restmüll").val + " (" +
-                + getState("Datenpunkte.0.Wertstoffe.Restmüll_Resttage").val + " Tage) \n" +
-                "<b>Wertstoffe</b>: " + getState("Datenpunkte.0.Wertstoffe.Wertstoffe").val + " ("
-                + getState("Datenpunkte.0.Wertstoffe.Wertstoffe_Resttage").val + " Tage) \n";
+            TelegramText = "<b>Altpapier</b>: " + getState("0_userdata.0.Wertstoffe.Papier").val + " (" +
+                + getState("0_userdata.0.Wertstoffe.Papier_Resttage").val + " Tage) \n" +
+                "<b>Bio</b>: " + getState("0_userdata.0.Wertstoffe.Bio").val + " (" +
+                + getState("0_userdata.0.Wertstoffe.Bio_Resttage").val + " Tage) \n" +
+                "<b>Restmüll</b>: " + getState("0_userdata.0.Wertstoffe.Restmüll").val + " (" +
+                + getState("0_userdata.0.Wertstoffe.Restmüll_Resttage").val + " Tage) \n" +
+                "<b>Wertstoffe</b>: " + getState("0_userdata.0.Wertstoffe.Wertstoffe").val + " ("
+                + getState("0_userdata.0.Wertstoffe.Wertstoffe_Resttage").val + " Tage) \n";
             sendTo('telegram', {
 				user: benutzer,
 				text: TelegramText,

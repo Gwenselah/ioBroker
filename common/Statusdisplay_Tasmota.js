@@ -185,10 +185,10 @@ function SetMuelltonnenLights(){
 		}
 	}
 	
-	var RestMuellResttage = getState('Datenpunkte.0.Wertstoffe.Restmüll_Resttage').val;
-	var BioMuellResttage = getState('Datenpunkte.0.Wertstoffe.Bio_Resttage').val;
-	var AltpapierResttage = getState('Datenpunkte.0.Wertstoffe.Papier_Resttage').val;
-	var WertstoffeResttage = getState('Datenpunkte.0.Wertstoffe.Wertstoffe_Resttage').val;
+	var RestMuellResttage = getState('0_userdata.0.Wertstoffe.Restmüll_Resttage').val;
+	var BioMuellResttage = getState('0_userdata.0.Wertstoffe.Bio_Resttage').val;
+	var AltpapierResttage = getState('0_userdata.0.Wertstoffe.Papier_Resttage').val;
+	var WertstoffeResttage = getState('0_userdata.0.Wertstoffe.Wertstoffe_Resttage').val;
 	
 	SwitchGarbageLEDs("BioMuell",BioMuellResttage);
 	SwitchGarbageLEDs("RestMuell",RestMuellResttage);

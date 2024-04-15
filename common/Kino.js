@@ -2,7 +2,7 @@
 var Switches = ['alias.0.Steckdosen.Kinotechnik','sonoff.0.Kino.POWER2','sonoff.0.Kino.POWER3','sonoff.0.Kino.POWER4',
     'alias.0.Steckdosen.Kinositze','alias.0.Fenster.Kino','wled.0.8c4b14a6ded4.on'];
 
-var Entprellzeit = 500;
+var Entprellzeit = 1000;
 
 on({id: Switches, change: 'ne'},(obj) => {
     var value = obj.state.val;
@@ -33,9 +33,9 @@ on({id: Switches, change: 'ne'},(obj) => {
 on({id: 'shelly.0.ble.b0:c7:de:bd:45:16.button', change: 'any'},(obj) => {
     var value = obj.state.val;
     if ((obj.state.ts-obj.oldState.ts) < Entprellzeit) {
-        //log ("Keine Aktion, da Taste geprellt hat: " + (obj.state.ts-obj.oldState.ts) + " ms");
+        log ("Keine Aktion, da Taste geprellt hat: " + (obj.state.ts-obj.oldState.ts) + " ms");
     } else { 
-        //log("Taster: " + value);
+        log("Kino-Taste: " + value);
         switch (value) {
             case 1: //Singelklick
                 if ((getState('scene.0.Kinolicht_LED').val) == true) {
@@ -53,14 +53,18 @@ on({id: 'shelly.0.ble.b0:c7:de:bd:45:16.button', change: 'any'},(obj) => {
                 break;
             case 3: //Dreifachklick
                 if ((getState('alias.0.Steckdosen.Kinotechnik').val) == true) {
-                    //setState('scene.0.Kinolicht',false);
                     setState('alias.0.Steckdosen.Kinotechnik',false);
                 } else {
-                    //setState('scene.0.Kinolicht',true);
                     setState('alias.0.Steckdosen.Kinotechnik',true);
                 }            
                 break;
             case 4: //Langerklick
+                if ((getState('alias.0.Steckdosen.Kinotechnik').val) == true) {
+                    setState('alias.0.Steckdosen.Kinotechnik',false);
+                } else {
+                    setState('alias.0.Steckdosen.Kinotechnik',true);
+                }            
+                break;            
             break;
         }
     }

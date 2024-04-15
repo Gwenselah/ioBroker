@@ -49,26 +49,26 @@ function UpdateWertstoffeTermine() {
         }
     }
  
-    setState('Datenpunkte.0.Wertstoffe.Restmüll', TerminRest);
-    setState('Datenpunkte.0.Wertstoffe.Bio', TerminBio);
-    setState('Datenpunkte.0.Wertstoffe.Papier', TerminPapier);
-    setState('Datenpunkte.0.Wertstoffe.Wertstoffe', TerminWertstoffe);
+    setState('0_userdata.0.Wertstoffe.Restmüll', TerminRest);
+    setState('0_userdata.0.Wertstoffe.Bio', TerminBio);
+    setState('0_userdata.0.Wertstoffe.Papier', TerminPapier);
+    setState('0_userdata.0.Wertstoffe.Wertstoffe', TerminWertstoffe);
     
-    setState('Datenpunkte.0.Wertstoffe.Restmüll_Resttage', dateDiff (TerminRest));
-    setState('Datenpunkte.0.Wertstoffe.Bio_Resttage', dateDiff (TerminBio));
-    setState('Datenpunkte.0.Wertstoffe.Papier_Resttage', dateDiff (TerminPapier));
-    setState('Datenpunkte.0.Wertstoffe.Wertstoffe_Resttage', dateDiff (TerminWertstoffe));
+    setState('0_userdata.0.Wertstoffe.Restmüll_Resttage', dateDiff (TerminRest));
+    setState('0_userdata.0.Wertstoffe.Bio_Resttage', dateDiff (TerminBio));
+    setState('0_userdata.0.Wertstoffe.Papier_Resttage', dateDiff (TerminPapier));
+    setState('0_userdata.0.Wertstoffe.Wertstoffe_Resttage', dateDiff (TerminWertstoffe));
 
 }
 
 function MuelltonnenWarnung() {
     console.log ("+++ Mülltonnenwarnung gestartet +++")
     var NotificationText = "";
-    if (getState('Datenpunkte.0.Wertstoffe.Restmüll_Resttage').val == 1) {
+    if (getState('0_userdata.0.Wertstoffe.Restmüll_Resttage').val == 1) {
         NotificationText = "Restmüll";
     }
 
-    if (getState('Datenpunkte.0.Wertstoffe.Bio_Resttage').val == 1) {
+    if (getState('0_userdata.0.Wertstoffe.Bio_Resttage').val == 1) {
         if (NotificationText === "") {
             NotificationText = "Biomüll";
         } else {
@@ -76,7 +76,7 @@ function MuelltonnenWarnung() {
         }
     }
 
-    if (getState('Datenpunkte.0.Wertstoffe.Papier_Resttage').val == 1) {
+    if (getState('0_userdata.0.Wertstoffe.Papier_Resttage').val == 1) {
         if (NotificationText === "") {
             NotificationText = "Papiermüll";
         } else {
@@ -84,7 +84,7 @@ function MuelltonnenWarnung() {
         }
     }
 
-    if (getState('Datenpunkte.0.Wertstoffe.Wertstoffe_Resttage').val == 1) {
+    if (getState('0_userdata.0.Wertstoffe.Wertstoffe_Resttage').val == 1) {
         if (NotificationText === "") {
             NotificationText = "Wertstoffe";
         } else {

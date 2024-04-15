@@ -316,10 +316,10 @@ if (str_Tageszeit == 'Tag'){
 str_html = str_html + '</div>';
  
 //Box 2 = Wochentag/Datum, Abfallentsorgung und aktuelle Wetterdaten
-str_Restabfall  = getState('Datenpunkte.0.Wertstoffe.Restmüll_Resttage').val;
-str_Papiertonne = getState('Datenpunkte.0.Wertstoffe.Papier_Resttage').val;
-str_Gelber_Sack = getState('Datenpunkte.0.Wertstoffe.Wertstoffe_Resttage').val;
-str_Biotonne    = getState('Datenpunkte.0.Wertstoffe.Bio_Resttage').val;
+str_Restabfall  = getState('0_userdata.0.Wertstoffe.Restmüll_Resttage').val;
+str_Papiertonne = getState('0_userdata.0.Wertstoffe.Papier_Resttage').val;
+str_Gelber_Sack = getState('0_userdata.0.Wertstoffe.Wertstoffe_Resttage').val;
+str_Biotonne    = getState('0_userdata.0.Wertstoffe.Bio_Resttage').val;
 
 str_html = str_html + '<div class="container_row">';
 str_html = str_html + '<div class="container_column">';
@@ -329,22 +329,22 @@ str_html = str_html + '</div>';
 str_html = str_html + '<div class="container_row">';
 if ((str_Restabfall == 0) || (str_Restabfall == 1)){
     cnt_waste++;
-    str_html = str_html + '<span><input type="image" onclick="setState(\'Datenpunkte.0.Wertstoffe.Wertstoffe_Vorschau_Trigger\', true)" src="' + img_Restabfall + '"></span>';
+    str_html = str_html + '<span><input type="image" onclick="setState(\'0_userdata.0.Wertstoffe.Wertstoffe_Vorschau_Trigger\', true)" src="' + img_Restabfall + '"></span>';
 }
 if ((str_Papiertonne == 0) || (str_Papiertonne == 1)){
     cnt_waste++;
-    str_html = str_html + '<span><input type="image" onclick="setState(\'Datenpunkte.0.Wertstoffe.Wertstoffe_Vorschau_Trigger\', true)" src="' + img_Papiertonne + '"></span>';
+    str_html = str_html + '<span><input type="image" onclick="setState(\'0_userdata.0.Wertstoffe.Wertstoffe_Vorschau_Trigger\', true)" src="' + img_Papiertonne + '"></span>';
 }
 if ((str_Gelber_Sack == 0) || (str_Gelber_Sack == 1)){
     cnt_waste++;
-    str_html = str_html + '<span><input type="image" onclick="setState(\'Datenpunkte.0.Wertstoffe.Wertstoffe_Vorschau_Trigger\', true)" src="' + img_Gelber_Sack + '"></span>';
+    str_html = str_html + '<span><input type="image" onclick="setState(\'0_userdata.0.Wertstoffe.Wertstoffe_Vorschau_Trigger\', true)" src="' + img_Gelber_Sack + '"></span>';
 }
 if ((str_Biotonne == 0) || (str_Biotonne == 1)){
     cnt_waste++;
-    str_html = str_html + '<span><input type="image" onclick="setState(\'Datenpunkte.0.Wertstoffe.Wertstoffe_Vorschau_Trigger\', true)" src="' + img_Bio_Tonne + '"></span>';
+    str_html = str_html + '<span><input type="image" onclick="setState(\'0_userdata.0.Wertstoffe.Wertstoffe_Vorschau_Trigger\', true)" src="' + img_Bio_Tonne + '"></span>';
 }
 if (cnt_waste == 0){
-    str_html = str_html + '<span><input type="image" class="img_waste" onclick="setState(\'Datenpunkte.0.Wertstoffe.Wertstoffe_Vorschau_Trigger\', true)" src="' + img_Garbage_Truck + '"></span>';
+    str_html = str_html + '<span><input type="image" class="img_waste" onclick="setState(\'0_userdata.0.Wertstoffe.Wertstoffe_Vorschau_Trigger\', true)" src="' + img_Garbage_Truck + '"></span>';
 }
 str_html = str_html + '</div>';
 
@@ -416,7 +416,7 @@ str_html = str_html + '</div>';
 return str_html;
 }
  
-on({id:'Datenpunkte.0.Wertstoffe.Wertstoffe_Vorschau_Trigger', val:true} , function (dp) {
+on({id:'0_userdata.0.Wertstoffe.Wertstoffe_Vorschau_Trigger', val:true} , function (dp) {
     fctAbfallentsorgungPopup();
 });
 
@@ -486,10 +486,10 @@ function fctWasteHTML(Trigger) {
     }
 
     str_HTML = str_HTML + '<tr>';
-    str_HTML = str_HTML + '<th nowrap>' + getState('Datenpunkte.0.Wertstoffe.Restmüll_Resttage').val + ' Tage</th>';
-    str_HTML = str_HTML + '<th nowrap>' + getState('Datenpunkte.0.Wertstoffe.Papier_Resttage').val + ' Tage</th>';
-    str_HTML = str_HTML + '<th nowrap>' + getState('Datenpunkte.0.Wertstoffe.Wertstoffe_Resttage').val + ' Tage</th>';
-    str_HTML = str_HTML + '<th nowrap>' + getState('Datenpunkte.0.Wertstoffe.Bio_Resttage').val + 'Tage </th>';
+    str_HTML = str_HTML + '<th nowrap>' + getState('0_userdata.0.Wertstoffe.Restmüll_Resttage').val + ' Tage</th>';
+    str_HTML = str_HTML + '<th nowrap>' + getState('0_userdata.0.Wertstoffe.Papier_Resttage').val + ' Tage</th>';
+    str_HTML = str_HTML + '<th nowrap>' + getState('0_userdata.0.Wertstoffe.Wertstoffe_Resttage').val + ' Tage</th>';
+    str_HTML = str_HTML + '<th nowrap>' + getState('0_userdata.0.Wertstoffe.Bio_Resttage').val + 'Tage </th>';
     str_HTML = str_HTML + '</tr>';
     
     str_HTML = str_HTML + '<tr>';
