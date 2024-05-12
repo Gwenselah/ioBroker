@@ -1,4 +1,5 @@
 // v0.1
+//für Zählerstände
 const axios = require('axios').default;
 
 const influxDbInstance = 'influxdb.0';
@@ -8,10 +9,10 @@ const measurement = 'energy-stats';
 const loggingTemplate = {
     '0_userdata.0.energy.contract.electricity.kWhPrice': 'priceIn',
     '0_userdata.0.energy.contract.electricity.kWhPriceExport': 'priceOut',
-    '0_userdata.0.energy.electricity.meter.totalIn': 'importedWh',
+    'alias.0.PowerMeasurement.TotalActiveEnergy': 'importedWh',
     '0_userdata.0.energy.electricity.meter.totalOut': 'exportedWh',   
     'alias.0.Solar.InverterMeasurementTotal': 'generatedWh',
-    'easee.0.EH9NK57L.status.lifetimeEnergy': 'wallboxWh',
+    'alias.0.PowerMeasurement.WallboxLifeTimeEnergy': 'wallboxWh'
 };
 
 const loggingObj = {};

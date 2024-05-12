@@ -595,7 +595,9 @@ createAlias('shelly.0.SHPLG-S#4022D882E6CC#1.Relay0.Power'/*Arbeitstisch*/,'Powe
 createAlias('shelly.0.SHPLG-S#4022D882E4CB#1.Relay0.Power'/*Wohnzimmer Couch*/,'PowerMeasurement.WohnzimmerCouch', 'wohnzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHPLG-S#4022D88353D0#1.Relay0.Power'/*KaiPC*/,'PowerMeasurement.KaiPC', 'kai', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('easee.0.EH9NK57L.status.totalPower'/*Wallbox*/,'PowerMeasurement.Wallbox', 'garage', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+log('Der Alias >Wallbox< muss mit (1000*val) beim Lesen konvertiert werden','error');
 createAlias('easee.0.EH9NK57L.status.lifetimeEnergy'/*Wallbox Life Time Energy*/,'PowerMeasurement.WallboxLifeTimeEnergy', 'garage', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'kWh', undefined)
+log('Der Alias >WallboxLifeTimeEnergy< muss mit (1000*val) beim Lesen konvertiert werden','error');
 createAlias('shelly.0.SHSW-25#007CC3#1.Shutter.Power'/*Lea Rollladen Türe*/,'PowerMeasurement.LeaRollladenTuere', 'lea', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#68C63AF963F3#1.Shutter.Power'/*Lea Rollladen Fenster*/,'PowerMeasurement.LeaRollladenFenster', 'lea', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
 createAlias('shelly.0.SHSW-25#00869E#1.Shutter.Power'/*Schlafzimmer Fenster*/,'PowerMeasurement.SchlafzimmerFenster', 'schlafzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
@@ -629,6 +631,7 @@ createAlias('shelly.0.shellyplusplugs#e86beae857b8#1.Relay0.Power'/*Kinotechnik 
 
 //Solar
 createAlias('shelly.0.shellypmmini#6055f99974b8#1.PM1:0.Power'/*Inverter*/,'Solar.InverterMeasurement', 'terrasse', 'solar_alias', 'number', '(-1 *val)', false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Watt', undefined)
+log('Der Alias >InverterMeasurement< muss mit (-1*val) beim Lesen konvertiert werden','error');
 createAlias('shelly.0.shellypmmini#6055f99974b8#1.PM1:0.Energy'/*InverterTotal*/,'Solar.InverterMeasurementTotal', 'terrasse', 'solar_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Wh', undefined)
 
 //Stromzähler

@@ -7,9 +7,9 @@ const token = '7K1-P0cSPuV5erxNOS-wYTdzP4rL9qcwgHUMzMcyvfLVnIxbF4dvCwmiaIENKLWvf
 const measurement = 'power-stats';
 
 const loggingTemplate = {
-//    'alias.0.energy.electricity.meter.totalIn': 'meterInW', //wieviel wird gerade importiert?
+    'alias.0.PowerMeasurement.Haus_PhaseGesamt': 'meterInW', //wieviel wird gerade importiert?
 //    'alias.0.energy.electricity.meter.totalOut': 'meterOutW', //wieviel wird gerade exportiert/eingespeist?
-    '0_userdata.0.energy.electricity.meter.in': 'meterInW', //wieviel wird gerade importiert?
+//    '0_userdata.0.energy.electricity.meter.in': 'meterInW', //wieviel wird gerade importiert?
     '0_userdata.0.energy.electricity.meter.out': 'meterOutW', //wieviel wird gerade exportiert/eingespeist?    
     'alias.0.Solar.InverterMeasurement': 'generatorW', //wieviel wird gerade durch die Solaranlage erzeugt?
     'alias.0.PowerMeasurement.Wallbox': 'wallboxW', //wieviel wird durch die Wallbox konsumiert
