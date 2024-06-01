@@ -29,7 +29,8 @@ var datenpunkt = "0_userdata.0.Speedtest.";
 
 // Favorisierter Server
 // Liste: https://www.speedtest.net/speedtest-servers.php
-var fav_server = 28602;
+//über speedtest -L die Server in der Shell abfragen
+var fav_server = 31470;
 
 // Speedtest Objekte
 var objekt = ["JSON_Output",
@@ -277,5 +278,5 @@ function speedtest_erster_start() {
 // Erster Start und Initialisierung
 speedtest_erster_start();
 
-// Alle 60 Minuten einen Speedtest ausführen
-schedule('*/60 * * * *', speedtest);
+//jede Stunde zur 8. Minute den Test ausführen
+schedule('8 * * * *', speedtest);
