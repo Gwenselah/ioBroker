@@ -57,7 +57,7 @@ var ObjektLEDs = [
 
 //Türen und Fenster
 var Doors = ['alias.0.Tueren.Wohnzimmer_Rechts','alias.0.Tueren.Wohnzimmer_Links','alias.0.Fenster.Bad',
-    'alias.0.Fenster.Küche','0_userdata.0.Geräte.IsLeaWindowOpen','alias.0.Tueren.Büro_groß','0_userdata.0.Hilfsdatenpunkte.Kino_Status',
+    'alias.0.Fenster.Küche','0_userdata.0.Geräte.IsLeaWindowOpen','alias.0.Tueren.Büro_groß',
 	'alias.0.Fenster.Waschküche','alias.0.Fenster.WC','0_userdata.0.Geräte.IsSchlafzimmerWindowOpen',
     'alias.0.Fenster.Büro_klein','0_userdata.0.Geräte.IsKaiWindowOpen'];
 
@@ -70,7 +70,7 @@ var BoolDevicesTrueRED = ['alias.0.Steckdosen.Terrasse','alias.0.Steckdosen.Wohn
 var BoolDevicesTrueGreen = []; //LED ist grün, wenn der Status dieses Gerätes TRUE ist
 //on Trigger muss unten aktiviert werden
 
-var MultiStateDevices = ['0_userdata.0.Hilfsdatenpunkte.Garage_Status']; //LED ist rot, gelb, grün oder aus
+var MultiStateDevices = ['0_userdata.0.Hilfsdatenpunkte.Garage_Status','0_userdata.0.Hilfsdatenpunkte.Kino_Status']; //LED ist rot, gelb, grün oder aus
 
 var Lights = ['alias.0.Licht.Lea_Mond']; //LED ist gelb, wenn die Lampe an ist, ansonsten aus
 

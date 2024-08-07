@@ -1,6 +1,6 @@
 
 var Switches = ['alias.0.Steckdosen.Kinotechnik','sonoff.0.Kino.POWER2','sonoff.0.Kino.POWER3','sonoff.0.Kino.POWER4',
-    'alias.0.Steckdosen.Kinositze','alias.0.Fenster.Kino','wled.0.8c4b14a6ded4.on'];
+    'alias.0.Steckdosen.Kinositze','wled.0.8c4b14a6ded4.on'];
 
 var Entprellzeit = 1000;
 
@@ -8,7 +8,7 @@ on({id: Switches, change: 'ne'},(obj) => {
     var value = obj.state.val;
     //wenn einer der Schalter an ist, wird der globale Schalter aktiviert
     if (value) {
-        setState('0_userdata.0.Hilfsdatenpunkte.Kino_Status',true);
+        setState('0_userdata.0.Hilfsdatenpunkte.Kino_Status','rot');
     } else {
         //prüfen, ob es das letzte Gerät war, dann den globalen Schalter auf deaktiviert setzen
         
@@ -19,13 +19,19 @@ on({id: Switches, change: 'ne'},(obj) => {
                 AnzahlSwitchesOff = AnzahlSwitchesOff + 1;
             }
         })
-        //log(AnzahlSwitchesOff)
+        //log(AnzahlSwitches);
+        log(getState('alias.0.Fenster.Kino').val);
         if (AnzahlSwitches == AnzahlSwitchesOff) {
-            setState('0_userdata.0.Hilfsdatenpunkte.Kino_Status',false);
+            if (getState('alias.0.Fenster.Kino').val) {
+                setState('0_userdata.0.Hilfsdatenpunkte.Kino_Status','gelb');        
+                //log("gelb");                
+            } else {
+                setState('0_userdata.0.Hilfsdatenpunkte.Kino_Status','aus');
+                //log("aus");                
+            }
         }
       
     }
-
 
 });
 
@@ -85,3 +91,4 @@ on({id: 'alias.0.Steckdosen.Kinotechnik',change: "ne"}, function (obj) {
     setState('alias.0.Steckdosen.Kinositze',obj.state.val);
     setStateDelayed('alias.0.Steckdosen.Kinotechnik2',obj.state.val,(1000*30)); //Angabe in Millisekunden
 });
+

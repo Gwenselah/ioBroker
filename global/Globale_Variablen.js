@@ -40,6 +40,7 @@ var SwitchDevices = [
     { Name: 'Licht', Ort: "Garage",   an: true, aus: false, Objekt: "alias.0.Licht.Garage", Beschreibung: "Garagenlicht"},    
     { Name: 'Sitze', Ort: "Kino",   an: true, aus: false, Objekt: "alias.0.Steckdosen.Kinositze", Beschreibung: "Kinositze"},    
     { Name: 'Technik', Ort: "Kino",   an: true, aus: false, Objekt: "alias.0.Steckdosen.Kinotechnik", Beschreibung: "Kinotechnik"},    
+    { Name: 'Technik2', Ort: "Kino",   an: true, aus: false, Objekt: "alias.0.Steckdosen.Kinotechnik2", Beschreibung: "Kinotechnik2"},    
     { Name: 'PiPlayerPower', Ort: "Kino",   an: true, aus: false, Objekt: "alias.0.Steckdosen.PiPlayerPower", Beschreibung: "PiPlayerPower"},    
     { Name: 'Licht Leinwand', Ort: "Kino",   an: true, aus: false, Objekt: "alias.0.Licht.Leinwand", Beschreibung: "Licht Leinwand"},    
     { Name: 'Licht Lounge', Ort: "Kino",   an: true, aus: false, Objekt: "alias.0.Licht.Lounge", Beschreibung: "Licht Lounge"},    

@@ -30,6 +30,9 @@ schedule('0 2 * * *', function(){setState('alias.0.Steckdosen.XBOX_PC',false)});
 //Entertainment Unten
 schedule('0 2 * * *', function(){setState('alias.0.Steckdosen.Wohnzimmer_Entertainment',false)});
 
+//Nintendo Switch blocken
+schedule('0 2 * * *', function(){setState('unifi.0.default.clients.e8:da:20:5c:fd:57.blocked',true)});
+
 //Ambilight ausschalten
 on({id: "Datenpunkte.0.Geräte.Wohnzimmer_Entertainment.Shutdown", change: "ne"},function(obj) {
     if (!obj.state.val) {
@@ -56,11 +59,10 @@ on({id: 'alias.0.Steckdosen.Lava',change: "ne"},function(obj) {
     }
 });
 
-
 //Satanlage zusammen mit Entertainment an- und ausschalten
-on({id: 'alias.0.Steckdosen.Wohnzimmer_Entertainment',change: "ne"}, function (obj) {
-    setState('alias.0.Steckdosen.Satverteiler',obj.state.val)
-});
+//on({id: 'alias.0.Steckdosen.Wohnzimmer_Entertainment',change: "ne"}, function (obj) {
+//    setState('alias.0.Steckdosen.Satverteiler',obj.state.val)
+//});
 
 
 //Dunstabzugshaube in Abhängigkeit des Automatikswitches 
