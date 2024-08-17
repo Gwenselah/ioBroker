@@ -20,9 +20,9 @@ on({id: Switches, change: 'ne'},(obj) => {
             }
         })
         //log(AnzahlSwitches);
-        log(getState('alias.0.Fenster.Kino').val);
+        //log(getState('alias.0.Fenster.Kino').val);
         if (AnzahlSwitches == AnzahlSwitchesOff) {
-            if (getState('alias.0.Fenster.Kino').val) {
+            if ((getState('alias.0.Fenster.Kino').val >0)) {
                 setState('0_userdata.0.Hilfsdatenpunkte.Kino_Status','gelb');        
                 //log("gelb");                
             } else {
@@ -31,6 +31,24 @@ on({id: Switches, change: 'ne'},(obj) => {
             }
         }
       
+    }
+
+});
+
+on({id: '0_userdata.0.StateDoorsWindows.Fenster.Kino', change: 'ne'}, function (obj) {   
+    //log (!(getState('0_userdata.0.Hilfsdatenpunkte.Kino_Status').val = 'rot'));
+    //log(getState('0_userdata.0.Hilfsdatenpunkte.Kino_Status').val);
+    //log(getState('0_userdata.0.StateDoorsWindows.Fenster.Kino').val);
+    var value = obj.state.val;
+    if (getState('0_userdata.0.Hilfsdatenpunkte.Kino_Status').val != "rot") {
+        if (value >0) {
+            setState('0_userdata.0.Hilfsdatenpunkte.Kino_Status','gelb');        
+            //log("gelb");                
+        } else {
+            setState('0_userdata.0.Hilfsdatenpunkte.Kino_Status','aus');
+            //log("aus");                          
+        }
+
     }
 
 });

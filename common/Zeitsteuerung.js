@@ -33,6 +33,11 @@ schedule('0 2 * * *', function(){setState('alias.0.Steckdosen.Wohnzimmer_Enterta
 //Nintendo Switch blocken
 schedule('0 2 * * *', function(){setState('unifi.0.default.clients.e8:da:20:5c:fd:57.blocked',true)});
 
+//Markise fahren
+schedule('0 9 * * *', function(){setState('alias.0.Rollladen.Markise',0)});
+schedule('0 19 * * *', function(){setState('alias.0.Rollladen.Markise',100)});
+
+
 //Ambilight ausschalten
 on({id: "Datenpunkte.0.Geräte.Wohnzimmer_Entertainment.Shutdown", change: "ne"},function(obj) {
     if (!obj.state.val) {

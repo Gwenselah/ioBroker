@@ -1,100 +1,80 @@
-on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
-    var stateval = getState('telegram.0.communicate.request').val;              // Statevalue in Variable schreiben
-    var benutzer = stateval.substring(1,stateval.indexOf("]"));                 // Benutzer aus Statevalue extrahieren
-    var befehl = stateval.substring(stateval.indexOf("]")+1,stateval.length);   // Befehl/Text aus Statevalue extrahieren
+/*
+"0": "geschlossen",
+"1": "gekippt",
+"2": "offen"
+*/
 
-if (befehl.substring(0,1) !== "%") {
-    sendTo('telegram', {
-        user: benutzer,
-        text: 'Für welchen Raum möchtest du den Status abfragen?',
-        reply_markup: {
-            inline_keyboard: [
-//                    [{ text: 'alle Räume', callback_data: '%Status'}],
-                [{ text: 'Wohnzimmer', callback_data: '%StatusWohnzimmer'}],
-                [{ text: 'Flur', callback_data: '%StatusFlur'}],
-                [{ text: 'Terrasse', callback_data: '%StatusTerrasse'}],
-                [{ text: 'Garten', callback_data: '%StatusGarten'}],
-            ]
-            }
-    });
-    } else if (befehl === "%StatusWohnzimmer") {
-            sendTo('telegram', {
-            user: benutzer,
-            text: 
-                    'Schranklicht ' + 
-                    ' %\nWohnzimmerlicht ' +
-                    ' %\nEsszimmerlicht ' + 
-                    '\nSteckdose Laptop ' + 
-                    '\nSteckdose Tablet ' + 
-                    '\nTerrassentür '
-//            ,
-  //          showAlert: true
-            
-        });
-    } 
+//reagiert auf alles Änderungen in der Fenster_Alias Aufzählung
+$('state(functions=fenster_alias)').on(function(obj) {
+    //countOpenWindowsDoors();
+
+    var value = obj.state.val;
+    var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
+    var DeviceID=objArr[1]+"."+objArr[2];
+    var DeviceName=objArr[3];
+    //console.log("Trigger: " + objArr[0]);
+    //console.log("Pfad: " + objArr[1]);
+    //console.log("Devicename: " + objArr[3]);
+    //console.log("localDeviceID:"+DeviceID);   
+    /*
+    Trigger: alias.0.Fenster.Bad
+    Pfad: alias.0
+    Devicename: Bad
+    localDeviceID:alias.0.Fenster
+    */
+    var DPRotation = objArr[0] + "_Rotation" //Trigger+Zusatz "_Rotation"
+    var DPDestination = "0_userdata.0.StateDoorsWindows." + objArr[2] + "." + DeviceName
+
+    //log ("DPRotation: " + DPRotation);
+    //log ("DPRotaion Value: " + getState(DPRotation).val);
+    //log ("DPDestination: " + DPDestination);
+
+    if (value) { //true = geöffnet
+        if ((getState(DPRotation).val) <2) { //fast senkrecht
+            setState(DPDestination,2); //offen
+        } else {
+            setState(DPDestination,1); //gekippt
+        }         
+    } else { //geschlossen
+        setState(DPDestination,0); //geschlossen
+    }   
 
 });
-/*
+
+//reagiert auf alles Änderungen in der DoorWindowRotation Aufzählung
+$('state(functions=DoorWindowRotation)').on(function(obj) {
+    
+    var value = obj.state.val;
+    var objArr  = obj.id.match(/(^.+)\.(.+)\.(.+)$/, ""); //Aufteilung in Pfad + Device + CMD
+    var DeviceID=objArr[1]+"."+objArr[2];
+    var DeviceName=objArr[3];
+//    console.log("Trigger: " + objArr[0]);
+//    console.log("Pfad: " + objArr[1]);
+//    console.log("Devicename: " + objArr[3]);
+//    console.log("localDeviceID:"+DeviceID);   
+
+    /*
+    Trigger: alias.0.Fenster.Bad_Rotation
+    Pfad: alias.0
+    Devicename: Bad_Rotation
+    localDeviceID:alias.0.Fenster
+    */
+
+    var DPOpenClosed = objArr[0].replace("_Rotation",""); //"_Rotation" entfernen
+    var DPDestination = "0_userdata.0.StateDoorsWindows." + objArr[2] + "." + DeviceName.replace("_Rotation",""); //"_Rotation" entfernen
+//    log ("DPOpenClosed: " + DPOpenClosed);
+//    log ("DPDestination: " + DPDestination);
 
 
-on({id: "telegram.0.communicate.request", change: 'any'}, function(obj){
-    log("1");
-    var stateval = getState('telegram.0.communicate.request').val;
-    var benutzer = stateval.substring(1,stateval.indexOf("]"));     
-    var command  = stateval.substring(stateval.indexOf("]")+1,stateval.length);   
-    log(command);
-        sendTo('telegram.0', {
-            user: benutzer,
-            answerCallbackQuery: {
-                text: command,
-                showAlert: false // Optional parameter
-            }
-    });
-});
-
-
-/*
-var KeyAr = [
-            ['TV', ''],
-            ['LEDs an', 'LEDs aus'],
-            ['Computer an', 'Computer aus'],
-            ['Diesel Preise', ''],
-        ]
-
-sendTo('telegram.0', {
-    text:   'Bitte wähle ein Button',
-    benutzer: "Andy",
-    reply_markup: {
-        inline_keyboard: KeyAr,
-        resize_keyboard:   false,
-        one_time_keyboard: true
-    }
-});*/
-
-/*
-
-    sendTo('telegram.0', {
-        chatId: getState("telegram.0.communicate.requestChatId").val,
-        text:   Frage,
-        reply_markup: {
-            inline_keyboard: KeyboardArray,
-            resize_keyboard:   false, 
-            one_time_keyboard: true
+    if (!getState(DPOpenClosed).val) { //true = offen
+        setState(DPDestination,0); //geschlossen
+    } else {
+        if (value <2) { //<2 bedeutet senkrecht
+            setState(DPDestination,2); //offen
+        } else {
+            setState(DPDestination,1); //gekippt
         }
-    });
+    }         
 
-Rollladen.forEach(function(element) {
+});
 
-
-
-        if (element.Ort == "Wohnzimmer" || element.Ort == "Esszimmer") {
-			if (element.Objekt.includes("alexa")) {
-                //console.log ("Setze Alexa Gerät auf Pause");
-                var AlexaPause = (element.Objekt).replace(".volume",".controlPause");                       
-                setState(AlexaPause, true); //den Pauseknopf drücken
-			} else {
-				setState(element.Objekt, false);
-			}
-		};			
-
-        */

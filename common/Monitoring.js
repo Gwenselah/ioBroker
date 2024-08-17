@@ -40,7 +40,7 @@ on({id: GaragenDevices, change: 'ne'},(obj) => {
     var DeviceName=objArr[2];
     console.log("Trigger: " + objArr[0]);
     console.log("Pfad: " + objArr[1]);
-    console.log("Devic);name: " + objArr[2]);
+    console.log("Devicename: " + objArr[2]);
     console.log("localDeviceID:"+DeviceID);*/
 
     if (getState('alias.0.Tueren.Garage').val) {

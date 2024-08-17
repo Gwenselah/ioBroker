@@ -3,7 +3,7 @@
 //var ColorOK = "10FF00"; //Grün
 //var ColorWarning = "ffcb05"; //Orange bis Gelb
 //var ColorError = "ff0000";  //Rot
-//diese waren zu hell, durch Konvertierung auf HSL, dimmen auf ide Hälfte (L = 25%) und zurück nach RGB, ergibt:
+//diese waren zu hell, durch Konvertierung auf HSL, dimmen auf die Hälfte (L = 25%) und zurück nach RGB, ergibt:
 var ColorOK = "043800"; //Grün
 var ColorWarning = "806600"; //Orange bis Gelb
 var ColorError = "800000";  //Rot
@@ -14,7 +14,7 @@ var DisplayIP = "10.1.24.132";
 /*
 BEI TASMOTA BEGINNT DIE ZÄHLUNG BEI 1 !!!
 
-LED 30: Wohnzimmer linke Tür	LED 19:	Lea Türe und Türe   	LED 18: Schlafzimmer Fenster 	LED 7: Altpapaier 	    LED 6: linke Waschmaschine 
+LED 30: Wohnzimmer linke Tür	LED 19:	Lea Türe und Fenster   	LED 18: Schlafzimmer Fenster 	LED 7: Altpapaier 	    LED 6: linke Waschmaschine 
 LED 29: Wohnzimmer rechte Tür   LED 20: Lea Mond     		    LED 17: Büro klein Fenster      LED 8: Biomüll    	    LED 5: rechte Waschmaschine
 LED 28: Küche Fenster           LED 21: Bad Fenster             LED 16: Büro groß Türe 	    	LED 9: Restmüll      	LED 4: Trockner   
 LED 27: WC Fenster    			LED 22: Kai Fenster    		    LED 15: Arbeitstisch            LED 10: Wertstoffe 	    LED 3: Geschirrspüler 
@@ -38,31 +38,33 @@ var ObjektLEDs = [
     { Objekt: 'device-reminder.0.PC Tina.Status', LED: '13' },    
     { Objekt: 'device-reminder.0.PC Kai.Status', LED: '14' },
     { Objekt: 'device-reminder.0.Arbeitstisch.Status', LED: '15' },  
-    { Objekt: 'alias.0.Tueren.Büro_groß', LED: '16' },  
+    { Objekt: '0_userdata.0.StateDoorsWindows.Tueren.Büro_groß', LED: '16' },  
     { Objekt: 'alias.0.Fenster.Büro_klein', LED: '17' },   
     { Objekt: '0_userdata.0.Geräte.IsSchlafzimmerWindowOpen', LED: '18' },    
     { Objekt: '0_userdata.0.Geräte.IsLeaWindowOpen', LED: '19' },    
     { Objekt: 'alias.0.Licht.Lea_Mond', LED: '20' },    
-    { Objekt: 'alias.0.Fenster.Bad', LED: '21' },    
+    { Objekt: '0_userdata.0.StateDoorsWindows.Fenster.Bad', LED: '21' },    
     { Objekt: '0_userdata.0.Geräte.IsKaiWindowOpen', LED: '22' },    
     { Objekt: 'easee.0.EH9NK57L.status.chargerOpMode', LED: '23' },    
     { Objekt: '0_userdata.0.Hilfsdatenpunkte.Garage_Status', LED: '24' },    
     { Objekt: '0_userdata.0.Hilfsdatenpunkte.Kino_Status', LED: '25' },    
     { Objekt: 'alias.0.Fenster.Waschküche', LED: '26' },
-    { Objekt: 'alias.0.Fenster.WC', LED: '27' },
-    { Objekt: 'alias.0.Fenster.Küche', LED: '28' },
-    { Objekt: 'alias.0.Tueren.Wohnzimmer_Rechts', LED: '29' },
-    { Objekt: 'alias.0.Tueren.Wohnzimmer_Links', LED: '30' }
+    { Objekt: '0_userdata.0.StateDoorsWindows.Fenster.WC', LED: '27' },
+    { Objekt: '0_userdata.0.StateDoorsWindows.Fenster.Küche', LED: '28' },
+    { Objekt: '0_userdata.0.StateDoorsWindows.Tueren.Wohnzimmer_Rechts', LED: '29' },
+    { Objekt: '0_userdata.0.StateDoorsWindows.Tueren.Wohnzimmer_Links', LED: '30' }
 ];  
 
 //Türen und Fenster
-var Doors = ['alias.0.Tueren.Wohnzimmer_Rechts','alias.0.Tueren.Wohnzimmer_Links','alias.0.Fenster.Bad',
-    'alias.0.Fenster.Küche','0_userdata.0.Geräte.IsLeaWindowOpen','alias.0.Tueren.Büro_groß',
-	'alias.0.Fenster.Waschküche','alias.0.Fenster.WC','0_userdata.0.Geräte.IsSchlafzimmerWindowOpen',
+var Doors = ['0_userdata.0.Geräte.IsLeaWindowOpen',
+	'alias.0.Fenster.Waschküche','0_userdata.0.Geräte.IsSchlafzimmerWindowOpen',
     'alias.0.Fenster.Büro_klein','0_userdata.0.Geräte.IsKaiWindowOpen'];
 
 //DoorsNew unterstützt Dreh Kipp Auswertung
-var DoorsNew = []; 
+var DoorsNew = ['0_userdata.0.StateDoorsWindows.Tueren.Wohnzimmer_Links','0_userdata.0.StateDoorsWindows.Tueren.Wohnzimmer_Rechts',
+    '0_userdata.0.StateDoorsWindows.Fenster.Bad','0_userdata.0.StateDoorsWindows.Fenster.Küche',
+    '0_userdata.0.StateDoorsWindows.Tueren.Büro_groß','0_userdata.0.StateDoorsWindows.Fenster.WC'
+]; 
 //on Trigger muss unten aktiviert werden
 
 var BoolDevicesTrueRED = ['alias.0.Steckdosen.Terrasse','alias.0.Steckdosen.Wohnzimmer_Entertainment']; //LED ist rot, wenn der Status dieses Gerätes TRUE ist
@@ -144,9 +146,14 @@ function SetDoorsLED (DeviceTriggerName, DeviceTriggerValue) {
 }
 
 function SetDoorsNewLED (DeviceTriggerName, DeviceTriggerValue) {
-    if (DeviceTriggerValue == "geschlossen") {
+/*
+"0": "geschlossen",
+"1": "gekippt",
+"2": "offen"
+*/
+    if (DeviceTriggerValue == "0") {
         SwitchLED (GetLedNo(DeviceTriggerName),"000000");
-    } else if (DeviceTriggerValue == "gekippt") {
+    } else if (DeviceTriggerValue == "1") {
         SwitchLED (GetLedNo(DeviceTriggerName),ColorWarning);
     } else {
         SwitchLED (GetLedNo(DeviceTriggerName),ColorError);    
@@ -373,7 +380,7 @@ on({id: Doors, change: 'ne'},(obj) => {
     SetDoorsLED(objArr[0],value);
 	SwitchOffDisplayDelayed();
 });
-/*
+
 on({id: DoorsNew, change: 'ne'},(obj) => {
 	//setState('sonoff.0.StatusDisplay.POWER',true)
     var value = obj.state.val;
@@ -387,7 +394,7 @@ on({id: DoorsNew, change: 'ne'},(obj) => {
     SetDoorsNewLED(objArr[0],value);
 	SwitchOffDisplayDelayed();
 });
-*/
+
 on({id: BoolDevicesTrueRED, change: 'ne'},(obj) => {
 	//setState('sonoff.0.StatusDisplay.POWER'/*Turn On/Off*/,true)
     var value = obj.state.val;
