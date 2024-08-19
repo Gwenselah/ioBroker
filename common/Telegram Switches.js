@@ -240,7 +240,7 @@ on({id: "telegram.0.communicate.request", change: 'any'}, function (obj) {
 				});   
             break;                      
         case "TEST":
-            TelegramText = "Water Leak: " + getState('zigbee.0.00158d0002795a9b.detected').val + " / Qual: " +getState('zigbee.0.00158d0002795a9b.link_quality').val;
+            TelegramText = "Water Leak: " + getState('shelly.0.SHWT-1#CC7B5C52716A#1.sensor.flood').val + " / Qual: " +getState('zigbee.0.00158d0002795a9b.link_quality').val;
             TelegramText = TelegramText + "\n Door Open: " + getState('zigbee.0.00158d0002ca0dfa.opened').val + " / Qual: " +getState('zigbee.0.00158d0002ca0dfa.link_quality').val;
             TelegramText = TelegramText + "\n Temperatur: " + getState('zigbee.0.00158d0002b533fa.temperature').val + " / Qual: " +getState('zigbee.0.00158d0002b533fa.link_quality').val;
             TelegramText = TelegramText + "\n Temperatur: " + getState('zigbee.0.00158d0002b534e2.temperature').val + " / Qual: " +getState('zigbee.0.00158d0002b534e2.link_quality').val;

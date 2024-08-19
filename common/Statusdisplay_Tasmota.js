@@ -48,7 +48,7 @@ var ObjektLEDs = [
     { Objekt: 'easee.0.EH9NK57L.status.chargerOpMode', LED: '23' },    
     { Objekt: '0_userdata.0.Hilfsdatenpunkte.Garage_Status', LED: '24' },    
     { Objekt: '0_userdata.0.Hilfsdatenpunkte.Kino_Status', LED: '25' },    
-    { Objekt: 'alias.0.Fenster.Waschküche', LED: '26' },
+    { Objekt: '0_userdata.0.StateDoorsWindows.Fenster.Waschküche', LED: '26' },
     { Objekt: '0_userdata.0.StateDoorsWindows.Fenster.WC', LED: '27' },
     { Objekt: '0_userdata.0.StateDoorsWindows.Fenster.Küche', LED: '28' },
     { Objekt: '0_userdata.0.StateDoorsWindows.Tueren.Wohnzimmer_Rechts', LED: '29' },
@@ -63,7 +63,8 @@ var Doors = ['0_userdata.0.Geräte.IsLeaWindowOpen',
 //DoorsNew unterstützt Dreh Kipp Auswertung
 var DoorsNew = ['0_userdata.0.StateDoorsWindows.Tueren.Wohnzimmer_Links','0_userdata.0.StateDoorsWindows.Tueren.Wohnzimmer_Rechts',
     '0_userdata.0.StateDoorsWindows.Fenster.Bad','0_userdata.0.StateDoorsWindows.Fenster.Küche',
-    '0_userdata.0.StateDoorsWindows.Tueren.Büro_groß','0_userdata.0.StateDoorsWindows.Fenster.WC'
+    '0_userdata.0.StateDoorsWindows.Tueren.Büro_groß','0_userdata.0.StateDoorsWindows.Fenster.WC',
+    '0_userdata.0.StateDoorsWindows.Fenster.Waschküche'
 ]; 
 //on Trigger muss unten aktiviert werden
 
