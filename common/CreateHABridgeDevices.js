@@ -1,3 +1,5 @@
+stopScript("Script funktioniert nicht mehr, da die Umstellung auf httpGet nicht durhgeführt wurde.");
+
 var anz=0;
  
 var habridgeURL = "http://10.1.24.16:80/api/devices"

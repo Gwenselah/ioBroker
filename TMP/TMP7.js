@@ -1,32 +1,39 @@
-/*log ("Jetzt");
-setTimeout(function() {
-console.log("Callback Funktion wird aufgerufen");
-}, 3000);
+/*
+var params = {
+    user: 'heizung@badur.name',
+	offset: '-3',
+	password: '6@3IPI0KtS0kNCQNWy',
+	offset_name:'ioBroker'
+}
 
-console.log("Vor der sleep-Funktion");
-await sleep(3000); // Pausiert die Funktion für 3 Sekunden
- console.log("Nach der Sleep Funktion");
+var myPowerInterval = [null];
+const { get } = require('request');
+var request = require('request');
 
+function SendRequestToContromeOLD(ContromeRaumID){
+	var URL='http://10.1.24.200/set/json/v1/1/roomoffset/'+ContromeRaumID+'/';
+	console.log('Controme Offset/Function Trigger: ' + URL);
+	request.post({url:URL, formData: params}, function optionalCallback(err, httpResponse, body) {
+	  if (err) {
+		return console.error('Controme Offset/upload failed:', err);
+	  }
+	  console.log('Controme Offset/Upload successful!  Server responded with:', body);
+	});		
+}
+
+var URL='http://10.1.24.200/set/json/v1/1/roomoffset/1/';
+console.log('Controme Offset/Function Trigger: ' + URL);
 */
-
-//let obj = getObject('alias.0.Rollladen.Küche_Stop');
-let obj = getObject('alias.0.Steckdosen.Waschmaschine_Rechts');
-if (!obj.common.smartName || !obj.common.smartName.de) {
-    log("true")
-} else {
-    log ("false")
-}
-
-
-//log(obj);
-log (existsObject('alias.0.Rollladen.Küche_Stop').common);
-//log (getState('alias.0.Rollladen.Küche_Stop'));
-//log (getState('alias.0.Rollladen.Küche_Stop').common.smartName);
-
-
-//log (getState('alias.0.Steckdosen.KaiPC').common.smartName);
-
-log (obj.common.smartName);
-if (obj.common.smartName  == null) {
-    log ("tr");
-}
+var URL='http://10.1.24.200/set/json/v1/1/roomoffset/1/';
+httpPost(URL,
+    {form: {
+        user: 'heizung@badur.name',
+	    offset: '-3',
+	    password: '6@3IPI0KtS0kNCQNWy',
+	    offset_name:'ioBroker'}
+    },
+    (err, response) => {
+      const data = response.data;
+      log (data);
+    }
+);

@@ -95,13 +95,19 @@ function wait(ms){
 }
 
 function RunRequest(URL){
-    try {
-        require("request")(URL).on("error", function (e) {console.error(e);});
-    } catch (e) { console.error(e); }
+    httpGet(URL,{ timeout: 3000, responseType: 'arraybuffer oder text' }, (err, response) => {
+        if (err) {
+            console.error(err);
+        } else if (response.statusCode == 200) {
+            const resObj = JSON.parse(response.data);
+
+        }
+    });
 
     console.log("Statusdisplay Request: " + URL);
 
 }
+
 // --- Funktion für Einzelledsteuerung ----------------------------------------------------------
 function SwitchLED (LEDNo, ColorCode) {
 	if (getState('sonoff.0.Statusdisplay.POWER').val) {

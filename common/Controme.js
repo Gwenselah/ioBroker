@@ -1,19 +1,18 @@
 //Die Rooms Enumeration funktioniert nicht mit LinkedDevices
-var DoorsandWindows = ['alias.0.Tueren.Büro_klein',
+var DoorsandWindows = ['alias.0.Fenster.Büro_klein',
 	'alias.0.Fenster.Schlafzimmer_Dachfenster', 
 	'alias.0.Fenster.Schlafzimmer_links',
 	'alias.0.Fenster.Schlafzimmer_rechts',
 	'alias.0.Tueren.Büro_groß',
-	'alias.0.Tueren.Lea',
+	'alias.0.Tueren.Lea_Tür',
 	'alias.0.Fenster.Bad',
 	'alias.0.Fenster.Kai_links',
 	'alias.0.Fenster.Kai_rechts', 
-	'dalias.0.Fenster.Lea',
+	'alias.0.Fenster.Lea_Fenster',
 	'alias.0.Fenster.WC',
 	'alias.0.Fenster.Küche',
 	'alias.0.Tueren.Wohnzimmer_Links',
-	'alias.0.Tueren.Wohnzimmer_Rechts',
-	'alias.0.Tueren.Haustür'
+	'alias.0.Tueren.Wohnzimmer_Rechts'
 ];
 
 var params = {
@@ -24,19 +23,6 @@ var params = {
 }
 
 var myPowerInterval = [null];
-const { get } = require('request');
-var request = require('request');
-
-function SendRequestToControme(ContromeRaumID){
-	var URL='http://10.1.24.200/set/json/v1/1/roomoffset/'+ContromeRaumID+'/';
-	console.log('Controme Offset/Function Trigger: ' + URL);
-	request.post({url:URL, formData: params}, function optionalCallback(err, httpResponse, body) {
-	  if (err) {
-		return console.error('Controme Offset/upload failed:', err);
-	  }
-	  console.log('Controme Offset/Upload successful!  Server responded with:', body);
-	});		
-}
 
 function CorrectTempValues (Temperature) {
     //Korrektur von negativen Werten, die Controme falsch setzt
@@ -96,11 +82,17 @@ function SendTemperatureToControme(SensorID,Temperature){
   //    Temperature=Math.floor(Temperature * 100) / 100; //Nur zwei Digits übergeben
 //    Temperature=round(Temperature * 100) / 100; //Nur zwei Digits übergeben
     var URL='http://10.1.24.200/set/'+SensorID+'/'+Temperature.toFixed(2);
-    var options = {url: URL, method: 'GET', headers: { 'User-Agent': 'request' }};
     console.log('Controme Set Temperature: ' + URL);
-    request(URL, function(error, response, body) {
-        if(error) log('Fehler Request Steckdose', 'error');
+
+	httpGet(URL, { timeout: 3000}, (err, response) => {
+    if (!err) {
+        console.log('Controme Set Temperature - ReturnCode: '+ response.statusCode);
+        //console.log(response.data);
+    } else {
+        console.error('Controme Set Temperature - Fehler: ' + err);
+    }
     });
+
 }
 
 on({id: DoorsandWindows, change: 'ne'},(obj) => {
@@ -119,9 +111,10 @@ on({id: DoorsandWindows, change: 'ne'},(obj) => {
 		//Aufruf
         console.log("Controme Offset/Offset senden");
 		if (myPowerInterval[roomID]) clearInterval(myPowerInterval[roomID]);
-		SendRequestToControme(roomID);
+		setState('controme.0.' + roomID + '.offsets.api.ioBroker',-3);
+
 		myPowerInterval[roomID] = setInterval(function(){  	
-			SendRequestToControme(roomID);
+			setState('controme.0.' + roomID + '.offsets.api.ioBroker',-3);
  		},540000); //Ausführungsfrequenz in ms. 540000 = 9 Minuten		
 	} else {
 		if (myPowerInterval[roomID]) clearInterval(myPowerInterval[roomID]);

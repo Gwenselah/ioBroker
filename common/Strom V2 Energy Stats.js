@@ -9,9 +9,9 @@ const measurement = 'energy-stats';
 const loggingTemplate = {
     '0_userdata.0.energy.contract.electricity.kWhPrice': 'priceIn',
     '0_userdata.0.energy.contract.electricity.kWhPriceExport': 'priceOut',
-    'alias.0.PowerMeasurement.TotalActiveEnergy': 'importedWh',
-    '0_userdata.0.energy.electricity.meter.totalOut': 'exportedWh',   
-    'alias.0.Solar.InverterMeasurementTotal': 'generatedWh',
+    'alias.0.PowerMeasurement.TotalImportedEnergy': 'importedWh',
+    'alias.0.PowerMeasurement.TotalExportedEnergy': 'exportedWh',   
+    '0_userdata.0.energy.electricity.meter.SolarTotal': 'generatedWh',
     'alias.0.PowerMeasurement.WallboxLifeTimeEnergy': 'wallboxWh'
 };
 
@@ -64,10 +64,4 @@ async function start() {
     });
 }
 start();
-
-on({id: 'alias.0.PowerMeasurement.Hauszähler', change: 'ne'},(obj) => {
-    //rate_time_per_unit enthält den ermittelten Wert pro Minute
-    var Wattactual = obj.state.val*1000; //Umrechnung in wH
-    setState('0_userdata.0.energy.electricity.meter.totalIn',Wattactual);
-})
 
