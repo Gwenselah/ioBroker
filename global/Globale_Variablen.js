@@ -9,8 +9,7 @@ var ContromeRoomIDs =  [
     {Name: "WC", RoomID: 8},
     {Name: "Küche", RoomID: 9},
     {Name: "Wohnzimmer", RoomID: 10},
-	{Name: "Windfang", RoomID: 11},
-    {Name: "Kino", RoomID: 13}
+	{Name: "Windfang", RoomID: 11}
 ];
 
 var SwitchDevices = [
@@ -31,6 +30,7 @@ var SwitchDevices = [
     { Name: 'Statusdisplay', Ort: "Esszimmer",   an: true, aus: false, Objekt: "alias.0.Steckdosen.Statusdisplay", Beschreibung: "Schranklicht im Wohnzimmer"},
     { Name: 'PC Tina', Ort: "Büro klein",   an: true, aus: false, Objekt: "alias.0.Steckdosen.XBOX_PC", Beschreibung: "Entertainment im Dachgeschoss"},
     { Name: 'Lava', Ort: "Lea",   an: true, aus: false, Objekt: "alias.0.Steckdosen.Lava", Beschreibung: "Lava Lea"},
+    { Name: 'Deckenlicht', Ort: "Kai",   an: true, aus: false, Objekt: "alias.0.Licht.Kai_Deckenlicht", Beschreibung: "Kai Deckenlicht"},
     { Name: 'Weihnachtsbaum', Ort: "Wohnzimmer",   an: true, aus: false, Objekt: "alias.0.Licht.Weihnachtsbaum", Beschreibung: "Weihnachtsbaum"},
     { Name: 'MiniPC', Ort: "Büro groß",   an: true, aus: false, Objekt: "alias.0.Steckdosen.MiniPC", Beschreibung: "MiniPC"},
     { Name: 'Arbeit', Ort: "Büro groß",   an: true, aus: false, Objekt: "alias.0.Steckdosen.Arbeit", Beschreibung: "Arbeitsplatz"},
@@ -70,13 +70,13 @@ var Doors = [
 
 var Rollladen = [
     [{text: "Schlafzimmer Rollladen", Objekt: 'shelly.0.SHSW-25#00869E#1.Shutter.Position', callback_data: "%Schlafzimmer Rollladen"}],
-    [{text: "Lea Rollladen Türe", Objekt: 'shelly.0.SHSW-25#007CC3#1.Shutter.Position', callback_data: "%Lea Rollladen Türe"}],
+    [{text: "Lea Rollladen Türe", Objekt: 'shelly.0.shellyplus2pm#a0dd6c2e878c#1.Cover0.Position', callback_data: "%Lea Rollladen Türe"}],
     [{text: "Lea Rollladen Fenster", Objekt: 'shelly.0.SHSW-25#68C63AF963F3#1.Shutter.Position', callback_data: "%Lea Rollladen Fenster"}],
     [{text: "Küche Rollladen", Objekt: 'shelly.0.SHSW-25#68C63AF98CD1#1.Shutter.Position', callback_data: "%Küche Rollladen"}],
-    [{text: "Büro groß Rollladen", Objekt: 'shelly.0.SHSW-25#68C63AF994B6#1.Shutter.Position', callback_data: "%Büro groß Rollladen"}],
-    [{text: "Kai Rollladen", Objekt: 'shelly.0.shellyplus2pm#fcb467a5770c#1.Shutter.Position',callback_data: "%Kai Rollladen"}],
+    [{text: "Büro groß Rollladen", Objekt: 'shelly.0.shellyplus2pm#2cbcbb3cb720#1.Cover0.Position', callback_data: "%Büro groß Rollladen"}],
+    [{text: "Kai Rollladen", Objekt: 'shelly.0.shellyplus2pm#fcb467a5770c#1.Cover0.Position',callback_data: "%Kai Rollladen"}],
     [{text: "Bad Rollladen", Objekt: 'shelly.0.SHSW-25#C45BBE79438B#1.Shutter.Position',callback_data: "%Bad Rollladen"}],
-    [{text: "Wohnzimmer Rollladen Links", Objekt: 'shelly.0.SHSW-25#00CDCF#1.Shutter.Position', callback_data: "%Wohnzimmer Rollladen Links"}],
+    [{text: "Wohnzimmer Rollladen Links", Objekt: 'shelly.0.shellyplus2pm#10061ccdf770a#1.Cover0.Position', callback_data: "%Wohnzimmer Rollladen Links"}],
     [{text: "Wohnzimmer Rollladen Rechts", Objekt: 'shelly.0.SHSW-25#4C7525348982#1.Shutter.Position', callback_data: "%Wohnzimmer Rollladen Rechts"}]
 	
 ];

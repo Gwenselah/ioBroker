@@ -37,6 +37,14 @@ schedule('0 2 * * *', function(){setState('unifi.0.default.clients.e8:da:20:5c:f
 //schedule('0 9 * * *', function(){setState('alias.0.Rollladen.Markise',0)});
 //schedule('0 19 * * *', function(){setState('alias.0.Rollladen.Markise',100)});
 
+//Terasse für Weihachtsstern schalten
+//schedule('0 17 * * *', function(){setState('alias.0.Steckdosen.Terrasse',true)});
+//schedule('0 22 * * *', function(){setState('alias.0.Steckdosen.Terrasse',false)});
+
+//Vario schalten
+//schedule('0 17 * * *', function(){setState('alias.0.Steckdosen.Vario',true)});
+//schedule('0 22 * * *', function(){setState('alias.0.Steckdosen.Vario',false)});
+
 
 //Ambilight ausschalten
 on({id: "Datenpunkte.0.Geräte.Wohnzimmer_Entertainment.Shutdown", change: "ne"},function(obj) {

@@ -32,7 +32,7 @@ function UpdateWertstoffeTermine() {
     for (var i in Termine) {
         var Termin = Termine[i];
  
-        if ( Termin.event == "Restmüll" && TerminRest == "" ) {
+        if ( Termin.event == "Restmüll 120l/240l" && TerminRest == "" ) {
             TerminRest = Termin.date;
         }
          
@@ -40,7 +40,7 @@ function UpdateWertstoffeTermine() {
             TerminBio = Termin.date;
         }
          
-        if ( Termin.event == "Papier" && TerminPapier == "" ) {
+        if ( Termin.event == "Papier 120l/240l" && TerminPapier == "" ) {
             TerminPapier = Termin.date;
         }
          

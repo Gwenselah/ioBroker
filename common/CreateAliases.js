@@ -387,7 +387,7 @@ createAlias('shelly.0.ble.e8:e0:7e:a7:7f:48.window'/*Wohnzimmer Türe links open
 createAlias('shelly.0.ble.e8:e0:7e:a7:19:b4.window'/*Garage open*/, 'Tueren.Garage', 'garage', 'tueren_alias', 'boolean', undefined, false, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'geschlossen', true: 'geöffnet'})
 
 //////////////////////////////
-//  Rotation
+//  Rotation / Neigungswinkel
 //////////////////////////////
 createAlias('shelly.0.ble.b0:c7:de:bd:b7:da.rotation'/*Bad Fenster rotation*/, 'Fenster.Bad_Rotation','bad', 'DoorWindowRotation', 'number', undefined, false, 'Bad Fenster Rotation', 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
 createAlias('shelly.0.ble.38:39:8f:98:b4:ae.rotation'/*Schlafzimmer Dachfenster rotation*/, 'Fenster.Schlafzimmer_Dachfenster_Rotation', 'schlafzimmer', 'DoorWindowRotation', 'number', undefined, false, 'Schlafzimmer Dachfenster Rotation', 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
@@ -467,7 +467,6 @@ createAlias('controme.0.11.actualTemperature'/*Windfang actual temperature*/, 'T
 createAlias('sainlogic.0.weather.current.outdoortemp'/*Außentemperature*/, 'Temperaturen.Temperatur_Aussen', 'herrenberg', 'temperaturen_alias', 'number', 'Math.round(val * 10) / 10', false, 'Draußen', 'value.temperature', 'per Script erstellt', undefined, undefined, '°C', undefined)
 
 createAlias('shelly.0.SHHT-1#78D8B6#1.tmp.temperatureC'/*Kino1 (Shelly)*/, 'Temperaturen.Temperatur_Kino_Umwelt1', 'kino', 'temperaturen_alias', 'number', 'Math.round(val * 10) / 10', false, 'Kino', 'value.temperature', 'per Script erstellt', undefined, undefined, '°C', undefined)
-createAlias('controme.0.13.actualTemperature'/*Kino actual temperature*/, 'Temperaturen.Temperatur_Kino_Umwelt3', 'kino', undefined, 'number', 'Math.round(val * 10) / 10', false, undefined, 'value.temperature', 'per Script erstellt', undefined, undefined, '°C', undefined)
 
 //////////////////////////////
 //  Luftfeuchtigkeit
@@ -501,6 +500,8 @@ createAlias('shelly.0.SHPLG-S#4022D882E4CB#1.Relay0.Switch'/*Wohnzimmer Couch*/,
 createAlias('shelly.0.SHSW-1#E2D477#1.Relay0.Switch'/*Terrasse*/, 'Steckdosen.Terrasse', 'terrasse', 'steckdosen_alias', 'boolean', undefined, undefined, 'Terrasse', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHPLG-S#C8C9A3A5C4F9#1.Relay0.Switch'/*PiPlayerPower*/, 'Steckdosen.PiPlayerPower', 'kino', 'steckdosen_alias', 'boolean', undefined, undefined, undefined, 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.shellyplusplugs#a0a3b3e7ed94#1.Relay0.Switch'/*Dunstabzug*/, 'Steckdosen.Dunstabzug', 'Kueche', 'steckdosen_alias', 'boolean', undefined, undefined, 'Dunstabzug', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('shelly.0.shellyplusplugs#08f9e0fe6838#1.Relay0.Switch'/*Vario Steckdose*/, 'Steckdosen.Vario', 'büro_gross', 'steckdosen_alias', 'boolean', undefined, undefined, 'Vario', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+
 
 //////////////////////////////
 //  Licht
@@ -515,6 +516,7 @@ createAlias('shelly.0.shellyplus2pm#10061cccfb8c#1.Relay1.Switch'/*Switch*/, 'Li
 createAlias('shelly.0.shellyplus2pm#10061cccfb8c#1.Relay0.Switch'/*Switch*/, 'Licht.Schlafzimmer_Lampe_Rechts', 'schlafzimmer', 'licht_alias', 'boolean', undefined, undefined, 'Schlafzimmmer Lampe Rechts', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHPLG-S#C8C9A3A5016E#1.Relay0.Switch'/*Esszimmer Schranklicht*/, 'Licht.Esszimmer_Schranklicht', 'esszimmer', 'licht_alias', 'boolean', undefined, undefined, 'Esszimmer Schranklicht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.shellyplusplugs#a0a3b3e91120#1.Relay0.Switch'/*Wohnzimmer Ecklampe 2*/, 'Licht.Wohnzimmer_Ecklampe', 'wohnzimmer', 'licht_alias', 'boolean', undefined, undefined, 'Wohnzimmer Ecklampe', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
+createAlias('shelly.0.shellyplus1pm#b48a0a21af9c#1.Relay0.Switch'/*Kai Deckenlicht*/, 'Licht.Kai_Deckenlicht', 'kai', 'licht_alias', 'boolean', undefined, undefined, 'Kai Deckenlicht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('fritzdect.0.DECT_087610274750.state'/*Switch Status and Control*/, 'Licht.Wohnzimmer_Schranklicht', 'wohnzimmer', 'licht_alias', 'boolean', undefined, undefined, 'Wohnzimmer Schranklicht', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('sonoff.0.Weihnachtsbaum.POWER'/*Light 2 on*/, 'Licht.Weihnachtsbaum', 'wohnzimmer', 'licht_alias', 'boolean', undefined, undefined, 'Weihnachtsbaum', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
 createAlias('shelly.0.SHSW-1#E2D5C6#1.Relay0.Switch'/*Switch*/, 'Licht.Garage', 'garage', 'licht_alias', 'boolean', undefined, undefined, 'Garage', 'switch', 'per Script erstellt', undefined, undefined, undefined, {false: 'aus', true: 'an'})
@@ -548,10 +550,10 @@ createAlias('shelly.0.shellyplus2pm#a0dd6c2e878c#1.Cover0.Stop'/*Stop Lea_Türe*
 createAlias('shelly.0.shellyplus2pm#a0dd6c2e878c#1.Cover0.Open'/*Open Lea_Türe*/,'Rollladen.Lea_Türe_Open', 'lea', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
 createAlias('shelly.0.shellyplus2pm#a0dd6c2e878c#1.Cover0.Close'/*Close Lea_Türe*/,'Rollladen.Lea_Türe_Close', 'lea', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
 
-createAlias('shelly.0.SHSW-25#68C63AF994B6#1.Shutter.Position'/*Position* Büro groß*/, 'Rollladen.Büro_groß', 'büro_gross', 'rollladen_alias', 'number', undefined, false, 'Rollladen Büro groß', 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
-createAlias('shelly.0.SHSW-25#68C63AF994B6#1.Shutter.Pause'/*Stop Büro_groß*/,'Rollladen.Büro_groß_Stop', 'büro_gross', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
-createAlias('shelly.0.SHSW-25#68C63AF994B6#1.Shutter.Open'/*Open Büro_groß*/,'Rollladen.Büro_groß_Open', 'büro_gross', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
-createAlias('shelly.0.SHSW-25#68C63AF994B6#1.Shutter.Close'/*Close Büro_groß*/,'Rollladen.Büro_groß_Close', 'büro_gross', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
+createAlias('shelly.0.shellyplus2pm#2cbcbb3cb720#1.Cover0.Position'/*Position* Büro groß*/, 'Rollladen.Büro_groß', 'büro_gross', 'rollladen_alias', 'number', undefined, false, 'Rollladen Büro groß', 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
+createAlias('shelly.0.shellyplus2pm#2cbcbb3cb720#1.Cover0.Stop'/*Stop Büro_groß*/,'Rollladen.Büro_groß_Stop', 'büro_gross', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
+createAlias('shelly.0.shellyplus2pm#2cbcbb3cb720#1.Cover0.Open'/*Open Büro_groß*/,'Rollladen.Büro_groß_Open', 'büro_gross', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
+createAlias('shelly.0.shellyplus2pm#2cbcbb3cb720#1.Cover0.Close'/*Close Büro_groß*/,'Rollladen.Büro_groß_Close', 'büro_gross', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
 
 createAlias('shelly.0.shellyplus2pm#10061ccdf770a#1.Cover0.Position'/*Position Wohnzimmer Rollladen Links*/, 'Rollladen.Wohnzimmer_Links', 'wohnzimmer', 'rollladen_alias', 'number', undefined, false, 'Rollladen Wohnzimmer Links', 'value', 'per Script erstellt', undefined, undefined, 'Prozent', undefined)
 createAlias('shelly.0.shellyplus2pm#10061ccdf770a#1.Cover0.Stop'/*Stop Wohnzimmer_Links*/,'Rollladen.Wohnzimmer_Links_Stop', 'wohnzimmer', 'rollladen_alias', 'boolean', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, undefined, undefined)
@@ -601,7 +603,7 @@ createAlias('shelly.0.shellyplus2pm#10061cccfb8c#1.Relay0.Power'/*Schlafzimmer L
 createAlias('shelly.0.SHPLG-S#C8C9A3A5016E#1.Relay0.Power'/*CPAP*/,'PowerMeasurement.CPAP', 'schlafzimmer', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
 createAlias('shelly.0.shellyplus2pm#fcb467a5770c#1.Cover0.Power'/*Kai Rollladen*/,'PowerMeasurement.KaiRollladen', 'kai', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
 createAlias('shelly.0.SHSW-25#68C63AF98CD1#1.Shutter.Power'/*Küche Rollladen*/,'PowerMeasurement.KuecheRollladen', 'Kueche', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
-createAlias('shelly.0.SHSW-25#68C63AF994B6#1.Shutter.Power'/*Büro gross Rollladen*/,'PowerMeasurement.BüroGroßRollladen', 'büro_gross', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
+createAlias('shelly.0.shellyplus2pm#2cbcbb3cb720#1.Cover0.Power'/*Büro gross Rollladen*/,'PowerMeasurement.BüroGroßRollladen', 'büro_gross', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
 createAlias('shelly.0.SHSW-25#C45BBE79438B#1.Shutter.Power'/*Bad Rollladen*/,'PowerMeasurement.BadRollladen', 'bad', 'powermeasurement_alias', 'number', undefined, false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
 
 createAlias('shelly.0.shellyplusplugs#a0a3b3e76ddc#1.Relay0.Power'/*Disher ENERGY*/, 'PowerMeasurement.Geschirrspüler', 'Kueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
@@ -617,6 +619,7 @@ createAlias('shelly.0.shellyplusplugs#a0a3b3e87294#1.Relay0.Power'/*Lava ENERGY*
 createAlias('shelly.0.shellyplusplugs#a0a3b3e91120#1.Relay0.Power'/*Wohnzimmer Ecklampe ENERGY*/, 'PowerMeasurement.Wohnzimmer_Ecklampe', 'wohnzimmer', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
 createAlias('shelly.0.shellyplusplugs#e465b841d5bc#1.Relay0.Power'/*Kinotechnik ENERGY*/, 'PowerMeasurement.Kinotechnik', 'kino', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
 createAlias('shelly.0.shellyplusplugs#e86beae857b8#1.Relay0.Power'/*Kinotechnik ENERGY*/, 'PowerMeasurement.Kinotechnik2', 'kino', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
+createAlias('shelly.0.shellyplusplugs#08f9e0fe6838#1.Relay0.Power'/*Vario ENERGY*/, 'PowerMeasurement.Vario', 'büro_gross', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
 
 
 
@@ -635,7 +638,8 @@ createAlias('shelly.0.shellypmmini#6055f99974b8#1.PM1:0.Power'/*BKW*/,'Solar.BKW
 createAlias('shelly.0.shellypro3em#3ce90e6f7254#1.EM0.ActivePowerA'/*Stromverbrauch PhaseA*/, 'PowerMeasurement.Haus_PhaseA', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
 createAlias('shelly.0.shellypro3em#3ce90e6f7254#1.EM0.ActivePowerB'/*Stromverbrauch PhaseB*/, 'PowerMeasurement.Haus_PhaseB', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
 createAlias('shelly.0.shellypro3em#3ce90e6f7254#1.EM0.ActivePowerC'/*Stromverbrauch PhaseC*/, 'PowerMeasurement.Haus_PhaseC', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
-createAlias('shelly.0.shellypro3em#3ce90e6f7254#1.EM0.TotalActivePower'/*Stromverbrauch Phase Gesamt*/, 'PowerMeasurement.Haus_PhaseGesamt', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
+//createAlias('shelly.0.shellypro3em#3ce90e6f7254#1.EM0.TotalActivePower'/*Stromverbrauch Phase Gesamt*/, 'PowerMeasurement.Haus_PhaseGesamt', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
+createAlias('sonoff.0.SmartMeterReader.E320_Power_in'/*Stromverbrauch Phase Gesamt*/, 'PowerMeasurement.Haus_PhaseGesamt', 'waschkueche', 'powermeasurement_alias', 'number', undefined, undefined, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)
 createAlias('sonoff.0.SmartMeterReader.E320_Total_in'/*extern bezogener Strom*/,'PowerMeasurement.TotalImportedEnergy', 'waschkueche', 'powermeasurement_alias', 'number', 'val*1000', false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Wh', undefined)
 createAlias('sonoff.0.SmartMeterReader.E320_Total_out'/*eingespeister Strom*/,'PowerMeasurement.TotalExportedEnergy', 'waschkueche', 'powermeasurement_alias', 'number', 'val*1000', false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'Wh', undefined)
 createAlias('fronius.0.site.P_Load'/*aktueller Hausverbrauch*/,'PowerMeasurement.Hausverbrauch', 'waschkueche', 'powermeasurement_alias', 'number', '(-1 *val)', false, undefined, 'value', 'per Script erstellt', undefined, undefined, 'W', undefined)

@@ -99,22 +99,22 @@ on({id: DoorsandWindows, change: 'ne'},(obj) => {
     var value = obj.state.val;
     //console.log ("Controme Offset/Sensor - ID:" + obj.id);
     var roomname = getObject(obj.id, 'rooms').enumNames[0];
-	console.log("Controme Offset/Raum: " + roomname);
+	//console.log("Controme Offset/Raum: " + roomname);
     //console.log("Controme Offset/Wert: " + value);
     
     //ContromeRaumID ermitteln
     //..kranker Scheiß, aber funktioniert
     var roomID = (ContromeRoomIDs.find(ContromeRoomIDs => ContromeRoomIDs.Name === roomname)).RoomID;
-    console.log("Controme Offset/Controme Room ID: " + roomID);
+    //console.log("Controme Offset/Controme Room ID: " + roomID);
 
 	if (value) {
 		//Aufruf
         console.log("Controme Offset/Offset senden");
 		if (myPowerInterval[roomID]) clearInterval(myPowerInterval[roomID]);
-		setState('controme.0.' + roomID + '.offsets.api.ioBroker',-3);
+		setState('controme.0.' + roomID + '.offsets.api.raum',-3);
 
 		myPowerInterval[roomID] = setInterval(function(){  	
-			setState('controme.0.' + roomID + '.offsets.api.ioBroker',-3);
+			setState('controme.0.' + roomID + '.offsets.api.raum',-3);
  		},540000); //Ausführungsfrequenz in ms. 540000 = 9 Minuten		
 	} else {
 		if (myPowerInterval[roomID]) clearInterval(myPowerInterval[roomID]);
